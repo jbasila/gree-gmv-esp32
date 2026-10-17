@@ -1,4 +1,4 @@
-# Handoff (updated 2026-10-17 21:30)
+# Handoff (updated 2026-10-17 22:30)
 
 ## Where we are
 
@@ -18,21 +18,42 @@ harmlessly: the controller goes bus-off and recovers in ~300 ms, reads continue.
 Repo is public: https://github.com/jbasila/gree-gmv-esp32. The dashboard config pulls the component
 from `github://jbasila/gree-gmv-esp32@main` (refresh 10 min).
 
-## When the TJA1051T/3 arrives
+## Paused until new hardware arrives (TJA1051T/3 clone, ETA 2026-10-23..28)
 
-1. Cut its "Termination" solder jumper (ships closed; the Gree bus is already terminated).
-2. Wire: VCC→ESP32 3V3 (board makes its own 5 V), GND, TX→P26, RX→P27, CANH/CANL to the bus pair in
-   the polarity that worked (if the receiver is deaf, swap). SLNT unconnected.
-3. **Bench test first, off the bus:** 100 Ω across CANH–CANL, `cd esphome && esphome-dev run
-   tx-loop-test.yaml` → expect `rx low while tx driven low: 10/10` (the fakes gave 0/10 here).
-   Do not use `tx-hold-forever.yaml` for this: the TJA1051 has a dominant timeout, so a continuous
-   hold always reads as "no drive". Then the same loop test on the bus → expect 10/10. (Needs `esphome-dev` = pipx dev install; the
-   stable `esphome` also works for `vrf.yaml` thanks to the bundled driver override.)
-4. Re-install `vrf` from the HA dashboard (Install → Wirelessly) or `esphome run vrf.yaml` over USB.
-5. In HA set Bedroom 3 to 24 °C. Serial log should show `write 0x1CBFD1F3 ...` with no `bus-off`,
-   and the entity should move to 24.0 within a second. Then test mode, fan, swing, power.
-6. If a write is accepted but a *mode* is refused (e.g. heat while the ODU cools), that is the VRF,
-   not us: the entity simply stays as it was.
+Session ended 2026-10-17 22:30 with the read side back in production (`vrf.yaml` flashed over USB).
+The fake HVD230 module is wired to the bus and the ESP32 GND is tied to the gateway GND.
+
+### Arrival checklist, in order
+
+1. **Fix the wiring before anything else.** The breadboard produced loose wires three times tonight and
+   two false verdicts. Solder, or use a screw-terminal block, for VCC/GND/CTX/CRX and the bus pair.
+2. Check the new board's power: the Adafruit 5708 original makes 5 V on-board from 3.3 V; a clone may
+   need 5 V from the ESP32 VIN pin instead. Read the listing / look for a boost chip. The T/3 variant's
+   logic pins are 3.3 V-compatible either way.
+3. Cut its "Termination" solder jumper if it ships closed (the Gree bus is already terminated).
+4. **Bench acceptance test, off the bus:** 100 Ω across CANH–CANL,
+   `cd esphome && esphome-dev run tx-loop-test.yaml --device /dev/cu.usbserial-0001`
+   → must read `rx low while tx driven low: 10/10`. The fakes read 0/10 here. Do NOT use
+   `tx-hold-forever.yaml` for this: the TJA1051 has a dominant timeout and will always read "no drive".
+5. Wire to the bus (TX→P26, RX→P27, CANH/CANL to the pair; if the receiver is deaf, swap the pair).
+   Same loop test on the bus → 10/10, idle ~15–35/50.
+6. `esphome run vrf.yaml --device /dev/cu.usbserial-0001` (or Install → Wirelessly from the HA dashboard).
+7. In HA set Bedroom 3 to 24 °C. Serial log should show `write 0x1CBFD1F3 ...`, the unit's echo within
+   ~0.5 s and no `bus-off`; the entity moves to 24.0. Then test mode, fan, swing, power.
+8. If a write is accepted but a *mode* is refused (e.g. heat while the ODU cools), that is the VRF, not
+   us: the entity simply stays as it was.
+
+### Optional shortcut with the hardware already here
+
+The fake modules are 5 V dies. Powered from the ESP32's VIN (5 V) their driver may work. Requirements:
+a 2:1 resistor divider on CRX (5 V → 3.3 V; the ESP32 is not 5 V tolerant), and the same bench test
+(step 4) before the bus. If the chip does not accept the ESP32's 3.3 V as "high" on CTX it simply never
+transmits; harmless. Needs a resistor pair ~1:2 (e.g. 1 kΩ + 2.2 kΩ).
+
+### Recommended: order a backup from a genuine source
+
+The TJA board on order is also an AliExpress clone. A Waveshare SN65HVD230 board or a TJA1051T/3 from
+Mouser/DigiKey as a backup avoids losing another week to a second fake.
 
 ## Code map
 
