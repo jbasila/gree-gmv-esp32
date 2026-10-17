@@ -1,0 +1,57 @@
+[00:15:39.800]00
+[00:15:39.801]mode:DIO�-"���2
+[00:15:39.803]load:0x3fff0030,len:6248
+[00:15:39.805]load:0x40078000,len:15904
+[00:15:39.808]load:0x40080400,len:3896
+[00:15:39.809]entry 0x40080640
+[00:15:39.815]I (27) boot: ESP-IDF v5.5.5 2nd stage bootloader
+[00:15:39.818]I (27) boot: Multicore bootloader
+[00:15:39.821]I (28) boot: chip revision: v3.1
+[00:15:39.825]I (28) boot.esp32: SPI Speed      : 40MHz
+[00:15:39.829]I (31) boot.esp32: SPI Mode       : DIO
+[00:15:39.832]I (35) boot.esp32: SPI Flash Size : 4MB
+[00:15:39.837]I (38) boot: Enabling RNG early entropy source...
+[00:15:39.839]I (43) boot: Partition Table:
+[00:15:39.846]I (45) boot: ## Label            Usage          Type ST Offset   Length
+[00:15:39.852]I (52) boot:  0 otadata          OTA data         01 00 00009000 00002000
+[00:15:39.859]I (58) boot:  1 phy_init         RF data          01 01 0000b000 00001000
+[00:15:39.865]I (65) boot:  2 app0             OTA app          00 10 00010000 001c0000
+[00:15:39.872]I (71) boot:  3 app1             OTA app          00 11 001d0000 001c0000
+[00:15:39.878]I (78) boot:  4 nvs              WiFi data        01 02 00390000 00070000
+[00:15:39.881]I (84) boot: End of partition table
+[00:15:39.889]I (88) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=15f1ch ( 89884) map
+[00:15:39.916]I (126) esp_image: segment 1: paddr=00025f44 vaddr=3ffb0000 size=03d34h ( 15668) load
+[00:15:39.924]I (132) esp_image: segment 2: paddr=00029c80 vaddr=40080000 size=06398h ( 25496) load
+[00:15:39.933]I (142) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=7c160h (508256) map
+[00:15:40.106]I (316) esp_image: segment 4: paddr=000ac188 vaddr=40086398 size=0c9b8h ( 51640) load
+[00:15:40.127]I (337) esp_image: segment 5: paddr=000b8b48 vaddr=50000000 size=00020h (    32) load
+[00:15:40.134]I (346) boot: Loaded app from partition at offset 0x10000
+[00:15:40.139]I (346) boot: Disabling RNG early entropy source...
+[00:15:40.286][0;32m[I][logger:136]: Log initialized[0m
+[00:15:40.295][0;32m[I][app:073]: Running through setup()[0m
+[00:15:40.394][0;33m[W][component:290]: api set Warning flag: waiting for client connection[0m
+[00:15:40.399][0;32m[I][app:130]: setup() finished successfully![0m
+[00:15:40.405][0;33m[W][component:290]: wifi set Warning flag: scanning for networks[0m
+[00:15:40.417][0;32m[I][app:164]: ESPHome version 2026.11.0-dev compiled on 2026-10-17 00:11:57 +0300[0m
+[00:15:40.422][0;32m[I][app:171]: ESP32 Chip: ESP32 rev3.1, 2 core(s)[0m
+[00:15:40.430][0;33m[W][app:189]: Set flash_chip: generic under esp32 > framework > advanced to save IRAM[0m
+[00:15:40.443][0;33m[W][app:201]: Chip rev >= 3.0 detected. Set minimum_chip_revision: "3.1" under esp32 > framework > advanced to reduce binary size[0m
+[00:15:40.454][0;33m[W][app:228]: Bootloader supports SRAM1 as IRAM (+40KB). Set sram1_as_iram: true under esp32 > framework > advanced[0m
+[00:15:40.939][0;32m[I][loop:044]: rx low while idle: 0/50   rx low while tx driven low: 10/10[0m
+[00:15:40.947][0;33m[W][component:437]: interval took a long time for an operation (57 ms), max is 50 ms[0m
+[00:15:42.938][0;32m[I][loop:044]: rx low while idle: 0/50   rx low while tx driven low: 10/10[0m
+[00:15:43.599][0;32m[I][wifi:1649]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;32m▂▄▆█[0m[0m
+[00:15:43.608][0;32m[I][wifi:1649]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄▆[0;37m█[0m[0m
+[00:15:43.617][0;32m[I][wifi:1649]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄[0;37m▆█[0m[0m
+[00:15:43.627][0;32m[I][wifi:1649]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄[0;37m▆█[0m[0m
+[00:15:43.640][0;32m[I][wifi:1280]: Connecting to [8m'my-wifi'[28m [8m(XX:XX:XX:XX:XX:XX)[28m (priority 0, attempt 1/2 in phase SCAN_CONNECTING)...[0m
+[00:15:44.938][0;32m[I][loop:044]: rx low while idle: 0/50   rx low while tx driven low: 10/10[0m
+[00:15:44.942][0;32m[I][wifi:1795]: Connected[0m
+[00:15:44.955][0;33m[W][component:316]: wifi cleared Warning flag[0m
+[00:15:46.938][0;32m[I][loop:044]: rx low while idle: 0/50   rx low while tx driven low: 10/10[0m
+[00:15:48.938][0;32m[I][loop:044]: rx low while idle: 0/50   rx low while tx driven low: 10/10[0m
+[00:15:50.938][0;32m[I][loop:044]: rx low while idle: 0/50   rx low while tx driven low: 10/10[0m
+[00:15:52.938][0;32m[I][loop:044]: rx low while idle: 0/50   rx low while tx driven low: 10/10[0m
+[00:15:54.938][0;32m[I][loop:044]: rx low while idle: 0/50   rx low while tx driven low: 10/10[0m
+[00:15:56.938][0;32m[I][loop:044]: rx low while idle: 0/50   rx low while tx driven low: 10/10[0m
+[00:15:58.938][0;32m[I][loop:044]: rx low while idle: 0/50   rx low while tx driven low: 10/10[0m

@@ -1,0 +1,52 @@
+# Diagnostic: hold the bus dominant for 6 s every 16 s so a multimeter can read our drive strength.
+# Jams the Gree bus during the hold. Run for a minute or two only, then reflash sniffer.yaml.
+esphome:
+  name: vrf-node
+  includes:
+    - gpio_test.h
+  on_boot:
+    then:
+      - lambda: |-
+          gpio_reset_pin(GPIO_NUM_26); gpio_reset_pin(GPIO_NUM_27);
+          gpio_set_direction(GPIO_NUM_27, GPIO_MODE_INPUT);
+          gpio_set_direction(GPIO_NUM_26, GPIO_MODE_OUTPUT);
+          gpio_set_level(GPIO_NUM_26, 1);
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+
+logger:
+  level: INFO
+  baud_rate: 115200
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+api:
+ota:
+  platform: esphome
+
+interval:
+  - interval: 16s
+    then:
+      - lambda: |-
+          int low = 0; for (int i = 0; i < 200; i++) { low += gpio_get_level(GPIO_NUM_27) == 0; esp_rom_delay_us(50); }
+          ESP_LOGI("hold", "before hold: rx low %d/200", low);
+          gpio_set_level(GPIO_NUM_26, 0);
+      - delay: 1s
+      - lambda: |-
+          int low = 0; for (int i = 0; i < 200; i++) { low += gpio_get_level(GPIO_NUM_27) == 0; esp_rom_delay_us(50); }
+          ESP_LOGI("hold", "1 s into hold: rx low %d/200", low);
+      - delay: 2s
+      - lambda: |-
+          int low = 0; for (int i = 0; i < 200; i++) { low += gpio_get_level(GPIO_NUM_27) == 0; esp_rom_delay_us(50); }
+          ESP_LOGI("hold", "3 s into hold: rx low %d/200", low);
+      - delay: 3s
+      - lambda: |-
+          gpio_set_level(GPIO_NUM_26, 1);
+          esp_rom_delay_us(500);
+          int low = 0; for (int i = 0; i < 200; i++) { low += gpio_get_level(GPIO_NUM_27) == 0; esp_rom_delay_us(50); }
+          ESP_LOGI("hold", "released: rx low %d/200", low);
