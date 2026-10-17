@@ -1,0 +1,36 @@
+# Diagnostic: hold CTX low (dominant) continuously. WARNING: useless on transceivers with a TXD
+# dominant timeout (TJA1051, and the fake HVD230 modules): the driver releases after a few ms.
+# Logs how often RX reads low. Reflash vrf.yaml afterwards.
+esphome:
+  name: vrf-node
+  on_boot:
+    then:
+      - lambda: |-
+          gpio_reset_pin(GPIO_NUM_26); gpio_reset_pin(GPIO_NUM_27);
+          gpio_set_direction(GPIO_NUM_27, GPIO_MODE_INPUT);
+          gpio_set_direction(GPIO_NUM_26, GPIO_MODE_OUTPUT);
+          gpio_set_level(GPIO_NUM_26, 0);
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+
+logger:
+  level: INFO
+  baud_rate: 115200
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+api:
+ota:
+  platform: esphome
+
+interval:
+  - interval: 5s
+    then:
+      - lambda: |-
+          int low = 0; for (int i = 0; i < 200; i++) { low += gpio_get_level(GPIO_NUM_27) == 0; esp_rom_delay_us(50); }
+          ESP_LOGI("hold", "holding dominant: rx low %d/200", low);

@@ -84,9 +84,47 @@ ESP32 GND, i.e. not a 2.5 V-centred bus from our board's point of view.
 - Polarity note: when the two bus wires are swapped the receiver goes fully deaf (idle 0/50). Correct
   polarity = whichever gives ~15–35/50 idle on `tx-loop-test.yaml`.
 - `tx-hold-test.yaml`: CTX held low for 6 s. RX pin sampled during the hold: 41–100/200 low, i.e. only the
-  normal Gree traffic; our dominant never registers, not even at our own receiver. DMM across the pair
-  during the hold: ~0.3–0.5 V. A 3.3 V SN65HVD230 cannot move this bus.
-- **Conclusion: need a stronger transceiver.** Candidates:
-  - TJA1051T/3 (5 V bus side, 3.3 V logic): direct drop-in, same 4 wires + 5 V from the ESP32's VIN/5V pin.
-  - ISO1050 breakout (isolated, 5 V bus side, 3.3 V logic): also fixes any common-mode weirdness.
-  - TJA1050 / MCP2551 modules are 5 V logic; ESP32's 3.3 V TX is below their 0.7·VCC VIH spec. Avoid.
+  normal Gree traffic; our dominant never registers, not even at our own receiver.
+- Working theory at this point was "a 3.3 V SN65HVD230 cannot move this bus". **Wrong, see below.**
+
+### Oscilloscope session (2026-10-17 evening): the modules are fakes, not the bus
+
+Scope (FNIRSI 1013D, 1X probes, ground on gateway GND) on CANH/CANL at the gateway terminals:
+
+| | idle | Gree dominant |
+|---|---|---|
+| CANH | ~2.0 V | ~3.8 V |
+| CANL | ~2.0 V | ~0.4 V |
+
+Ordinary CAN physical layer, a bit low in common mode, a hefty ~3.4 V dominant swing. With CTX held
+low continuously (`tx-hold-forever.yaml`) the picture was **identical** to the ESP32 unpowered: our
+driver had zero effect on the bus. Wiring module-pin → bus terminal measured < 1 Ω.
+
+Bench tests off the bus, resistor across CANH–CANL, a second (identical) module swapped in:
+
+| test | load | result |
+|---|---|---|
+| hold (CTX low continuously) | 100 Ω, 100 kΩ | CANH = CANL = 1.5 V, CRX high, `rx low 0/200`: **no drive at all** |
+| 30 µs pulses (`tx-loop-test.yaml`) | 100 kΩ | `10/10`: drives |
+| 30 µs pulses | 100 Ω | `0/10`: cannot reach 0.9 V differential |
+
+Module checks: VCC 3.3 V (scope: flat, 250 mV regulator ripple), CTX 3 mV at the chip, Rs (pin 8)
+73 mV = normal mode, R1 = 10 kΩ on Rs, R2 (terminator) unpopulated.
+
+**Diagnosis.** Hold vs pulse → the chip has a TXD dominant timeout (genuine SN65HVD230 has none;
+TJA1050/MCP2551-class parts do). Pulses into 100 kΩ but not 100 Ω → the driver has almost no current
+capability. Both point to a **5 V transceiver die sold as SN65HVD230 and run at 3.3 V**: receiver
+works, driver starved. The AliExpress listing (item 1005005334841319) has a May 2026 review saying
+exactly that: "All these sn65hvd230 are fakes resp. 5v types that do not work with 3.3v".
+
+**The Gree bus does not need a 5 V transceiver; it needs a genuine one.** The TJA1051T/3 on order
+(3.3 V logic, 5 V bus side) is the right part.
+
+**Traps for next time**
+- `tx-hold-forever.yaml` cannot pass on any transceiver with a dominant timeout (TJA1051 has one,
+  ~1–4 ms). Use `tx-loop-test.yaml` (30 µs pulses) for bench tests.
+- Read scope levels from a frozen Single capture / photo, not min/max by eye: the first verbal numbers
+  were ringing peaks and produced a bogus "biased bus" theory for an hour.
+
+**Acceptance test for any new transceiver, before it touches the bus:** 100 Ω across CANH–CANL,
+`esphome-dev run tx-loop-test.yaml`, expect `rx low while tx driven low: 10/10`.

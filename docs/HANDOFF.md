@@ -1,4 +1,4 @@
-# Handoff (updated 2026-10-17 12:30)
+# Handoff (updated 2026-10-17 21:30)
 
 ## Where we are
 
@@ -8,10 +8,12 @@ the Home Assistant ESPHome add-on (stable 2026.9.1). Five climate entities (Livi
 Bedroom 1 0xD080, Bedroom 2 0xD100, Bedroom 3 0xD180, Bedroom 4 0xD200) show power, mode, fan, swing, setpoint
 and room temperature; changes made in the iocControl app appear in HA within ~1 s.
 
-**Write side is blocked on hardware.** The SN65HVD230 (3.3 V) cannot pull the Gree bus dominant
-(proven with `esphome/tx-loop-test.yaml` and `tx-hold-test.yaml`, see `docs/02-bus-discovery.md`).
-A clone of the Adafruit 5708 CAN Pal (TJA1051T/3) is ordered, ETA 2026-10-23..28. Until then a
-control from HA fails harmlessly: the controller goes bus-off and recovers in ~300 ms, reads continue.
+**Write side is blocked on hardware: both "SN65HVD230" modules are fakes** (5 V dies at 3.3 V: receive
+fine, cannot drive 100 Ω, and have a dominant timeout a real HVD230 lacks). Scope session 2026-10-17
+evening (`docs/02-bus-discovery.md`): the Gree bus is ordinary CAN (idle ~2 V, dominant 3.8/0.4 V).
+The earlier "3.3 V can't drive this bus" theory was wrong. A clone of the Adafruit 5708 CAN Pal
+(TJA1051T/3) is ordered, ETA 2026-10-23..28; it is the right part. Until then a control from HA fails
+harmlessly: the controller goes bus-off and recovers in ~300 ms, reads continue.
 
 Repo is public: https://github.com/jbasila/gree-gmv-esp32. The dashboard config pulls the component
 from `github://jbasila/gree-gmv-esp32@main` (refresh 10 min).
@@ -21,8 +23,10 @@ from `github://jbasila/gree-gmv-esp32@main` (refresh 10 min).
 1. Cut its "Termination" solder jumper (ships closed; the Gree bus is already terminated).
 2. Wire: VCC→ESP32 3V3 (board makes its own 5 V), GND, TX→P26, RX→P27, CANH/CANL to the bus pair in
    the polarity that worked (if the receiver is deaf, swap). SLNT unconnected.
-3. From a Mac checkout: `cd esphome && esphome-dev run tx-loop-test.yaml` → expect
-   `rx low while tx driven low: 10/10` on the bus. (Needs `esphome-dev` = pipx dev install; the
+3. **Bench test first, off the bus:** 100 Ω across CANH–CANL, `cd esphome && esphome-dev run
+   tx-loop-test.yaml` → expect `rx low while tx driven low: 10/10` (the fakes gave 0/10 here).
+   Do not use `tx-hold-forever.yaml` for this: the TJA1051 has a dominant timeout, so a continuous
+   hold always reads as "no drive". Then the same loop test on the bus → expect 10/10. (Needs `esphome-dev` = pipx dev install; the
    stable `esphome` also works for `vrf.yaml` thanks to the bundled driver override.)
 4. Re-install `vrf` from the HA dashboard (Install → Wirelessly) or `esphome run vrf.yaml` over USB.
 5. In HA set Bedroom 3 to 24 °C. Serial log should show `write 0x1CBFD1F3 ...` with no `bus-off`,
@@ -37,7 +41,7 @@ from `github://jbasila/gree-gmv-esp32@main` (refresh 10 min).
 - `components/esp32_can/`: verbatim ESPHome 2026.9.1 driver + 20 kbps on classic ESP32 + bus-off
   recovery. Delete once the add-on runs ESPHome ≥ 2026.10 (or restrict import to `components: [gree_gmv]`).
 - `esphome/vrf.yaml`: the device config (also what the dashboard holds). `sniffer.yaml`,
-  `tx-loop-test.yaml`, `tx-hold-test.yaml`, `vrf-node.yaml`: diagnostics.
+  `tx-loop-test.yaml`, `tx-hold-test.yaml`, `tx-hold-forever.yaml`, `vrf-node.yaml`: diagnostics.
 - `tools/`: `capture.sh`/`serial_log.py` (log serial), `analyze.py`/`watch.py`/`reassemble.py`
   (offline capture analysis), `states.py`/`press.py` (native API helpers; need the API key from
   `esphome/secrets.yaml`, gitignored).
