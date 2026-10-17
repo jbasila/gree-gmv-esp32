@@ -35,9 +35,9 @@ ota:
   platform: esphome
 
 external_components:
-  - source:
-      type: local
-      path: ../components
+  - source: github://jbasila/gree-gmv-esp32@main
+    # For local development on a checkout use instead:
+    #   source: { type: local, path: ../components }
 
 canbus:
   - platform: esp32_can
