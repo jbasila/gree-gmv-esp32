@@ -3,6 +3,9 @@
 esphome:
   name: vrf
   friendly_name: VRF
+  project:
+    name: jbasila.gree-gmv-esp32
+    version: "0.1.0"
 
 # Lets the ESPHome dashboard adopt a device flashed with this config.
 dashboard_import:
