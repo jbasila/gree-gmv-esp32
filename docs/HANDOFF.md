@@ -1,65 +1,61 @@
-# Handoff — end of session 1 (2026-10-17, 00:30)
+# Handoff (updated 2026-10-17 12:30)
 
 ## Where we are
 
-- **2026-10-17 12:20: in production, read-only.** Device managed by the HA ESPHome add-on (stable
-  2026.9.1 works thanks to the bundled `esp32_can` override with bus-off recovery). Changes made in
-  the app show in HA within ~1 s; discovery logging lists every node on the bus. Only writes wait
-  for the TJA1051T/3.
+**Read side is in production.** The ESP32 (WROOM-32D rev 3.1 + SN65HVD230, CTX→GPIO26, CRX→GPIO27,
+CANH/CANL tapped at the CoolAutomation gateway's bus terminals) runs `esphome/vrf.yaml`, managed by
+the Home Assistant ESPHome add-on (stable 2026.9.1). Five climate entities (Living Room 0xD000,
+Bedroom 1 0xD080, Bedroom 2 0xD100, Bedroom 3 0xD180, Bedroom 4 0xD200) show power, mode, fan, swing, setpoint
+and room temperature; changes made in the iocControl app appear in HA within ~1 s.
 
-- **2026-10-17 11:15: ESPHome component done and verified read-only.** `components/gree_gmv/`,
-  device config `esphome/vrf.yaml`, flashed on the ESP32 now; all 5 climates populate from the bus
-  (`tools/states.py vrf.local`). Control path is written but untested until the TJA1051T/3 arrives.
+**Write side is blocked on hardware.** The SN65HVD230 (3.3 V) cannot pull the Gree bus dominant
+(proven with `esphome/tx-loop-test.yaml` and `tx-hold-test.yaml`, see `docs/02-bus-discovery.md`).
+A clone of the Adafruit 5708 CAN Pal (TJA1051T/3) is ordered, ETA 2026-10-23..28. Until then a
+control from HA fails harmlessly: the controller goes bus-off and recovers in ~300 ms, reads continue.
 
-- **Bus fully identified**: Gree GMV5 CAN, 20 kbps, 29-bit IDs. Read side 100 % working with an
-  ESP32-WROOM-32D (rev 3.1) + SN65HVD230 (WCMCU-230, 120 Ω terminator removed) in ESPHome listen-only.
-- **Protocol decoded** far enough to build a climate component: node addresses for all 5 rooms, room
-  temperature, setpoint/min/max, mode, fan speed, swing, power, and the exact write frames the
-  CoolAutomation gateway uses. See `docs/04-protocol.md`.
-- **Transmit blocked by electrical issue**: our 3.3 V transceiver cannot pull the Gree bus dominant.
-  Proven with `esphome/tx-loop-test.yaml` (works off-bus, fails on-bus). Details and numbers in
-  `docs/02-bus-discovery.md` → "Transmit failure diagnosis".
-- The CoolAutomation gateway (192.168.1.32, TCP 10102) is "Cloud Only" licensed: local API refuses
-  all control commands. `line` / `set` / `ifconfig` still work and were how we learned the bit rate.
+Repo is public: https://github.com/jbasila/gree-gmv-esp32. The dashboard config pulls the component
+from `github://jbasila/gree-gmv-esp32@main` (refresh 10 min).
 
-## State of the hardware right now
+## When the TJA1051T/3 arrives
 
-- ESP32 is flashed with **`esphome/vrf.yaml`** (normal mode; reads work, writes would just bus-off/recover). Safe to leave.
-- CANH / CANL connected to the gateway terminals in the polarity that receives.
-- Wiring: CTX → P26 (GPIO26), CRX → P27 (GPIO27), 3V3, GND. No ground wire to the Gree side yet.
+1. Cut its "Termination" solder jumper (ships closed; the Gree bus is already terminated).
+2. Wire: VCC→ESP32 3V3 (board makes its own 5 V), GND, TX→P26, RX→P27, CANH/CANL to the bus pair in
+   the polarity that worked (if the receiver is deaf, swap). SLNT unconnected.
+3. From a Mac checkout: `cd esphome && esphome-dev run tx-loop-test.yaml` → expect
+   `rx low while tx driven low: 10/10` on the bus. (Needs `esphome-dev` = pipx dev install; the
+   stable `esphome` also works for `vrf.yaml` thanks to the bundled driver override.)
+4. Re-install `vrf` from the HA dashboard (Install → Wirelessly) or `esphome run vrf.yaml` over USB.
+5. In HA set Bedroom 3 to 24 °C. Serial log should show `write 0x1CBFD1F3 ...` with no `bus-off`,
+   and the entity should move to 24.0 within a second. Then test mode, fan, swing, power.
+6. If a write is accepted but a *mode* is refused (e.g. heat while the ODU cools), that is the VRF,
+   not us: the entity simply stays as it was.
 
-## Next steps, in order
+## Code map
 
-1. ~~Ground test~~ done 2026-10-17: no effect. Polarity matters (see docs/02). Skip to step 2.
-   negative (barrel jack outer contact or "-"/GND terminal). Reconnect CANH/CANL. Run the Mac on
-   battery. Flash `esphome-dev run esphome/tx-loop-test.yaml` and expect `rx low while tx driven
-   low: 10/10`. If yes → flash `esphome/vrf-node.yaml`, press "Bedroom 2 power ON" with
-   `~/.local/pipx/venvs/esphome-dev/bin/python tools/press.py vrf-node.local "Bedroom 2 power ON"`
-   and watch for `1EFFD16F ... 21 00 00 00` in the serial log (`tools/serial_log.py`).
-2. **Ordered 2026-10-17**: AliExpress clone of Adafruit 5708 CAN Pal (TJA1051T/3), ETA Oct 23–28.
-   On arrival: cut the "Termination" solder jumper (ships closed). Wire VCC→3V3, GND, TX→P26, RX→P27,
-   CANH/CANL same polarity as before (if loop test idle reads 0/50, swap). SLNT unconnected.
-   Run `tx-loop-test.yaml` → expect 10/10 on-bus, then `vrf-node.yaml` + `tools/press.py`.
-   Original plan was: 5 V transceiver. Best fit is **TJA1051T/3** (5 V supply, 3.3 V
-   logic, no level shifting). Alternatives: TJA1050/MCP2551 with a resistor divider on RX.
-   Optional diagnostic before buying: hold CTX low for 1 s on the bus and DMM CANH/CANL; if the
-   differential stays under 0.9 V the bus is simply too stiff for the 230.
-3. **Once a write works**: build the ESPHome external component (`climate` per node), phase 3 in
-   `README.md`. All decoding logic exists in Python in `tools/reassemble.py` and the field map.
+- `components/gree_gmv/`: hub (`gree_gmv.cpp`: frame → chunk dispatch, discovery log, `write()`),
+  climate platform (`gree_gmv_climate.cpp`: register → entity state, `control()` → writes).
+- `components/esp32_can/`: verbatim ESPHome 2026.9.1 driver + 20 kbps on classic ESP32 + bus-off
+  recovery. Delete once the add-on runs ESPHome ≥ 2026.10 (or restrict import to `components: [gree_gmv]`).
+- `esphome/vrf.yaml`: the device config (also what the dashboard holds). `sniffer.yaml`,
+  `tx-loop-test.yaml`, `tx-hold-test.yaml`, `vrf-node.yaml`: diagnostics.
+- `tools/`: `capture.sh`/`serial_log.py` (log serial), `analyze.py`/`watch.py`/`reassemble.py`
+  (offline capture analysis), `states.py`/`press.py` (native API helpers; need the API key from
+  `esphome/secrets.yaml`, gitignored).
+- `docs/04-protocol.md`: the protocol. `docs/03-gateway-findings.md`: what the CoolAutomation box leaks.
 
-## Tooling notes
+## Protocol in one paragraph
 
-- ESPHome **dev branch is required** (20 kbps on classic ESP32): installed as `esphome-dev` via pipx.
-  Stable `esphome` 2026.9.1 refuses the bit rate.
-- `esphome-dev logs` is fragile with a stale validated-config cache; `tools/serial_log.py` (pyserial,
-  run with the esphome-dev venv python) is the reliable logger.
-- Captures in `captures/`: `idle.log` (60 s baseline), `experiment1.log`/`experiment2.log` (all app
-  actions with timestamps), `loop-test*.log`. `tools/watch.py <log> --no-polls` shows changes.
-- Nothing is committed yet. `git add -A && git commit` when ready; `esphome/secrets.yaml` is ignored.
+CAN 2.0B, 20 kbps, 29-bit IDs. `0x1EFF` + node + type = status broadcast, `0x1CBF` + node + type =
+write, `0x1CFF` = polls. Node = bits 15..7 (IDU n at 0xD000 + 0x80·(n−1), ODU 0xC400), type = bits
+6..0. Registers are sent as 7-byte chunks, frame byte 0 = offset. Writes: `[offset, bitmask of bytes,
+values...]`; the unit echoes the first chunk of the register within ~0.5 s. Registers: 0x6F power
+(bit0), 0x71 mode/fan/swingV/swingH (mode 1 cool 2 dry 3 fan 4 heat; fan 1 auto..6 very high;
+swing 1 off 2 on), 0x73 setpoint/min/max LE16 0.1 °C, 0x20 room temp (byte0 − 100 °C), 0x10 identity
+(byte 16 = unit index).
 
-## Open questions for the protocol
+## Open questions
 
-- Meaning of 0x6F bits 4/5 (`0x20`/`0x30` on idle units), 0x20 bytes 2/4/6/7/8/9, ODU messages.
-- Whether heat is refused only while the ODU is cooling (expected VRF behaviour) or needs another field.
-- Which node, if any, carries the gateway's `myid:72F`; no frame from the gateway other than the
-  `1CBF` writes was identified.
+- 0x6F bits 4/5 (`0x20`/`0x30` on idle units); 0x20 bytes 2/4/6..9; ODU registers (0x400 family).
+- Whether heat is only refused during cooling (expected) — test in winter.
+- The gateway's `myid:72F`: no frame from the gateway other than `1CBF` writes was identified.
+- After the TJA1051T/3 works: does our write need any sequencing (none observed from the gateway).
