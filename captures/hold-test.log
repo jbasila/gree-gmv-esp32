@@ -1,51 +1,5 @@
-[10:53:11.694]0x00
-[10:53:11.694]modek div:2
-[10:53:11.696]load:0x3fff0030,len:6248
-[10:53:11.699]load:0x40078000,len:15904
-[10:53:11.701]load:0x40080400,len:3896
-[10:53:11.702]entry 0x40080640
-[10:53:11.709]I (27) boot: ESP-IDF v5.5.5 2nd stage bootloader
-[10:53:11.712]I (27) boot: Multicore bootloader
-[10:53:11.715]I (28) boot: chip revision: v3.1
-[10:53:11.718]I (28) boot.esp32: SPI Speed      : 40MHz
-[10:53:11.722]I (31) boot.esp32: SPI Mode       : DIO
-[10:53:11.726]I (35) boot.esp32: SPI Flash Size : 4MB
-[10:53:11.730]I (38) boot: Enabling RNG early entropy source...
-[10:53:11.733]I (43) boot: Partition Table:
-[10:53:11.739]I (45) boot: ## Label            Usage          Type ST Offset   Length
-[10:53:11.745]I (52) boot:  0 otadata          OTA data         01 00 00009000 00002000
-[10:53:11.752]I (58) boot:  1 phy_init         RF data          01 01 0000b000 00001000
-[10:53:11.758]I (65) boot:  2 app0             OTA app          00 10 00010000 001c0000
-[10:53:11.765]I (71) boot:  3 app1             OTA app          00 11 001d0000 001c0000
-[10:53:11.772]I (78) boot:  4 nvs              WiFi data        01 02 00390000 00070000
-[10:53:11.775]I (84) boot: End of partition table
-[10:53:11.782]I (88) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=15fach ( 90028) map
-[10:53:11.809]I (126) esp_image: segment 1: paddr=00025fd4 vaddr=3ffb0000 size=03d34h ( 15668) load
-[10:53:11.817]I (132) esp_image: segment 2: paddr=00029d10 vaddr=40080000 size=06308h ( 25352) load
-[10:53:11.827]I (142) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=7c448h (509000) map
-[10:53:12.000]I (316) esp_image: segment 4: paddr=000ac470 vaddr=40086308 size=0ca48h ( 51784) load
-[10:53:12.021]I (337) esp_image: segment 5: paddr=000b8ec0 vaddr=50000000 size=00020h (    32) load
-[10:53:12.028]I (347) boot: Loaded app from partition at offset 0x10000
-[10:53:12.033]I (347) boot: Disabling RNG early entropy source...
-[10:53:12.177][0;32m[I][logger:136]: Log initialized[0m
-[10:53:12.186][0;32m[I][app:073]: Running through setup()[0m
-[10:53:12.286][0;33m[W][component:290]: api set Warning flag: waiting for client connection[0m
-[10:53:12.291][0;32m[I][app:130]: setup() finished successfully![0m
-[10:53:12.298][0;33m[W][component:290]: wifi set Warning flag: scanning for networks[0m
-[10:53:12.307][0;32m[I][app:164]: ESPHome version 2026.11.0-dev compiled on 2026-10-17 10:52:50 +0300[0m
-[10:53:12.313][0;32m[I][app:171]: ESP32 Chip: ESP32 rev3.1, 2 core(s)[0m
-[10:53:12.321][0;33m[W][app:189]: Set flash_chip: generic under esp32 > framework > advanced to save IRAM[0m
-[10:53:12.333][0;33m[W][app:201]: Chip rev >= 3.0 detected. Set minimum_chip_revision: "3.1" under esp32 > framework > advanced to reduce binary size[0m
-[10:53:12.344][0;33m[W][app:228]: Bootloader supports SRAM1 as IRAM (+40KB). Set sram1_as_iram: true under esp32 > framework > advanced[0m
 [10:53:14.490][0;32m[I][hold:037]: before hold: rx low 90/200[0m
-[10:53:15.092][0;32m[I][wifi:1649]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄▆[0;37m█[0m[0m
-[10:53:15.101][0;32m[I][wifi:1649]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄▆[0;37m█[0m[0m
-[10:53:15.110][0;32m[I][wifi:1649]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄[0;37m▆█[0m[0m
-[10:53:15.119][0;32m[I][wifi:1649]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄[0;37m▆█[0m[0m
-[10:53:15.132][0;32m[I][wifi:1280]: Connecting to [8m'my-wifi'[28m [8m(XX:XX:XX:XX:XX:XX)[28m (priority 0, attempt 1/2 in phase SCAN_CONNECTING)...[0m
 [10:53:15.501][0;32m[I][hold:042]: 1 s into hold: rx low 104/200[0m
-[10:53:16.412][0;32m[I][wifi:1795]: Connected[0m
-[10:53:16.430][0;33m[W][component:316]: wifi cleared Warning flag[0m
 [10:53:17.511][0;32m[I][hold:046]: 3 s into hold: rx low 41/200[0m
 [10:53:20.522][0;32m[I][hold:052]: released: rx low 0/200[0m
 [10:53:30.489][0;32m[I][hold:037]: before hold: rx low 0/200[0m

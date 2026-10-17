@@ -3,6 +3,9 @@
 esphome:
   name: vrf
   friendly_name: VRF
+  # Lets the ESPHome dashboard adopt a device flashed with this config.
+  dashboard_import:
+    package_import_url: github://jbasila/gree-gmv-esp32/esphome/vrf.yaml@main
 
 esp32:
   board: esp32dev
@@ -21,6 +24,9 @@ wifi:
   password: !secret wifi_password
 
 api:
+  encryption:
+    key: !secret vrf_api_key
+
 ota:
   platform: esphome
 

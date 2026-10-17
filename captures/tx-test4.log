@@ -1,55 +1,8 @@
-[23:53:27.177]0030,len:6248
-[23:53:27.178]load:0x40078000,len:1:0x40080400,len:3896
-[23:53:27.179]entry 0x40080640
-[23:53:27.185]I (27) boot: ESP-IDF v5.5.5 2nd stage bootloader
-[23:53:27.188]I (27) boot: Multicore bootloader
-[23:53:27.191]I (28) boot: chip revision: v3.1
-[23:53:27.195]I (28) boot.esp32: SPI Speed      : 40MHz
-[23:53:27.198]I (31) boot.esp32: SPI Mode       : DIO
-[23:53:27.202]I (35) boot.esp32: SPI Flash Size : 4MB
-[23:53:27.206]I (38) boot: Enabling RNG early entropy source...
-[23:53:27.209]I (43) boot: Partition Table:
-[23:53:27.215]I (45) boot: ## Label            Usage          Type ST Offset   Length
-[23:53:27.222]I (52) boot:  0 otadata          OTA data         01 00 00009000 00002000
-[23:53:27.228]I (58) boot:  1 phy_init         RF data          01 01 0000b000 00001000
-[23:53:27.235]I (65) boot:  2 app0             OTA app          00 10 00010000 001c0000
-[23:53:27.241]I (71) boot:  3 app1             OTA app          00 11 001d0000 001c0000
-[23:53:27.248]I (78) boot:  4 nvs              WiFi data        01 02 00390000 00070000
-[23:53:27.251]I (84) boot: End of partition table
-[23:53:27.259]I (88) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=16424h ( 91172) map
-[23:53:27.286]I (126) esp_image: segment 1: paddr=0002644c vaddr=3ffb0000 size=03d34h ( 15668) load
-[23:53:27.294]I (132) esp_image: segment 2: paddr=0002a188 vaddr=40080000 size=05e90h ( 24208) load
-[23:53:27.303]I (142) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=7e870h (518256) map
-[23:53:27.479]I (319) esp_image: segment 4: paddr=000ae898 vaddr=40085e90 size=0cce4h ( 52452) load
-[23:53:27.500]I (340) esp_image: segment 5: paddr=000bb584 vaddr=50000000 size=00020h (    32) load
-[23:53:27.508]I (350) boot: Loaded app from partition at offset 0x10000
-[23:53:27.512]I (350) boot: Disabling RNG early entropy source...
-[23:53:27.688][0;32m[I][logger:136]: Log initialized[0m
-[23:53:27.694][0;35m[C][safe_mode:201]: Unsuccessful boot attempts: 1[0m
-[23:53:27.701][0;36m[D][preferences:255]: Writing 1 items: 0 cached, 1 written, 0 failed[0m
-[23:53:27.705][0;32m[I][app:073]: Running through setup()[0m
-[23:53:27.711][0;35m[C][wifi:698]: Starting[0m
-[23:53:27.788][0;36m[D][wifi:1514]: Starting scan[0m
-[23:53:27.792][0;35m[C][component:164]: Setup wifi took 90ms[0m
-[23:53:27.799][0;33m[W][component:290]: api set Warning flag: waiting for client connection[0m
-[23:53:27.804][0;32m[I][app:130]: setup() finished successfully![0m
 [23:53:27.809][0;32m[I][F:045]: X 1EFFD121 0 00 03 01 01 01 01 01 00 [0m
 [23:53:27.813][0;32m[I][F:045]: X 1CFFD06F 0 42 00 [0m
 [23:53:27.817][0;32m[I][F:045]: X 1CFFD071 0 23 00 [0m
 [23:53:27.821][0;32m[I][F:045]: X 1CFFD072 0 32 00 00 00 00 [0m
 [23:53:27.827][0;32m[I][F:045]: X 1EFFD121 0 07 05 10 0A 01 00 03 01 [0m
-[23:53:27.833][0;33m[W][component:290]: wifi set Warning flag: scanning for networks[0m
-[23:53:27.841][0;32m[I][app:164]: ESPHome version 2026.11.0-dev compiled on 2026-10-16 23:52:42 +0300[0m
-[23:53:27.847][0;32m[I][app:171]: ESP32 Chip: ESP32 rev3.1, 2 core(s)[0m
-[23:53:27.855][0;33m[W][app:189]: Set flash_chip: generic under esp32 > framework > advanced to save IRAM[0m
-[23:53:27.866][0;33m[W][app:228]: Bootloader supports SRAM1 as IRAM (+40KB). Set sram1_as_iram: true under esp32 > framework > advanced[0m
-[23:53:27.869][0;35m[C][logger:220]: Logger:
-[23:53:27.871]  Max Level: DEBUG
-[23:53:27.873]  Initial Level: DEBUG[0m
-[23:53:27.877][0;35m[C][logger:227]:   Log Baud Rate: 115200
-[23:53:27.879]  Hardware UART: UART0[0m
-[23:53:27.885][0;35m[C][logger:236]:   Task Log Buffer Size: 768 bytes[0m
-[23:53:27.890][0;35m[C][logger:242]:   Level for 'canbus': INFO[0m
 [23:53:27.893][0;32m[I][F:045]: X 1CFFD171 0 23 00 [0m
 [23:53:27.897][0;32m[I][F:045]: X 1EFFD124 0 00 00 [0m
 [23:53:27.901][0;32m[I][F:045]: X 1CFFD16D 0 32 00 [0m
@@ -68,7 +21,6 @@
 [23:53:27.957][0;32m[I][F:045]: X 1EFFD132 0 00 00 00 50 09 [0m
 [23:53:27.961][0;32m[I][F:045]: X 1EFFD132 0 0E 1C 00 [0m
 [23:53:27.965][0;32m[I][F:045]: X 1EFFD16F 0 00 20 00 00 00 [0m
-[23:53:27.974][0;33m[W][component:437]: canbus took a long time for an operation (78 ms), max is 50 ms[0m
 [23:53:27.979][0;32m[I][F:045]: X 1EFFD171 0 00 03 02 01 01 00 05 10 [0m
 [23:53:27.984][0;32m[I][F:045]: X 1EFFD171 0 07 0A 01 00 03 0A 01 01 [0m
 [23:53:27.989][0;32m[I][F:045]: X 1EFFD171 0 0E 00 00 00 00 00 07 [0m
@@ -79,26 +31,6 @@
 [23:53:28.014][0;32m[I][F:045]: X 1EFFD111 0 00 05 00 24 00 00 03 00 [0m
 [23:53:28.019][0;32m[I][F:045]: X 1EFFD1A0 0 00 7B 76 5B 78 5D 7B 56 [0m
 [23:53:28.025][0;32m[I][F:045]: X 1EFFD220 0 00 7E 7B 4A 7B 4D 7E 4C [0m
-[23:53:28.032][0;35m[C][network:050]: Network:
-[23:53:28.035]  TCP send buffer: 5760 bytes[0m
-[23:53:28.049][0;35m[C][wifi:1745]: WiFi:
-[23:53:28.051]  Local MAC: XX:XX:XX:XX:XX:XX
-[23:53:28.053]  Connected: NO[0m
-[23:53:28.067][0;35m[C][esphome.ota:132]: Over-The-Air updates:
-[23:53:28.070]  Address: vrf-node.local:3232
-[23:53:28.071]  Version: 2[0m
-[23:53:28.083][0;35m[C][safe_mode:058]: Safe Mode:
-[23:53:28.085]  Successful after: 60s
-[23:53:28.088]  Invoke after: 10 attempts
-[23:53:28.090]  Duration: 300s[0m
-[23:53:28.096][0;35m[C][safe_mode:079]:   Bootloader rollback: support unknown[0m
-[23:53:28.102][0;35m[C][api:370]: Server:
-[23:53:28.105]  Address: vrf-node.local:6053
-[23:53:28.106]  Listen backlog: 4
-[23:53:28.109]  Max connections: 5[0m
-[23:53:28.113][0;35m[C][api:382]:   Noise encryption: NO[0m
-[23:53:28.118][0;35m[C][mdns:336]: mDNS:
-[23:53:28.120]  Hostname: vrf-node[0m
 [23:53:28.139][0;32m[I][F:045]: X 04820084 0 20 04 19 14 17 48 00 02 [0m
 [23:53:28.144][0;32m[I][F:045]: X 04820084 0 20 04 19 14 17 48 00 02 [0m
 [23:53:28.155][0;32m[I][F:045]: X 04820084 0 20 04 19 14 17 48 00 02 [0m
@@ -464,13 +396,6 @@
 [23:53:30.787][0;32m[I][F:045]: X 1EFFD1A0 0 00 7A 76 5A 78 5C 7A 59 [0m
 [23:53:30.792][0;32m[I][F:045]: X 1CFFC478 0 5E 00 64 64 00 00 00 00 [0m
 [23:53:30.796][0;32m[I][F:045]: X 1EFFC413 0 50 00 [0m
-[23:53:30.799][0;36m[D][wifi:1674]: Found networks:[0m
-[23:53:30.809][0;32m[I][wifi:1645]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;32m▂▄▆█[0m Ch:11 -47dB P:0[0m
-[23:53:30.820][0;32m[I][wifi:1645]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄▆[0;37m█[0m Ch: 1 -61dB P:0[0m
-[23:53:30.830][0;32m[I][wifi:1645]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄[0;37m▆█[0m Ch:11 -70dB P:0[0m
-[23:53:30.841][0;32m[I][wifi:1645]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄[0;37m▆█[0m Ch: 6 -72dB P:0[0m
-[23:53:30.848][0;36m[D][wifi:2078]: Retry phase: INITIAL_CONNECT → SCAN_CONNECTING[0m
-[23:53:30.861][0;32m[I][wifi:1280]: Connecting to [8m'my-wifi'[28m [8m(XX:XX:XX:XX:XX:XX)[28m (priority 0, attempt 1/2 in phase SCAN_CONNECTING)...[0m
 [23:53:30.866][0;32m[I][F:045]: X 1EFFD1B1 0 06 53 03 52 03 CD 04 [0m
 [23:53:30.870][0;32m[I][F:045]: X 1EFFC41C 0 50 03 04 00 [0m
 [23:53:30.874][0;32m[I][F:045]: X 1EFFC41E 0 50 00 [0m
@@ -638,23 +563,11 @@
 [23:53:32.097][0;32m[I][F:045]: X 1EFFC431 0 50 00 00 00 00 00 00 [0m
 [23:53:32.102][0;32m[I][F:045]: X 1EFFC431 0 56 00 00 00 00 00 00 [0m
 [23:53:32.107][0;32m[I][F:045]: X 1EFFC432 0 50 31 45 4C 50 31 45 [0m
-[23:53:32.111][0;32m[I][wifi:1795]: Connected[0m
-[23:53:32.115][0;35m[C][wifi:1434]:   IP Address: 192.168.1.68[0m
-[23:53:32.120][0;35m[C][wifi:1445]:   SSID: [8m'my-wifi'[28m
-[23:53:32.123]  BSSID: [8mXX:XX:XX:XX:XX:XX[28m
-[23:53:32.125]  Hostname: 'vrf-node'
-[23:53:32.130]  Signal strength: -48 dB [0;32m▂▄▆█[0m
-[23:53:32.131]  Channel: 11
-[23:53:32.133]  Subnet: 255.255.255.0
-[23:53:32.135]  Gateway: 192.168.1.1
-[23:53:32.137]  DNS1: 192.168.1.1
-[23:53:32.139]  DNS2: 0.0.0.0[0m
 [23:53:32.144][0;32m[I][F:045]: X 1EFFC432 0 56 4C 50 4C 50 00 00 [0m
 [23:53:32.149][0;32m[I][F:045]: X 1EFFC432 0 5C 00 00 00 00 00 00 [0m
 [23:53:32.154][0;32m[I][F:045]: X 1EFFC432 0 62 00 00 00 00 00 00 [0m
 [23:53:32.159][0;32m[I][F:045]: X 1EFFC432 0 68 00 00 00 00 00 00 [0m
 [23:53:32.164][0;32m[I][F:045]: X 1EFFC432 0 6E 00 00 00 00 00 00 [0m
-[23:53:32.169][0;33m[W][component:316]: wifi cleared Warning flag[0m
 [23:53:32.174][0;32m[I][F:045]: X 1EFFC432 0 74 FF FF FF FF FF FF [0m
 [23:53:32.179][0;32m[I][F:045]: X 1EFFC41D 0 50 00 00 00 00 00 00 [0m
 [23:53:32.183][0;32m[I][F:045]: X 1CFFD06E 0 32 00 [0m
@@ -3352,9 +3265,6 @@
 [23:53:52.437][0;32m[I][F:045]: X 1EFFD031 0 06 00 00 00 00 D3 04 [0m
 [23:53:52.442][0;32m[I][F:045]: X 1CFFC478 0 5E 00 64 64 00 00 00 00 [0m
 [23:53:52.446][0;32m[I][F:045]: X 1EFFC413 0 50 00 [0m
-[23:53:52.450][0;36m[D][api:325]: Accept 192.168.1.62[0m
-[23:53:52.455][0;33m[W][component:316]: api cleared Warning flag[0m
-[23:53:52.461][0;36m[D][api.connection:2819]: aioesphomeapi (192.168.1.62): connected[0m
 [23:53:52.467][0;32m[I][F:045]: X 1EFFD0A0 0 00 7F 7C 4A 7B 4B 7F 4C [0m
 [23:53:52.471][0;32m[I][F:045]: X 1EFFC41C 0 50 03 04 00 [0m
 [23:53:52.475][0;32m[I][F:045]: X 1EFFC41E 0 50 00 [0m
@@ -3373,7 +3283,6 @@
 [23:53:52.555][0;32m[I][F:045]: X 1EFFC421 0 DD 02 [0m
 [23:53:52.563][0;32m[I][F:045]: X 1EFFD1A0 0 00 7B 76 54 78 5A 7B 5B [0m
 [23:53:52.569][0;32m[I][F:045]: X 1EFFC427 0 50 00 00 20 03 29 20 03 [0m
-[23:53:52.579][0;33m[W][canbus:150]: entered error-passive[0m
 [23:53:52.585][0;32m[I][F:045]: X 1EFFC427 0 57 30 20 03 25 20 05 27 [0m
 [23:53:52.590][0;32m[I][F:045]: X 1EFFC427 0 5E 20 04 04 02 00 00 00 [0m
 [23:53:52.597][0;32m[I][F:045]: X 1EFFC427 0 65 0C 0A 00 00 [0m
@@ -3381,7 +3290,6 @@
 [23:53:52.614][0;32m[I][F:045]: X 1EFFC428 0 50 01 05 00 01 FF 00 00 [0m
 [23:53:52.620][0;32m[I][F:045]: X 1EFFC428 0 57 00 20 01 01 01 01 01 [0m
 [23:53:52.631][0;32m[I][F:045]: X 1EFFC428 0 5E 01 [0m
-[23:53:52.682][0;33m[W][component:290]: canbus set Warning flag: Bus off[0m
 [23:53:53.003][0;32m[I][F:045]: X 04820084 0 20 04 19 14 18 14 00 02 [0m
 [23:53:53.008][0;32m[I][F:045]: X 04820084 0 20 04 19 14 18 14 00 02 [0m
 [23:53:53.020][0;32m[I][F:045]: X 04820084 0 20 04 19 14 18 14 00 02 [0m
@@ -3470,11 +3378,9 @@
 [23:53:53.642][0;32m[I][F:045]: X 1CFFC478 0 5E 00 64 64 00 00 00 00 [0m
 [23:53:53.646][0;32m[I][F:045]: X 1EFFC413 0 50 00 [0m
 [23:53:53.650][0;32m[I][F:045]: X 1EFFC41C 0 50 03 04 00 [0m
-[23:53:53.661][0;36m[D][api.connection:2819]: aioesphomeapi (192.168.1.62): disconnected[0m
 [23:53:53.666][0;32m[I][F:045]: X 1EFFD031 0 06 00 00 00 00 D4 04 [0m
 [23:53:53.669][0;32m[I][F:045]: X 1EFFC41E 0 50 00 [0m
 [23:53:53.674][0;32m[I][F:045]: X 1EFFC41F 0 50 00 02 00 [0m
-[23:53:53.681][0;33m[W][component:290]: api set Warning flag: waiting for client connection[0m
 [23:53:53.686][0;32m[I][F:045]: X 1EFFC420 0 50 7D 7A 7B 7A 7B 7F 7A [0m
 [23:53:53.691][0;32m[I][F:045]: X 1EFFC420 0 C8 64 64 70 64 76 00 [0m
 [23:53:53.696][0;32m[I][F:045]: X 1EFFD0A0 0 00 7F 7C 49 7C 49 7F 4A [0m
@@ -3487,7 +3393,6 @@
 [23:53:53.735][0;32m[I][F:045]: X 1EFFC421 0 D6 0A 00 00 00 00 00 00 [0m
 [23:53:53.741][0;32m[I][F:045]: X 1EFFD1A0 0 00 7B 76 59 78 5A 7B 5B [0m
 [23:53:53.745][0;32m[I][F:045]: X 1EFFC421 0 DD 02 [0m
-[23:53:53.758][0;33m[W][component:316]: canbus cleared Warning flag[0m
 [23:53:53.763][0;32m[I][F:045]: X 1EFFC427 0 50 00 00 20 03 29 20 03 [0m
 [23:53:53.769][0;32m[I][F:045]: X 1EFFD1B1 0 06 53 03 52 03 CE 04 [0m
 [23:53:53.774][0;32m[I][F:045]: X 1EFFC427 0 57 30 20 03 25 20 05 27 [0m
@@ -7997,7 +7902,6 @@
 [23:54:27.704][0;32m[I][F:045]: X 1EFFC428 0 57 00 20 01 01 01 01 01 [0m
 [23:54:27.708][0;32m[I][F:045]: X 1EFFC428 0 5E 01 [0m
 [23:54:27.713][0;32m[I][F:045]: X 1EFFC431 0 50 00 00 00 00 00 00 [0m
-[23:54:27.720][0;32m[I][safe_mode:154]: Boot seems successful; resetting boot loop counter[0m
 [23:54:27.726][0;32m[I][F:045]: X 1EFFC431 0 56 00 00 00 00 00 00 [0m
 [23:54:27.731][0;32m[I][F:045]: X 1EFFC432 0 50 31 45 4C 50 31 45 [0m
 [23:54:27.736][0;32m[I][F:045]: X 1EFFC432 0 56 4C 50 4C 50 00 00 [0m
@@ -8077,7 +7981,6 @@
 [23:54:28.305][0;32m[I][F:045]: X 1EFFC431 0 56 00 00 00 00 00 00 [0m
 [23:54:28.317][0;32m[I][F:045]: X 1EFFC432 0 50 31 45 4C 50 31 45 [0m
 [23:54:28.322][0;32m[I][F:045]: X 1EFFC432 0 56 4C 50 4C 50 00 00 [0m
-[23:54:28.336][0;36m[D][preferences:255]: Writing 1 items: 0 cached, 1 written, 0 failed[0m
 [23:54:28.341][0;32m[I][F:045]: X 1EFFC432 0 5C 00 00 00 00 00 00 [0m
 [23:54:28.346][0;32m[I][F:045]: X 1EFFC432 0 62 00 00 00 00 00 00 [0m
 [23:54:28.351][0;32m[I][F:045]: X 1EFFC432 0 68 00 00 00 00 00 00 [0m

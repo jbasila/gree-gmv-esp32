@@ -1,57 +1,8 @@
-[00:10:52.643]drv:0x00,wp���DIO, clock div:2
-[00:10:52.646]load:0x3fff0030,len:6248
-[00:10:52.648]load:0x40078000,len:15904
-[00:10:52.650]load:0x40080400,len:3896
-[00:10:52.652]entry 0x40080640
-[00:10:52.658]I (27) boot: ESP-IDF v5.5.5 2nd stage bootloader
-[00:10:52.661]I (27) boot: Multicore bootloader
-[00:10:52.664]I (28) boot: chip revision: v3.1
-[00:10:52.668]I (28) boot.esp32: SPI Speed      : 40MHz
-[00:10:52.671]I (31) boot.esp32: SPI Mode       : DIO
-[00:10:52.675]I (35) boot.esp32: SPI Flash Size : 4MB
-[00:10:52.679]I (38) boot: Enabling RNG early entropy source...
-[00:10:52.682]I (43) boot: Partition Table:
-[00:10:52.688]I (45) boot: ## Label            Usage          Type ST Offset   Length
-[00:10:52.695]I (52) boot:  0 otadata          OTA data         01 00 00009000 00002000
-[00:10:52.701]I (58) boot:  1 phy_init         RF data          01 01 0000b000 00001000
-[00:10:52.708]I (65) boot:  2 app0             OTA app          00 10 00010000 001c0000
-[00:10:52.714]I (71) boot:  3 app1             OTA app          00 11 001d0000 001c0000
-[00:10:52.721]I (78) boot:  4 nvs              WiFi data        01 02 00390000 00070000
-[00:10:52.724]I (84) boot: End of partition table
-[00:10:52.731]I (88) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=16424h ( 91172) map
-[00:10:52.759]I (126) esp_image: segment 1: paddr=0002644c vaddr=3ffb0000 size=03d34h ( 15668) load
-[00:10:52.767]I (132) esp_image: segment 2: paddr=0002a188 vaddr=40080000 size=05e90h ( 24208) load
-[00:10:52.776]I (142) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=7e870h (518256) map
-[00:10:52.952]I (319) esp_image: segment 4: paddr=000ae898 vaddr=40085e90 size=0cce4h ( 52452) load
-[00:10:52.973]I (340) esp_image: segment 5: paddr=000bb584 vaddr=50000000 size=00020h (    32) load
-[00:10:52.981]I (350) boot: Loaded app from partition at offset 0x10000
-[00:10:52.985]I (350) boot: Disabling RNG early entropy source...
-[00:10:53.160][0;32m[I][logger:136]: Log initialized[0m
-[00:10:53.165][0;35m[C][safe_mode:201]: Unsuccessful boot attempts: 0[0m
-[00:10:53.172][0;36m[D][preferences:255]: Writing 1 items: 0 cached, 1 written, 0 failed[0m
-[00:10:53.177][0;32m[I][app:073]: Running through setup()[0m
-[00:10:53.183][0;35m[C][wifi:698]: Starting[0m
-[00:10:53.259][0;36m[D][wifi:1514]: Starting scan[0m
-[00:10:53.263][0;35m[C][component:164]: Setup wifi took 90ms[0m
-[00:10:53.271][0;33m[W][component:290]: api set Warning flag: waiting for client connection[0m
-[00:10:53.276][0;32m[I][app:130]: setup() finished successfully![0m
 [00:10:53.281][0;32m[I][F:045]: X 04820084 0 20 04 19 14 35 13 00 02 [0m
 [00:10:53.286][0;32m[I][F:045]: X 04820084 0 20 04 19 14 35 13 00 02 [0m
 [00:10:53.291][0;32m[I][F:045]: X 04820084 0 20 04 19 14 35 13 00 02 [0m
 [00:10:53.295][0;32m[I][F:045]: X 1CFFC46E 0 50 00 [0m
 [00:10:53.300][0;32m[I][F:045]: X 1EFFD020 0 00 7B 7A 46 7A 46 7B 46 [0m
-[00:10:53.307][0;33m[W][component:290]: wifi set Warning flag: scanning for networks[0m
-[00:10:53.315][0;32m[I][app:164]: ESPHome version 2026.11.0-dev compiled on 2026-10-16 23:52:42 +0300[0m
-[00:10:53.320][0;32m[I][app:171]: ESP32 Chip: ESP32 rev3.1, 2 core(s)[0m
-[00:10:53.329][0;33m[W][app:189]: Set flash_chip: generic under esp32 > framework > advanced to save IRAM[0m
-[00:10:53.340][0;33m[W][app:228]: Bootloader supports SRAM1 as IRAM (+40KB). Set sram1_as_iram: true under esp32 > framework > advanced[0m
-[00:10:53.343][0;35m[C][logger:220]: Logger:
-[00:10:53.344]  Max Level: DEBUG
-[00:10:53.347]  Initial Level: DEBUG[0m
-[00:10:53.351][0;35m[C][logger:227]:   Log Baud Rate: 115200
-[00:10:53.353]  Hardware UART: UART0[0m
-[00:10:53.359][0;35m[C][logger:236]:   Task Log Buffer Size: 768 bytes[0m
-[00:10:53.365][0;35m[C][logger:242]:   Level for 'canbus': INFO[0m
 [00:10:53.368][0;32m[I][F:045]: X 1CFFC46F 0 50 01 00 00 00 00 00 [0m
 [00:10:53.373][0;32m[I][F:045]: X 1CFFC471 0 50 00 00 00 00 [0m
 [00:10:53.378][0;32m[I][F:045]: X 1CFFC478 0 50 25 00 00 00 25 00 0A [0m
@@ -67,7 +18,6 @@
 [00:10:53.429][0;32m[I][F:045]: X 1EFFD220 0 00 7D 7B 4D 7B 4E 7D 4B [0m
 [00:10:53.434][0;32m[I][F:045]: X 1EFFC421 0 C8 00 01 01 00 00 00 00 [0m
 [00:10:53.439][0;32m[I][F:045]: X 1EFFC421 0 CF 00 00 00 00 02 00 00 [0m
-[00:10:53.448][0;33m[W][component:437]: canbus took a long time for an operation (67 ms), max is 50 ms[0m
 [00:10:53.453][0;32m[I][F:045]: X 1EFFC421 0 D6 0A 00 00 00 00 00 00 [0m
 [00:10:53.457][0;32m[I][F:045]: X 1EFFC421 0 DD 02 [0m
 [00:10:53.462][0;32m[I][F:045]: X 1EFFC427 0 50 00 00 20 03 29 20 03 [0m
@@ -80,41 +30,21 @@
 [00:10:53.496][0;32m[I][F:045]: X 1EFFC431 0 50 1B 00 00 00 1B 00 [0m
 [00:10:53.501][0;32m[I][F:045]: X 1EFFC431 0 56 00 00 00 00 00 00 [0m
 [00:10:53.506][0;32m[I][F:045]: X 1EFFC432 0 50 31 45 4C 50 31 45 [0m
-[00:10:53.509][0;35m[C][network:050]: Network:
-[00:10:53.512]  TCP send buffer: 5760 bytes[0m
 [00:10:53.517][0;32m[I][F:045]: X 1EFFC432 0 56 4C 50 4C 50 00 00 [0m
 [00:10:53.522][0;32m[I][F:045]: X 1EFFC432 0 5C 00 00 00 00 00 00 [0m
 [00:10:53.527][0;32m[I][F:045]: X 1EFFC432 0 62 00 00 00 00 00 00 [0m
-[00:10:53.530][0;35m[C][wifi:1745]: WiFi:
-[00:10:53.533]  Local MAC: XX:XX:XX:XX:XX:XX
-[00:10:53.534]  Connected: NO[0m
 [00:10:53.539][0;32m[I][F:045]: X 1EFFC432 0 68 00 00 00 00 00 00 [0m
 [00:10:53.544][0;32m[I][F:045]: X 1EFFC432 0 6E 00 00 00 00 00 00 [0m
-[00:10:53.549][0;35m[C][esphome.ota:132]: Over-The-Air updates:
-[00:10:53.552]  Address: vrf-node.local:3232
-[00:10:53.553]  Version: 2[0m
 [00:10:53.558][0;32m[I][F:045]: X 1EFFC432 0 74 FF FF FF FF FF FF [0m
 [00:10:53.563][0;32m[I][F:045]: X 1EFFC41D 0 50 00 00 00 00 00 00 [0m
 [00:10:53.567][0;32m[I][F:045]: X 1CFFD06E 0 32 00 [0m
-[00:10:53.570][0;35m[C][safe_mode:058]: Safe Mode:
-[00:10:53.572]  Successful after: 60s
-[00:10:53.575]  Invoke after: 10 attempts
-[00:10:53.576]  Duration: 300s[0m
-[00:10:53.582][0;35m[C][safe_mode:079]:   Bootloader rollback: support unknown[0m
 [00:10:53.586][0;32m[I][F:045]: X 1CFFD06F 0 32 00 [0m
 [00:10:53.590][0;32m[I][F:045]: X 1CFFD06F 0 42 00 [0m
 [00:10:53.594][0;32m[I][F:045]: X 1CFFD072 0 32 00 00 00 00 [0m
 [00:10:53.598][0;32m[I][F:045]: X 1CFFD071 0 23 00 [0m
-[00:10:53.601][0;35m[C][api:370]: Server:
-[00:10:53.603]  Address: vrf-node.local:6053
-[00:10:53.605]  Listen backlog: 4
-[00:10:53.607]  Max connections: 5[0m
-[00:10:53.611][0;35m[C][api:382]:   Noise encryption: NO[0m
 [00:10:53.615][0;32m[I][F:045]: X 1CFFD06D 0 32 00 [0m
 [00:10:53.619][0;32m[I][F:045]: X 1CFFD0EE 0 32 00 [0m
 [00:10:53.623][0;32m[I][F:045]: X 1CFFD0EF 0 32 00 [0m
-[00:10:53.625][0;35m[C][mdns:336]: mDNS:
-[00:10:53.627]  Hostname: vrf-node[0m
 [00:10:53.631][0;32m[I][F:045]: X 1CFFD0EF 0 42 00 [0m
 [00:10:53.636][0;32m[I][F:045]: X 1CFFD0F2 0 32 00 00 00 00 [0m
 [00:10:53.639][0;32m[I][F:045]: X 1CFFD0F1 0 23 00 [0m
@@ -492,13 +422,6 @@
 [00:10:56.462][0;32m[I][F:045]: X 1EFFC428 0 57 00 20 01 01 01 01 01 [0m
 [00:10:56.468][0;32m[I][F:045]: X 1EFFD11F 0 00 00 00 40 01 50 00 00 [0m
 [00:10:56.472][0;32m[I][F:045]: X 1EFFC428 0 5E 01 [0m
-[00:10:56.476][0;36m[D][wifi:1674]: Found networks:[0m
-[00:10:56.486][0;32m[I][wifi:1645]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;32m▂▄▆█[0m Ch:11 -47dB P:0[0m
-[00:10:56.496][0;32m[I][wifi:1645]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄[0;37m▆█[0m Ch: 1 -67dB P:0[0m
-[00:10:56.507][0;32m[I][wifi:1645]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄[0;37m▆█[0m Ch:11 -73dB P:0[0m
-[00:10:56.518][0;32m[I][wifi:1645]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄[0;37m▆█[0m Ch: 6 -77dB P:0[0m
-[00:10:56.524][0;36m[D][wifi:2078]: Retry phase: INITIAL_CONNECT → SCAN_CONNECTING[0m
-[00:10:56.537][0;32m[I][wifi:1280]: Connecting to [8m'my-wifi'[28m [8m(XX:XX:XX:XX:XX:XX)[28m (priority 0, attempt 1/2 in phase SCAN_CONNECTING)...[0m
 [00:10:56.542][0;32m[I][F:045]: X 1EFFC431 0 50 1B 00 00 00 1B 00 [0m
 [00:10:56.547][0;32m[I][F:045]: X 1EFFC431 0 56 00 00 00 00 00 00 [0m
 [00:10:56.552][0;32m[I][F:045]: X 1EFFC432 0 50 31 45 4C 50 31 45 [0m
@@ -691,22 +614,10 @@
 [00:10:57.878][0;32m[I][F:045]: X 1EFFD19E 0 00 00 00 00 00 00 [0m
 [00:10:57.881][0;32m[I][F:045]: X 1EFFC428 0 5E 01 [0m
 [00:10:57.887][0;32m[I][F:045]: X 1EFFC431 0 50 1B 00 00 00 1B 00 [0m
-[00:10:57.890][0;32m[I][wifi:1795]: Connected[0m
-[00:10:57.895][0;35m[C][wifi:1434]:   IP Address: 192.168.1.68[0m
-[00:10:57.899][0;35m[C][wifi:1445]:   SSID: [8m'my-wifi'[28m
-[00:10:57.903]  BSSID: [8mXX:XX:XX:XX:XX:XX[28m
-[00:10:57.905]  Hostname: 'vrf-node'
-[00:10:57.909]  Signal strength: -45 dB [0;32m▂▄▆█[0m
-[00:10:57.910]  Channel: 11
-[00:10:57.912]  Subnet: 255.255.255.0
-[00:10:57.914]  Gateway: 192.168.1.1
-[00:10:57.916]  DNS1: 192.168.1.1
-[00:10:57.918]  DNS2: 0.0.0.0[0m
 [00:10:57.923][0;32m[I][F:045]: X 1EFFC431 0 56 00 00 00 00 00 00 [0m
 [00:10:57.928][0;32m[I][F:045]: X 1EFFC432 0 50 31 45 4C 50 31 45 [0m
 [00:10:57.933][0;32m[I][F:045]: X 1EFFD19F 0 00 11 20 40 00 40 00 00 [0m
 [00:10:57.938][0;32m[I][F:045]: X 1EFFC432 0 56 4C 50 4C 50 00 00 [0m
-[00:10:57.943][0;33m[W][component:316]: wifi cleared Warning flag[0m
 [00:10:57.948][0;32m[I][F:045]: X 1EFFC432 0 5C 00 00 00 00 00 00 [0m
 [00:10:57.954][0;32m[I][F:045]: X 1EFFD1A0 0 00 7C 6C 58 6F 51 7C 59 [0m
 [00:10:57.959][0;32m[I][F:045]: X 1EFFC432 0 62 00 00 00 00 00 00 [0m
@@ -3993,61 +3904,12 @@
 [00:11:22.561][0;32m[I][F:045]: X 1EFFC421 0 CF 00 00 00 00 02 00 00 [0m
 [00:11:22.567][0;32m[I][F:045]: X 1EFFC421 0 D6 0A 00 00 00 00 00 00 [0m
 [00:11:22.570][0;32m[I][F:045]: X 1EFFC421 0 DD 02 [0m
-[00:11:28.879]_drv:0x00�	�����div:2
-[00:11:28.881]load:0x3fff0030,len:6248
-[00:11:28.883]load:0x40078000,len:15904
-[00:11:28.885]load:0x40080400,len:3896
-[00:11:28.887]entry 0x40080640
-[00:11:28.893]I (27) boot: ESP-IDF v5.5.5 2nd stage bootloader
-[00:11:28.896]I (27) boot: Multicore bootloader
-[00:11:28.899]I (28) boot: chip revision: v3.1
-[00:11:28.903]I (28) boot.esp32: SPI Speed      : 40MHz
-[00:11:28.906]I (31) boot.esp32: SPI Mode       : DIO
-[00:11:28.910]I (35) boot.esp32: SPI Flash Size : 4MB
-[00:11:28.914]I (38) boot: Enabling RNG early entropy source...
-[00:11:28.917]I (43) boot: Partition Table:
-[00:11:28.923]I (45) boot: ## Label            Usage          Type ST Offset   Length
-[00:11:28.930]I (52) boot:  0 otadata          OTA data         01 00 00009000 00002000
-[00:11:28.937]I (58) boot:  1 phy_init         RF data          01 01 0000b000 00001000
-[00:11:28.943]I (65) boot:  2 app0             OTA app          00 10 00010000 001c0000
-[00:11:28.950]I (71) boot:  3 app1             OTA app          00 11 001d0000 001c0000
-[00:11:28.956]I (78) boot:  4 nvs              WiFi data        01 02 00390000 00070000
-[00:11:28.959]I (84) boot: End of partition table
-[00:11:28.967]I (88) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=16424h ( 91172) map
-[00:11:28.994]I (126) esp_image: segment 1: paddr=0002644c vaddr=3ffb0000 size=03d34h ( 15668) load
-[00:11:29.002]I (132) esp_image: segment 2: paddr=0002a188 vaddr=40080000 size=05e90h ( 24208) load
-[00:11:29.012]I (142) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=7e870h (518256) map
-[00:11:29.188]I (319) esp_image: segment 4: paddr=000ae898 vaddr=40085e90 size=0cce4h ( 52452) load
-[00:11:29.209]I (340) esp_image: segment 5: paddr=000bb584 vaddr=50000000 size=00020h (    32) load
-[00:11:29.216]I (350) boot: Loaded app from partition at offset 0x10000
-[00:11:29.220]I (350) boot: Disabling RNG early entropy source...
-[00:11:29.395][0;32m[I][logger:136]: Log initialized[0m
-[00:11:29.401][0;35m[C][safe_mode:201]: Unsuccessful boot attempts: 1[0m
-[00:11:29.407][0;36m[D][preferences:255]: Writing 1 items: 0 cached, 1 written, 0 failed[0m
-[00:11:29.412][0;32m[I][app:073]: Running through setup()[0m
-[00:11:29.418][0;35m[C][wifi:698]: Starting[0m
-[00:11:29.493][0;36m[D][wifi:1514]: Starting scan[0m
-[00:11:29.498][0;35m[C][component:164]: Setup wifi took 89ms[0m
-[00:11:29.505][0;33m[W][component:290]: api set Warning flag: waiting for client connection[0m
-[00:11:29.510][0;32m[I][app:130]: setup() finished successfully![0m
 [00:11:29.515][0;32m[I][F:045]: X 1EFFC427 0 57 30 20 03 25 20 05 27 [0m
 [00:11:29.520][0;32m[I][F:045]: X 1EFFC427 0 5E 20 04 04 02 00 00 00 [0m
 [00:11:29.525][0;32m[I][F:045]: X 1EFFC427 0 65 0D 0A 00 00 [0m
 [00:11:29.530][0;32m[I][F:045]: X 1EFFC428 0 50 01 05 00 01 FF 00 00 [0m
 [00:11:29.536][0;32m[I][F:045]: X 1EFFC428 0 57 00 20 01 01 01 01 01 [0m
 [00:11:29.541][0;32m[I][F:045]: X 1EFFC432 0 6E 00 00 00 00 00 00 [0m
-[00:11:29.547][0;33m[W][component:290]: wifi set Warning flag: scanning for networks[0m
-[00:11:29.555][0;32m[I][app:164]: ESPHome version 2026.11.0-dev compiled on 2026-10-16 23:52:42 +0300[0m
-[00:11:29.561][0;32m[I][app:171]: ESP32 Chip: ESP32 rev3.1, 2 core(s)[0m
-[00:11:29.569][0;33m[W][app:189]: Set flash_chip: generic under esp32 > framework > advanced to save IRAM[0m
-[00:11:29.580][0;33m[W][app:228]: Bootloader supports SRAM1 as IRAM (+40KB). Set sram1_as_iram: true under esp32 > framework > advanced[0m
-[00:11:29.583][0;35m[C][logger:220]: Logger:
-[00:11:29.584]  Max Level: DEBUG
-[00:11:29.587]  Initial Level: DEBUG[0m
-[00:11:29.591][0;35m[C][logger:227]:   Log Baud Rate: 115200
-[00:11:29.593]  Hardware UART: UART0[0m
-[00:11:29.599][0;35m[C][logger:236]:   Task Log Buffer Size: 768 bytes[0m
-[00:11:29.604][0;35m[C][logger:242]:   Level for 'canbus': INFO[0m
 [00:11:29.609][0;32m[I][F:045]: X 1EFFC432 0 74 FF FF FF FF FF FF [0m
 [00:11:29.614][0;32m[I][F:045]: X 1EFFC41D 0 50 00 00 00 00 00 00 [0m
 [00:11:29.617][0;32m[I][F:045]: X 1CFFD06E 0 32 00 [0m
@@ -4062,7 +3924,6 @@
 [00:11:29.652][0;32m[I][F:045]: X 1CFFD171 0 23 00 [0m
 [00:11:29.656][0;32m[I][F:045]: X 1CFFD172 0 32 00 00 00 00 [0m
 [00:11:29.660][0;32m[I][F:045]: X 1CFFD16D 0 32 00 [0m
-[00:11:29.668][0;33m[W][component:437]: canbus took a long time for an operation (56 ms), max is 50 ms[0m
 [00:11:29.672][0;32m[I][F:045]: X 1CFFD1EE 0 32 00 [0m
 [00:11:29.676][0;32m[I][F:045]: X 1CFFD1EF 0 32 01 [0m
 [00:11:29.679][0;32m[I][F:045]: X 1CFFD1EF 0 42 00 [0m
@@ -4077,26 +3938,6 @@
 [00:11:29.714][0;32m[I][F:045]: X 1CFFD26D 0 32 00 [0m
 [00:11:29.720][0;32m[I][F:045]: X 1EFFC420 0 5E 00 7C 6E 7E 6D 71 7C [0m
 [00:11:29.725][0;32m[I][F:045]: X 1EFFC431 0 8F 00 00 45 08 2A 03 [0m
-[00:11:29.728][0;35m[C][network:050]: Network:
-[00:11:29.731]  TCP send buffer: 5760 bytes[0m
-[00:11:29.744][0;35m[C][wifi:1745]: WiFi:
-[00:11:29.746]  Local MAC: XX:XX:XX:XX:XX:XX
-[00:11:29.748]  Connected: NO[0m
-[00:11:29.762][0;35m[C][esphome.ota:132]: Over-The-Air updates:
-[00:11:29.765]  Address: vrf-node.local:3232
-[00:11:29.767]  Version: 2[0m
-[00:11:29.778][0;35m[C][safe_mode:058]: Safe Mode:
-[00:11:29.780]  Successful after: 60s
-[00:11:29.783]  Invoke after: 10 attempts
-[00:11:29.785]  Duration: 300s[0m
-[00:11:29.791][0;35m[C][safe_mode:079]:   Bootloader rollback: support unknown[0m
-[00:11:29.798][0;35m[C][api:370]: Server:
-[00:11:29.800]  Address: vrf-node.local:6053
-[00:11:29.802]  Listen backlog: 4
-[00:11:29.804]  Max connections: 5[0m
-[00:11:29.809][0;35m[C][api:382]:   Noise encryption: NO[0m
-[00:11:29.814][0;35m[C][mdns:336]: mDNS:
-[00:11:29.817]  Hostname: vrf-node[0m
 [00:11:29.835][0;32m[I][F:045]: X 04820084 0 20 04 19 14 35 50 00 02 [0m
 [00:11:29.840][0;32m[I][F:045]: X 04820084 0 20 04 19 14 35 50 00 02 [0m
 [00:11:29.851][0;32m[I][F:045]: X 04820084 0 20 04 19 14 35 50 00 02 [0m
@@ -4453,13 +4294,6 @@
 [00:11:32.487][0;32m[I][F:045]: X 1EFFC432 0 6E 00 00 00 00 00 00 [0m
 [00:11:32.499][0;32m[I][F:045]: X 1EFFC432 0 74 FF FF FF FF FF FF [0m
 [00:11:32.504][0;32m[I][F:045]: X 1EFFC41D 0 50 00 00 00 00 00 00 [0m
-[00:11:32.508][0;36m[D][wifi:1674]: Found networks:[0m
-[00:11:32.518][0;32m[I][wifi:1645]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;32m▂▄▆█[0m Ch:11 -46dB P:0[0m
-[00:11:32.528][0;32m[I][wifi:1645]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄▆[0;37m█[0m Ch: 1 -58dB P:0[0m
-[00:11:32.539][0;32m[I][wifi:1645]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄[0;37m▆█[0m Ch:11 -70dB P:0[0m
-[00:11:32.550][0;32m[I][wifi:1645]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄[0;37m▆█[0m Ch: 6 -77dB P:0[0m
-[00:11:32.556][0;36m[D][wifi:2078]: Retry phase: INITIAL_CONNECT → SCAN_CONNECTING[0m
-[00:11:32.569][0;32m[I][wifi:1280]: Connecting to [8m'my-wifi'[28m [8m(XX:XX:XX:XX:XX:XX)[28m (priority 0, attempt 1/2 in phase SCAN_CONNECTING)...[0m
 [00:11:32.573][0;32m[I][F:045]: X 1CFFD06E 0 32 00 [0m
 [00:11:32.577][0;32m[I][F:045]: X 1CFFD06F 0 32 00 [0m
 [00:11:32.580][0;32m[I][F:045]: X 1CFFD06F 0 42 00 [0m
@@ -4633,17 +4467,6 @@
 [00:11:33.824][0;32m[I][F:045]: X 1CFFD1F2 0 32 19 01 00 00 [0m
 [00:11:33.828][0;32m[I][F:045]: X 1CFFD1ED 0 32 00 [0m
 [00:11:33.831][0;32m[I][F:045]: X 1CFFD1F1 0 23 00 [0m
-[00:11:33.835][0;32m[I][wifi:1795]: Connected[0m
-[00:11:33.839][0;35m[C][wifi:1434]:   IP Address: 192.168.1.68[0m
-[00:11:33.844][0;35m[C][wifi:1445]:   SSID: [8m'my-wifi'[28m
-[00:11:33.847]  BSSID: [8mXX:XX:XX:XX:XX:XX[28m
-[00:11:33.849]  Hostname: 'vrf-node'
-[00:11:33.854]  Signal strength: -49 dB [0;32m▂▄▆█[0m
-[00:11:33.855]  Channel: 11
-[00:11:33.857]  Subnet: 255.255.255.0
-[00:11:33.859]  Gateway: 192.168.1.1
-[00:11:33.861]  DNS1: 192.168.1.1
-[00:11:33.863]  DNS2: 0.0.0.0[0m
 [00:11:33.866][0;32m[I][F:045]: X 1CFFD26E 0 32 00 [0m
 [00:11:33.870][0;32m[I][F:045]: X 1CFFD26F 0 32 00 [0m
 [00:11:33.874][0;32m[I][F:045]: X 1CFFD26F 0 42 00 [0m
@@ -4651,7 +4474,6 @@
 [00:11:33.882][0;32m[I][F:045]: X 1CFFD271 0 23 00 [0m
 [00:11:33.886][0;32m[I][F:045]: X 1CFFD26D 0 32 00 [0m
 [00:11:33.891][0;32m[I][F:045]: X 1EFFC431 0 8F 00 00 49 08 2C 03 [0m
-[00:11:33.896][0;33m[W][component:316]: wifi cleared Warning flag[0m
 [00:11:33.970][0;32m[I][F:045]: X 04820084 0 20 04 19 14 35 55 00 02 [0m
 [00:11:33.988][0;32m[I][F:045]: X 04820084 0 20 04 19 14 35 55 00 02 [0m
 [00:11:33.993][0;32m[I][F:045]: X 04820084 0 20 04 19 14 35 55 00 02 [0m
@@ -7950,57 +7772,9 @@
 [00:11:58.703][0;32m[I][F:045]: X 1EFFC417 0 85 00 00 00 00 00 00 00 [0m
 [00:11:58.709][0;32m[I][F:045]: X 1EFFC417 0 8C 00 00 00 00 00 00 00 [0m
 [00:11:58.828][0;32m[I][F:045]: X 04820084 0 20 04 19 14 36 19 00 02 [0m
-[00:12:21.635]v:0x00
-[00:12:21.635]modek"���2
-[00:12:21.636]load:0x3fff0030,len:6248
-[00:12:21.636]load:0x40078000,len:15904
-[00:12:21.636]load:0x40080400,len:3896
-[00:12:21.636]entry 0x40080640
-[00:12:21.636]I (27) boot: ESP-IDF v5.5.5 2nd stage bootloader
-[00:12:21.638]I (27) boot: Multicore bootloader
-[00:12:21.641]I (28) boot: chip revision: v3.1
-[00:12:21.644]I (28) boot.esp32: SPI Speed      : 40MHz
-[00:12:21.648]I (31) boot.esp32: SPI Mode       : DIO
-[00:12:21.652]I (35) boot.esp32: SPI Flash Size : 4MB
-[00:12:21.656]I (38) boot: Enabling RNG early entropy source...
-[00:12:21.659]I (43) boot: Partition Table:
-[00:12:21.665]I (45) boot: ## Label            Usage          Type ST Offset   Length
-[00:12:21.672]I (52) boot:  0 otadata          OTA data         01 00 00009000 00002000
-[00:12:21.678]I (58) boot:  1 phy_init         RF data          01 01 0000b000 00001000
-[00:12:21.685]I (65) boot:  2 app0             OTA app          00 10 00010000 001c0000
-[00:12:21.691]I (71) boot:  3 app1             OTA app          00 11 001d0000 001c0000
-[00:12:21.698]I (78) boot:  4 nvs              WiFi data        01 02 00390000 00070000
-[00:12:21.702]I (84) boot: End of partition table
-[00:12:21.708]I (88) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=15f1ch ( 89884) map
-[00:12:21.736]I (126) esp_image: segment 1: paddr=00025f44 vaddr=3ffb0000 size=03d34h ( 15668) load
-[00:12:21.743]I (132) esp_image: segment 2: paddr=00029c80 vaddr=40080000 size=06398h ( 25496) load
-[00:12:21.753]I (142) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=7c160h (508256) map
-[00:12:21.926]I (316) esp_image: segment 4: paddr=000ac188 vaddr=40086398 size=0c9b8h ( 51640) load
-[00:12:21.946]I (337) esp_image: segment 5: paddr=000b8b48 vaddr=50000000 size=00020h (    32) load
-[00:12:21.954]I (346) boot: Loaded app from partition at offset 0x10000
-[00:12:21.958]I (346) boot: Disabling RNG early entropy source...
-[00:12:22.106][0;32m[I][logger:136]: Log initialized[0m
-[00:12:22.114][0;32m[I][app:073]: Running through setup()[0m
-[00:12:22.223][0;33m[W][component:290]: api set Warning flag: waiting for client connection[0m
-[00:12:22.228][0;32m[I][app:130]: setup() finished successfully![0m
-[00:12:22.234][0;33m[W][component:290]: wifi set Warning flag: scanning for networks[0m
-[00:12:22.242][0;32m[I][app:164]: ESPHome version 2026.11.0-dev compiled on 2026-10-17 00:11:57 +0300[0m
-[00:12:22.248][0;32m[I][app:171]: ESP32 Chip: ESP32 rev3.1, 2 core(s)[0m
-[00:12:22.256][0;33m[W][app:189]: Set flash_chip: generic under esp32 > framework > advanced to save IRAM[0m
-[00:12:22.269][0;33m[W][app:201]: Chip rev >= 3.0 detected. Set minimum_chip_revision: "3.1" under esp32 > framework > advanced to reduce binary size[0m
-[00:12:22.279][0;33m[W][app:228]: Bootloader supports SRAM1 as IRAM (+40KB). Set sram1_as_iram: true under esp32 > framework > advanced[0m
 [00:12:22.309][0;32m[I][loop:044]: rx low while idle: 32/50   rx low while tx driven low: 7/10[0m
-[00:12:22.317][0;33m[W][component:437]: interval took a long time for an operation (57 ms), max is 50 ms[0m
-[00:12:22.404][0;33m[W][safe_mode:085]: Last reset too quick; invoke in 7 restarts[0m
 [00:12:24.309][0;32m[I][loop:044]: rx low while idle: 21/50   rx low while tx driven low: 9/10[0m
-[00:12:25.227][0;32m[I][wifi:1649]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄▆[0;37m█[0m[0m
-[00:12:25.237][0;32m[I][wifi:1649]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄▆[0;37m█[0m[0m
-[00:12:25.245][0;32m[I][wifi:1649]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄[0;37m▆█[0m[0m
-[00:12:25.255][0;32m[I][wifi:1649]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄[0;37m▆█[0m[0m
-[00:12:25.268][0;32m[I][wifi:1280]: Connecting to [8m'my-wifi'[28m [8m(XX:XX:XX:XX:XX:XX)[28m (priority 0, attempt 1/2 in phase SCAN_CONNECTING)...[0m
 [00:12:26.309][0;32m[I][loop:044]: rx low while idle: 24/50   rx low while tx driven low: 7/10[0m
-[00:12:26.530][0;32m[I][wifi:1795]: Connected[0m
-[00:12:26.548][0;33m[W][component:316]: wifi cleared Warning flag[0m
 [00:12:28.308][0;32m[I][loop:044]: rx low while idle: 21/50   rx low while tx driven low: 5/10[0m
 [00:12:30.308][0;32m[I][loop:044]: rx low while idle: 0/50   rx low while tx driven low: 6/10[0m
 [00:12:32.308][0;32m[I][loop:044]: rx low while idle: 26/50   rx low while tx driven low: 6/10[0m
