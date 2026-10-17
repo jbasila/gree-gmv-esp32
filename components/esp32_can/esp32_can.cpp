@@ -98,6 +98,9 @@ bool ESP32Can::setup_internal() {
     g_config.rx_queue_len = this->rx_queue_len_.value();
   }
 
+  // gree-gmv-esp32 patch: enable alerts so loop() can recover from bus-off
+  g_config.alerts_enabled = TWAI_ALERT_BUS_OFF | TWAI_ALERT_BUS_RECOVERED | TWAI_ALERT_ERR_PASS | TWAI_ALERT_ERR_ACTIVE;
+
   twai_filter_config_t f_config = TWAI_FILTER_CONFIG_ACCEPT_ALL();
   twai_timing_config_t t_config;
 
@@ -162,6 +165,27 @@ canbus::Error ESP32Can::send_message(struct canbus::CanFrame *frame) {
   } else {
     return canbus::ERROR_ALLTXBUSY;
   }
+}
+
+// gree-gmv-esp32 patch: a failed transmit (e.g. a transceiver that cannot drive the bus) sends the
+// controller to bus-off; without this it would never receive again until reboot.
+void ESP32Can::loop() {
+  if (this->twai_handle_ != nullptr) {
+    uint32_t alerts = 0;
+    if (twai_read_alerts_v2(this->twai_handle_, &alerts, 0) == ESP_OK && alerts != 0) {
+      if (alerts & TWAI_ALERT_ERR_PASS) ESP_LOGW(TAG, "entered error-passive");
+      if (alerts & TWAI_ALERT_ERR_ACTIVE) ESP_LOGI(TAG, "back to error-active");
+      if (alerts & TWAI_ALERT_BUS_OFF) {
+        ESP_LOGW(TAG, "bus-off, starting recovery");
+        twai_initiate_recovery_v2(this->twai_handle_);
+      }
+      if (alerts & TWAI_ALERT_BUS_RECOVERED) {
+        ESP_LOGI(TAG, "bus recovered, restarting controller");
+        twai_start_v2(this->twai_handle_);
+      }
+    }
+  }
+  canbus::Canbus::loop();
 }
 
 canbus::Error ESP32Can::read_message(struct canbus::CanFrame *frame) {

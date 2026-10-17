@@ -28,6 +28,8 @@ class ESP32Can final : public canbus::Canbus {
 
  protected:
   bool setup_internal() override;
+  // gree-gmv-esp32 patch: bus-off recovery (upstream from ESPHome 2026.10)
+  void loop() override;
   canbus::Error send_message(struct canbus::CanFrame *frame) override;
   canbus::Error read_message(struct canbus::CanFrame *frame) override;
 
