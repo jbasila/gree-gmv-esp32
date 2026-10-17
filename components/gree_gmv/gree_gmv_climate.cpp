@@ -71,6 +71,22 @@ void GreeGMVClimate::on_message(const Message &msg) {
 }
 
 void GreeGMVClimate::publish_from_bus_() {
+  auto same_f = [](float a, float b) { return (std::isnan(a) && std::isnan(b)) || a == b; };
+  if (this->published_ && this->power_ == this->last_power_ && this->gree_mode_ == this->last_mode_ &&
+      this->gree_fan_ == this->last_fan_ && this->swing_v_ == this->last_swing_v_ &&
+      this->swing_h_ == this->last_swing_h_ && same_f(this->target_temperature, this->last_target_) &&
+      same_f(this->current_temperature, this->last_current_)) {
+    return;
+  }
+  this->published_ = true;
+  this->last_power_ = this->power_;
+  this->last_mode_ = this->gree_mode_;
+  this->last_fan_ = this->gree_fan_;
+  this->last_swing_v_ = this->swing_v_;
+  this->last_swing_h_ = this->swing_h_;
+  this->last_target_ = this->target_temperature;
+  this->last_current_ = this->current_temperature;
+
   if (!this->power_) {
     this->mode = climate::CLIMATE_MODE_OFF;
   } else {

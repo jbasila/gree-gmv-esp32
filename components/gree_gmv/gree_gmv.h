@@ -3,7 +3,6 @@
 #include "esphome/core/component.h"
 #include "esphome/components/canbus/canbus.h"
 
-#include <map>
 #include <vector>
 
 namespace esphome::gree_gmv {
@@ -30,7 +29,9 @@ enum GreeMode : uint8_t { MODE_COOL = 1, MODE_DRY = 2, MODE_FAN = 3, MODE_HEAT =
 enum GreeFan : uint8_t { FAN_AUTO = 1, FAN_VERY_LOW = 2, FAN_LOW = 3, FAN_MEDIUM = 4, FAN_HIGH = 5, FAN_VERY_HIGH = 6 };
 enum GreeSwing : uint8_t { SWING_OFF = 1, SWING_ON = 2 };
 
-/// A reassembled message: bytes [base, base+data.size()) of the node's register space for this type.
+/// One chunk of a register: bytes [base, base+data.size()) of the node's register space for `type`.
+/// Units send long registers as 7-byte chunks (byte 0 of the frame = offset). After a write they
+/// immediately re-send only the first chunk, so chunks are delivered as they arrive, never reassembled.
 struct Message {
   uint8_t type;
   uint8_t base;
@@ -70,11 +71,6 @@ class GreeGMV : public Component {
  protected:
   void on_frame_(uint32_t can_id, bool extended, bool rtr, const std::vector<uint8_t> &data);
 
-  struct Partial {
-    uint8_t base;
-    std::vector<uint8_t> buf;
-  };
-  std::map<uint32_t, Partial> partial_;
   canbus::Canbus *canbus_{nullptr};
   std::vector<GreeGMVUnit *> units_;
 };

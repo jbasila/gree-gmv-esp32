@@ -1,0 +1,190 @@
+[12:06:53.743]x00,wp_drv:00
+[12:06:53.745]mode:DIO, clock div:2
+[12:06:53.747]load:0x3fff0030,len:6248
+[12:06:53.749]load:0x40078000,len:15904
+[12:06:53.752]load:0x40080400,len:3896
+[12:06:53.753]entry 0x40080640
+[12:06:53.759]I (27) boot: ESP-IDF v5.5.5 2nd stage bootloader
+[12:06:53.762]I (27) boot: Multicore bootloader
+[12:06:53.765]I (28) boot: chip revision: v3.1
+[12:06:53.769]I (28) boot.esp32: SPI Speed      : 40MHz
+[12:06:53.773]I (31) boot.esp32: SPI Mode       : DIO
+[12:06:53.776]I (35) boot.esp32: SPI Flash Size : 4MB
+[12:06:53.781]I (38) boot: Enabling RNG early entropy source...
+[12:06:53.783]I (43) boot: Partition Table:
+[12:06:53.790]I (45) boot: ## Label            Usage          Type ST Offset   Length
+[12:06:53.796]I (52) boot:  0 otadata          OTA data         01 00 00009000 00002000
+[12:06:53.803]I (58) boot:  1 phy_init         RF data          01 01 0000b000 00001000
+[12:06:53.809]I (65) boot:  2 app0             OTA app          00 10 00010000 001c0000
+[12:06:53.816]I (71) boot:  3 app1             OTA app          00 11 001d0000 001c0000
+[12:06:53.822]I (78) boot:  4 nvs              WiFi data        01 02 00390000 00070000
+[12:06:53.826]I (84) boot: End of partition table
+[12:06:53.833]I (88) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1aae8h (109288) map
+[12:06:53.867]I (132) esp_image: segment 1: paddr=0002ab10 vaddr=3ffb0000 size=03e98h ( 16024) load
+[12:06:53.874]I (139) esp_image: segment 2: paddr=0002e9b0 vaddr=40080000 size=01668h (  5736) load
+[12:06:53.882]I (141) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=86058h (548952) map
+[12:06:54.066]I (331) esp_image: segment 4: paddr=000b6080 vaddr=40081668 size=114fch ( 70908) load
+[12:06:54.094]I (359) esp_image: segment 5: paddr=000c7584 vaddr=50000000 size=00020h (    32) load
+[12:06:54.101]I (369) boot: Loaded app from partition at offset 0x10000
+[12:06:54.106]I (369) boot: Disabling RNG early entropy source...
+[12:06:54.247][0;32m[I][logger:127]: Log initialized[0m
+[12:06:54.253][0;35m[C][safe_mode:201]: Unsuccessful boot attempts: 1[0m
+[12:06:54.260][0;36m[D][preferences:254]: Writing 1 items: 0 cached, 1 written, 0 failed[0m
+[12:06:54.264][0;32m[I][app:060]: Running through setup()[0m
+[12:06:54.273][0;35m[C][wifi:662]: Starting[0m
+[12:06:54.362][0;36m[D][wifi:1351]: Starting scan[0m
+[12:06:54.367][0;35m[C][component:164]: Setup wifi took 104ms[0m
+[12:06:54.374][0;33m[W][component:290]: api set Warning flag: waiting for client connection[0m
+[12:06:54.379][0;32m[I][app:117]: setup() finished successfully![0m
+[12:06:54.385][0;33m[W][component:290]: wifi set Warning flag: scanning for networks[0m
+[12:06:54.394][0;32m[I][app:151]: ESPHome version 2026.9.1 compiled on 2026-10-17 12:05:39 +0300[0m
+[12:06:54.400][0;32m[I][app:153]: Project jbasila.gree-gmv-esp32 version 0.1.0[0m
+[12:06:54.406][0;32m[I][app:158]: ESP32 Chip: ESP32 rev3.1, 2 core(s)[0m
+[12:06:54.417][0;33m[W][app:198]: Bootloader supports SRAM1 as IRAM (+40KB). Set sram1_as_iram: true under esp32 > framework > advanced[0m
+[12:06:54.419][0;35m[C][logger:216]: Logger:
+[12:06:54.421]  Max Level: DEBUG
+[12:06:54.423]  Initial Level: DEBUG[0m
+[12:06:54.428][0;35m[C][logger:223]:   Log Baud Rate: 115200
+[12:06:54.430]  Hardware UART: UART0[0m
+[12:06:54.435][0;35m[C][logger:232]:   Task Log Buffer Size: 768 bytes[0m
+[12:06:54.440][0;35m[C][logger:238]:   Level for 'canbus': INFO[0m
+[12:06:54.471][0;35m[C][gree_gmv:015]: Gree GMV hub: 5 unit(s)[0m
+[12:06:54.475][0;35m[C][gree_gmv:016]:   node 0xD000[0m
+[12:06:54.479][0;35m[C][gree_gmv:016]:   node 0xD080[0m
+[12:06:54.483][0;35m[C][gree_gmv:016]:   node 0xD100[0m
+[12:06:54.487][0;35m[C][gree_gmv:016]:   node 0xD180[0m
+[12:06:54.491][0;35m[C][gree_gmv:016]:   node 0xD200[0m
+[12:06:54.497][0;35m[C][gree_gmv.climate:019]: Gree GMV indoor unit 'Living Room'[0m
+[12:06:54.502][0;35m[C][gree_gmv.climate:020]:   node address: 0xD000[0m
+[12:06:54.508][0;35m[C][gree_gmv.climate:019]: Gree GMV indoor unit 'Bedroom 1'[0m
+[12:06:54.513][0;35m[C][gree_gmv.climate:020]:   node address: 0xD080[0m
+[12:06:54.524][0;35m[C][gree_gmv.climate:019]: Gree GMV indoor unit 'Bedroom 2'[0m
+[12:06:54.529][0;35m[C][gree_gmv.climate:020]:   node address: 0xD100[0m
+[12:06:54.541][0;35m[C][gree_gmv.climate:019]: Gree GMV indoor unit 'Bedroom 3'[0m
+[12:06:54.546][0;35m[C][gree_gmv.climate:020]:   node address: 0xD180[0m
+[12:06:54.557][0;35m[C][gree_gmv.climate:019]: Gree GMV indoor unit 'Bedroom 4'[0m
+[12:06:54.563][0;35m[C][gree_gmv.climate:020]:   node address: 0xD200[0m
+[12:06:54.572][0;35m[C][network:050]: Network:
+[12:06:54.575]  TCP send buffer: 5760 bytes[0m
+[12:06:54.588][0;35m[C][wifi:1582]: WiFi:
+[12:06:54.591]  Local MAC: XX:XX:XX:XX:XX:XX
+[12:06:54.593]  Connected: NO[0m
+[12:06:54.607][0;35m[C][esphome.ota:125]: Over-The-Air updates:
+[12:06:54.609]  Address: vrf.local:3232
+[12:06:54.611]  Version: 2
+[12:06:54.615]  Encryption: offered, plaintext accepted[0m
+[12:06:54.623][0;35m[C][safe_mode:058]: Safe Mode:
+[12:06:54.625]  Successful after: 60s
+[12:06:54.628]  Invoke after: 10 attempts
+[12:06:54.629]  Duration: 300s[0m
+[12:06:54.635][0;35m[C][safe_mode:079]:   Bootloader rollback: support unknown[0m
+[12:06:54.643][0;35m[C][api:293]: Server:
+[12:06:54.645]  Address: vrf.local:6053
+[12:06:54.647]  Listen backlog: 4
+[12:06:54.649]  Max connections: 5[0m
+[12:06:54.653][0;35m[C][api:300]:   Noise encryption: YES[0m
+[12:06:54.660][0;35m[C][mdns:259]: mDNS:
+[12:06:54.663]  Hostname: vrf[0m
+[12:06:55.433][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=1 fan=1 swing=1/1 target=nan current=26.0[0m
+[12:06:55.720][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=1 fan=1 swing=1/1 target=nan current=26.0[0m
+[12:06:55.737][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=nan current=26.0[0m
+[12:06:55.755][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:06:57.371][0;36m[D][wifi:1511]: Found networks:[0m
+[12:06:57.382][0;32m[I][wifi:1482]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄▆[0;37m█[0m Ch:11 -54dB P:0[0m
+[12:06:57.392][0;32m[I][wifi:1482]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄▆[0;37m█[0m Ch:11 -60dB P:0[0m
+[12:06:57.403][0;32m[I][wifi:1482]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄▆[0;37m█[0m Ch: 1 -64dB P:0[0m
+[12:06:57.414][0;32m[I][wifi:1482]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄[0;37m▆█[0m Ch: 6 -71dB P:0[0m
+[12:06:57.420][0;36m[D][wifi:1908]: Retry phase: INITIAL_CONNECT → SCAN_CONNECTING[0m
+[12:06:57.433][0;32m[I][wifi:1145]: Connecting to [8m'my-wifi'[28m [8m(XX:XX:XX:XX:XX:XX)[28m (priority 0, attempt 1/2 in phase SCAN_CONNECTING)...[0m
+[12:06:58.058][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=1/1 target=nan current=26.0[0m
+[12:06:58.194][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=1/1 target=nan current=26.0[0m
+[12:06:58.262][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=nan current=26.0[0m
+[12:06:58.313][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:06:58.682][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=1 fan=1 swing=1/1 target=nan current=26.0[0m
+[12:06:58.696][0;32m[I][wifi:1626]: Connected[0m
+[12:06:58.701][0;35m[C][wifi:1286]:   IP Address: 192.168.1.68[0m
+[12:06:58.706][0;35m[C][wifi:1297]:   SSID: [8m'my-wifi'[28m
+[12:06:58.709]  BSSID: [8mXX:XX:XX:XX:XX:XX[28m
+[12:06:58.710]  Hostname: 'vrf'
+[12:06:58.715]  Signal strength: -54 dB [0;33m▂▄▆[0;37m█[0m
+[12:06:58.717]  Channel: 11
+[12:06:58.719]  Subnet: 255.255.255.0
+[12:06:58.721]  Gateway: 192.168.1.1
+[12:06:58.723]  DNS1: 192.168.1.1
+[12:06:58.724]  DNS2: 0.0.0.0[0m
+[12:06:58.729][0;33m[W][component:313]: wifi cleared Warning flag[0m
+[12:06:58.854][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=1 fan=1 swing=1/1 target=nan current=26.0[0m
+[12:06:58.905][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=nan current=26.0[0m
+[12:06:58.990][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:06:59.144][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=1 swing=1/1 target=nan current=nan[0m
+[12:06:59.161][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=nan current=nan[0m
+[12:06:59.194][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=nan[0m
+[12:07:13.767][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=nan current=24.0[0m
+[12:07:13.970][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=nan current=24.0[0m
+[12:07:14.088][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=25.0 current=24.0[0m
+[12:07:16.390][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:07:16.627][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:07:16.678][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:07:18.927][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:07:19.078][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:07:19.146][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:07:19.213][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:07:19.559][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:07:19.713][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:07:19.780][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:07:19.793][0;36m[D][api:277]: Accept 192.168.1.62[0m
+[12:07:19.798][0;33m[W][component:313]: api cleared Warning flag[0m
+[12:07:19.849][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:07:20.035][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=nan[0m
+[12:07:20.087][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=nan[0m
+[12:07:20.266][0;36m[D][api.connection:2669]: aioesphomeapi (192.168.1.62): connected[0m
+[12:07:20.306][0;36m[D][gree_gmv:057]: write 0x1CBFD073 off=0 len=2 val=04[0m
+[12:07:20.322][0;33m[W][esp32_can:176]: entered error-passive[0m
+[12:07:20.440][0;33m[W][esp32_can:179]: bus-off, starting recovery[0m
+[12:07:20.729][0;32m[I][esp32_can:177]: back to error-active[0m
+[12:07:20.735][0;32m[I][esp32_can:183]: bus recovered, restarting controller[0m
+[12:07:21.313][0;36m[D][api.connection:2669]: aioesphomeapi (192.168.1.62): disconnected[0m
+[12:07:21.324][0;33m[W][component:290]: api set Warning flag: waiting for client connection[0m
+[12:07:28.607][0;36m[D][api:277]: Accept 192.168.1.242[0m
+[12:07:28.612][0;33m[W][component:313]: api cleared Warning flag[0m
+[12:07:28.616][0;36m[D][api:277]: Accept 192.168.1.242[0m
+[12:07:28.685][0;33m[W][component:419]: api took a long time for an operation (73 ms), max is 50 ms[0m
+[12:07:28.693][0;36m[D][api.connection:2669]: ESPHome Logs 2026.9.1 (192.168.1.242): connected[0m
+[12:07:28.700][0;36m[D][api.connection:2669]: Home Assistant 2026.10.2 (192.168.1.242): connected[0m
+[12:07:34.609][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=25.0 current=24.0[0m
+[12:07:34.835][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=25.0 current=24.0[0m
+[12:07:34.890][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:07:34.928][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:07:37.164][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:07:37.459][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:07:37.497][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:07:39.764][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:07:39.906][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:07:39.959][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:07:40.017][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:07:40.390][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:07:40.551][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:07:40.675][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:07:40.852][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=nan[0m
+[12:07:40.907][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=nan[0m
+[12:07:54.263][0;32m[I][safe_mode:154]: Boot seems successful; resetting boot loop counter[0m
+[12:07:55.431][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:07:55.625][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:07:55.695][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:07:55.770][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:07:58.098][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:07:58.356][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:07:58.377][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:07:58.398][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:07:58.700][0;36m[D][preferences:254]: Writing 1 items: 0 cached, 1 written, 0 failed[0m
+[12:08:00.731][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:08:00.873][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:08:00.927][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:08:00.965][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:08:01.335][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:08:01.478][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:08:01.549][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:08:01.624][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:08:01.750][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:08:01.805][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:08:01.843][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m

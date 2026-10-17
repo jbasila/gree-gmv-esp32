@@ -1,0 +1,1017 @@
+[12:13:10.286]00,hd_drv:00,wp_drv:0x00
+[12:13:10.288]mode:DIO, clock div:2
+[12:13:10.290]load:0x3fff0030,len:6248
+[12:13:10.293]load:0x40078000,len:15904
+[12:13:10.295]load:0x40080400,len:3896
+[12:13:10.296]entry 0x40080640
+[12:13:10.303]I (27) boot: ESP-IDF v5.5.5 2nd stage bootloader
+[12:13:10.306]I (27) boot: Multicore bootloader
+[12:13:10.309]I (28) boot: chip revision: v3.1
+[12:13:10.312]I (28) boot.esp32: SPI Speed      : 40MHz
+[12:13:10.316]I (31) boot.esp32: SPI Mode       : DIO
+[12:13:10.319]I (35) boot.esp32: SPI Flash Size : 4MB
+[12:13:10.324]I (38) boot: Enabling RNG early entropy source...
+[12:13:10.327]I (43) boot: Partition Table:
+[12:13:10.333]I (45) boot: ## Label            Usage          Type ST Offset   Length
+[12:13:10.339]I (52) boot:  0 otadata          OTA data         01 00 00009000 00002000
+[12:13:10.346]I (58) boot:  1 phy_init         RF data          01 01 0000b000 00001000
+[12:13:10.352]I (65) boot:  2 app0             OTA app          00 10 00010000 001c0000
+[12:13:10.359]I (71) boot:  3 app1             OTA app          00 11 001d0000 001c0000
+[12:13:10.365]I (78) boot:  4 nvs              WiFi data        01 02 00390000 00070000
+[12:13:10.369]I (84) boot: End of partition table
+[12:13:10.376]I (88) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1ab38h (109368) map
+[12:13:10.410]I (132) esp_image: segment 1: paddr=0002ab60 vaddr=3ffb0000 size=03e98h ( 16024) load
+[12:13:10.417]I (139) esp_image: segment 2: paddr=0002ea00 vaddr=40080000 size=01618h (  5656) load
+[12:13:10.425]I (141) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=85bfch (547836) map
+[12:13:10.608]I (331) esp_image: segment 4: paddr=000b5c24 vaddr=40081618 size=1154ch ( 70988) load
+[12:13:10.637]I (359) esp_image: segment 5: paddr=000c7178 vaddr=50000000 size=00020h (    32) load
+[12:13:10.644]I (369) boot: Loaded app from partition at offset 0x10000
+[12:13:10.649]I (369) boot: Disabling RNG early entropy source...
+[12:13:10.795][0;32m[I][logger:127]: Log initialized[0m
+[12:13:10.800][0;35m[C][safe_mode:201]: Unsuccessful boot attempts: 1[0m
+[12:13:10.807][0;36m[D][preferences:254]: Writing 1 items: 0 cached, 1 written, 0 failed[0m
+[12:13:10.812][0;32m[I][app:060]: Running through setup()[0m
+[12:13:10.819][0;35m[C][wifi:662]: Starting[0m
+[12:13:10.894][0;36m[D][wifi:1351]: Starting scan[0m
+[12:13:10.899][0;35m[C][component:164]: Setup wifi took 90ms[0m
+[12:13:10.906][0;33m[W][component:290]: api set Warning flag: waiting for client connection[0m
+[12:13:10.911][0;32m[I][app:117]: setup() finished successfully![0m
+[12:13:10.917][0;33m[W][component:290]: wifi set Warning flag: scanning for networks[0m
+[12:13:10.926][0;32m[I][app:151]: ESPHome version 2026.9.1 compiled on 2026-10-17 12:12:41 +0300[0m
+[12:13:10.932][0;32m[I][app:153]: Project jbasila.gree-gmv-esp32 version 0.1.0[0m
+[12:13:10.937][0;32m[I][app:158]: ESP32 Chip: ESP32 rev3.1, 2 core(s)[0m
+[12:13:10.948][0;33m[W][app:198]: Bootloader supports SRAM1 as IRAM (+40KB). Set sram1_as_iram: true under esp32 > framework > advanced[0m
+[12:13:10.951][0;35m[C][logger:216]: Logger:
+[12:13:10.953]  Max Level: DEBUG
+[12:13:10.955]  Initial Level: DEBUG[0m
+[12:13:10.959][0;35m[C][logger:223]:   Log Baud Rate: 115200
+[12:13:10.962]  Hardware UART: UART0[0m
+[12:13:10.967][0;35m[C][logger:232]:   Task Log Buffer Size: 768 bytes[0m
+[12:13:10.972][0;35m[C][logger:238]:   Level for 'canbus': INFO[0m
+[12:13:10.981][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=1 fan=1 swing=1/1 target=nan current=26.0[0m
+[12:13:11.006][0;35m[C][gree_gmv:015]: Gree GMV hub: 5 unit(s)[0m
+[12:13:11.010][0;35m[C][gree_gmv:016]:   node 0xD000[0m
+[12:13:11.014][0;35m[C][gree_gmv:016]:   node 0xD080[0m
+[12:13:11.018][0;35m[C][gree_gmv:016]:   node 0xD100[0m
+[12:13:11.021][0;35m[C][gree_gmv:016]:   node 0xD180[0m
+[12:13:11.025][0;35m[C][gree_gmv:016]:   node 0xD200[0m
+[12:13:11.032][0;35m[C][gree_gmv.climate:019]: Gree GMV indoor unit 'Living Room'[0m
+[12:13:11.037][0;35m[C][gree_gmv.climate:020]:   node address: 0xD000[0m
+[12:13:11.043][0;35m[C][gree_gmv.climate:019]: Gree GMV indoor unit 'Bedroom 1'[0m
+[12:13:11.048][0;35m[C][gree_gmv.climate:020]:   node address: 0xD080[0m
+[12:13:11.059][0;35m[C][gree_gmv.climate:019]: Gree GMV indoor unit 'Bedroom 2'[0m
+[12:13:11.065][0;35m[C][gree_gmv.climate:020]:   node address: 0xD100[0m
+[12:13:11.076][0;35m[C][gree_gmv.climate:019]: Gree GMV indoor unit 'Bedroom 3'[0m
+[12:13:11.082][0;35m[C][gree_gmv.climate:020]:   node address: 0xD180[0m
+[12:13:11.093][0;35m[C][gree_gmv.climate:019]: Gree GMV indoor unit 'Bedroom 4'[0m
+[12:13:11.098][0;35m[C][gree_gmv.climate:020]:   node address: 0xD200[0m
+[12:13:11.107][0;35m[C][network:050]: Network:
+[12:13:11.110]  TCP send buffer: 5760 bytes[0m
+[12:13:11.124][0;35m[C][wifi:1582]: WiFi:
+[12:13:11.132]  Local MAC: XX:XX:XX:XX:XX:XX
+[12:13:11.132]  Connected: NO[0m
+[12:13:11.143][0;35m[C][esphome.ota:125]: Over-The-Air updates:
+[12:13:11.145]  Address: vrf.local:3232
+[12:13:11.146]  Version: 2
+[12:13:11.150]  Encryption: offered, plaintext accepted[0m
+[12:13:11.159][0;35m[C][safe_mode:058]: Safe Mode:
+[12:13:11.161]  Successful after: 60s
+[12:13:11.163]  Invoke after: 10 attempts
+[12:13:11.165]  Duration: 300s[0m
+[12:13:11.171][0;35m[C][safe_mode:079]:   Bootloader rollback: support unknown[0m
+[12:13:11.177][0;35m[C][api:293]: Server:
+[12:13:11.180]  Address: vrf.local:6053
+[12:13:11.181]  Listen backlog: 4
+[12:13:11.184]  Max connections: 5[0m
+[12:13:11.188][0;35m[C][api:300]:   Noise encryption: YES[0m
+[12:13:11.195][0;35m[C][mdns:259]: mDNS:
+[12:13:11.197]  Hostname: vrf[0m
+[12:13:11.270][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=1 fan=1 swing=1/1 target=nan current=26.0[0m
+[12:13:11.279][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=nan current=26.0[0m
+[12:13:11.307][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:13:11.324][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=0 mode=1 fan=1 swing=1/1 target=nan current=23.0[0m
+[12:13:11.358][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=1/1 target=nan current=26.0[0m
+[12:13:11.540][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=1 fan=1 swing=1/1 target=nan current=26.0[0m
+[12:13:11.574][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=0 mode=1 fan=1 swing=1/1 target=nan current=23.0[0m
+[12:13:11.659][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=1/1 target=nan current=26.0[0m
+[12:13:12.079][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=1 fan=1 swing=1/1 target=nan current=26.0[0m
+[12:13:12.130][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=0 mode=1 fan=1 swing=1/1 target=nan current=23.0[0m
+[12:13:12.182][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=0 mode=1 fan=1 swing=1/1 target=nan current=23.0[0m
+[12:13:12.234][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=1/1 target=nan current=26.0[0m
+[12:13:12.670][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=1 fan=1 swing=1/1 target=nan current=26.0[0m
+[12:13:12.722][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=0 mode=1 fan=1 swing=1/1 target=nan current=23.0[0m
+[12:13:12.842][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=1/1 target=nan current=26.0[0m
+[12:13:13.046][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=1/1 target=nan current=26.0[0m
+[12:13:13.063][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=nan current=26.0[0m
+[12:13:13.199][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:13.534][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=1 fan=1 swing=1/1 target=nan current=26.0[0m
+[12:13:13.739][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=1 fan=1 swing=1/1 target=nan current=26.0[0m
+[12:13:13.757][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=nan current=26.0[0m
+[12:13:13.876][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:13.908][0;36m[D][wifi:1511]: Found networks:[0m
+[12:13:13.919][0;32m[I][wifi:1482]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄▆[0;37m█[0m Ch:11 -54dB P:0[0m
+[12:13:13.929][0;32m[I][wifi:1482]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄▆[0;37m█[0m Ch: 1 -62dB P:0[0m
+[12:13:13.940][0;32m[I][wifi:1482]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄▆[0;37m█[0m Ch:11 -63dB P:0[0m
+[12:13:13.951][0;32m[I][wifi:1482]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄[0;37m▆█[0m Ch: 6 -82dB P:0[0m
+[12:13:13.957][0;36m[D][wifi:1908]: Retry phase: INITIAL_CONNECT → SCAN_CONNECTING[0m
+[12:13:13.970][0;32m[I][wifi:1145]: Connecting to [8m'my-wifi'[28m [8m(XX:XX:XX:XX:XX:XX)[28m (priority 0, attempt 1/2 in phase SCAN_CONNECTING)...[0m
+[12:13:13.979][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=0 mode=1 fan=1 swing=1/1 target=nan current=23.0[0m
+[12:13:13.988][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:14.112][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:14.147][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=0 mode=1 fan=1 swing=1/1 target=nan current=23.0[0m
+[12:13:14.165][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:14.703][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:14.738][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=0 mode=1 fan=1 swing=1/1 target=nan current=23.0[0m
+[12:13:14.824][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:15.146][0;33m[W][wifi_esp32:869]: Disconnected ssid='my-wifi' bssid=[8mXX:XX:XX:XX:XX:XX[28m reason='Association Expired'[0m
+[12:13:15.152][0;33m[W][wifi:1729]: Connecting to network failed (callback)[0m
+[12:13:15.161][0;36m[D][wifi:2090]: Failed [8m'my-wifi'[28m [8m(XX:XX:XX:XX:XX:XX)[28m, priority 0 → 0[0m
+[12:13:15.167][0;36m[D][wifi:2161]: Retry attempt 2/2 in phase SCAN_CONNECTING[0m
+[12:13:15.180][0;32m[I][wifi:1145]: Connecting to [8m'my-wifi'[28m [8m(XX:XX:XX:XX:XX:XX)[28m (priority 0, attempt 2/2 in phase SCAN_CONNECTING)...[0m
+[12:13:15.292][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:15.429][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=0 mode=1 fan=1 swing=1/1 target=nan current=23.0[0m
+[12:13:15.634][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=1 swing=1/1 target=nan current=23.0[0m
+[12:13:15.652][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=nan current=23.0[0m
+[12:13:15.772][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:15.807][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:15.954][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=nan current=24.0[0m
+[12:13:16.041][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:16.057][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:16.126][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:16.276][0;32m[I][wifi:1626]: Connected[0m
+[12:13:16.281][0;35m[C][wifi:1286]:   IP Address: 192.168.1.68[0m
+[12:13:16.286][0;35m[C][wifi:1297]:   SSID: [8m'my-wifi'[28m
+[12:13:16.289]  BSSID: [8mXX:XX:XX:XX:XX:XX[28m
+[12:13:16.291]  Hostname: 'vrf'
+[12:13:16.296]  Signal strength: -53 dB [0;33m▂▄▆[0;37m█[0m
+[12:13:16.297]  Channel: 11
+[12:13:16.299]  Subnet: 255.255.255.0
+[12:13:16.301]  Gateway: 192.168.1.1
+[12:13:16.303]  DNS1: 192.168.1.1
+[12:13:16.304]  DNS2: 0.0.0.0[0m
+[12:13:16.309][0;33m[W][component:313]: wifi cleared Warning flag[0m
+[12:13:16.549][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=nan current=24.0[0m
+[12:13:16.618][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=nan current=24.0[0m
+[12:13:16.687][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:16.722][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:16.774][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:17.124][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=nan current=24.0[0m
+[12:13:17.209][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:17.227][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:17.313][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:17.711][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=nan current=24.0[0m
+[12:13:17.780][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:17.849][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:17.901][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:18.299][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=nan current=24.0[0m
+[12:13:18.385][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:18.437][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:18.506][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:18.888][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=nan current=24.0[0m
+[12:13:18.974][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:18.992][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:19.061][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:19.475][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=nan current=24.0[0m
+[12:13:19.544][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:19.613][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:19.665][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:20.050][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=nan current=24.0[0m
+[12:13:20.119][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:20.170][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:13:20.205][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:20.624][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=nan current=24.0[0m
+[12:13:20.710][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:20.796][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:20.848][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:20.883][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:21.231][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=nan current=24.0[0m
+[12:13:21.283][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:21.335][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:21.387][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:21.818][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=nan current=24.0[0m
+[12:13:21.870][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:21.922][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:22.008][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:22.405][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=nan current=24.0[0m
+[12:13:22.473][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:22.482][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:22.526][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:22.976][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=nan current=24.0[0m
+[12:13:23.062][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:23.113][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:23.215][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:23.562][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=nan current=24.0[0m
+[12:13:23.614][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:23.665][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:23.733][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:24.164][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=nan current=24.0[0m
+[12:13:24.233][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:24.302][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:24.370][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:24.388][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:24.750][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=nan current=24.0[0m
+[12:13:24.836][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:24.853][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:24.922][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:25.318][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=nan current=24.0[0m
+[12:13:25.404][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:25.422][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:25.490][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:25.904][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:25.939][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:25.957][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=25.0[0m
+[12:13:26.474][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:26.525][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:26.627][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:27.095][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:27.129][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:13:27.164][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:27.682][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:27.717][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:27.803][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:28.253][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:28.288][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:28.340][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:28.374][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:28.975][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=nan current=24.0[0m
+[12:13:29.069][0;36m[D][api:277]: Accept 192.168.1.242[0m
+[12:13:29.074][0;33m[W][component:313]: api cleared Warning flag[0m
+[12:13:29.078][0;36m[D][api:277]: Accept 192.168.1.242[0m
+[12:13:29.148][0;33m[W][component:419]: api took a long time for an operation (70 ms), max is 50 ms[0m
+[12:13:29.155][0;36m[D][api.connection:2669]: ESPHome Logs 2026.9.1 (192.168.1.242): connected[0m
+[12:13:29.163][0;36m[D][api.connection:2669]: Home Assistant 2026.10.2 (192.168.1.242): connected[0m
+[12:13:29.247][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=nan current=24.0[0m
+[12:13:29.336][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=25.0 current=24.0[0m
+[12:13:29.362][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:29.385][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:29.404][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:29.413][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:29.563][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:29.636][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:29.679][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:30.599][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:30.637][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:30.676][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:31.203][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:31.243][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:31.281][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:31.947][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:13:32.296][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:13:32.305][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:13:32.337][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:13:32.358][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:32.367][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:32.548][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:32.586][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:32.678][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:33.103][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:33.159][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:33.196][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:33.708][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:33.747][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:33.925][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:34.154][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:34.174][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:34.230][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:34.539][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:34.767][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:34.789][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:34.899][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:34.954][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:35.145][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:35.183][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:35.204][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:35.681][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:35.769][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:35.796][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:35.817][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:36.261][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:36.332][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:36.511][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:36.739][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:36.760][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:36.798][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:36.821][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:36.976][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:37.048][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:37.108][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:37.163][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:37.556][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:37.610][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:37.650][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:13:37.708][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:38.137][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:38.191][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:38.230][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:38.289][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:38.413][0;36m[D][gree_gmv:023]: observed write to 0xD000 type 0x6F off=0 val=01[0m
+[12:13:38.736][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:38.774][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:38.795][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:38.873][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:38.929][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:39.321][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:39.378][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:39.416][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:13:39.457][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:39.917][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:39.971][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:40.011][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:40.069][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:40.496][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:40.585][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:40.628][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:40.683][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:13:40.721][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:13:40.763][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:41.104][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:41.191][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:41.234][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:13:41.307][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:41.366][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=25.0[0m
+[12:13:41.708][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:41.817][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:41.910][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:13:41.970][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:42.308][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:42.395][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:42.489][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:13:42.545][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:42.904][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:42.992][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:43.051][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:43.105][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:43.481][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:43.554][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:43.613][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:13:43.684][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=25.0[0m
+[12:13:44.075][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:44.165][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:44.189][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:44.245][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:44.669][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:44.741][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:44.800][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:44.872][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:45.264][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:45.319][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:45.340][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:45.361][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:45.837][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:45.875][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:45.913][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:13:45.957][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:46.448][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:46.519][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:46.539][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:46.615][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:47.040][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:47.094][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:47.133][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:47.191][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:47.213][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:47.620][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:47.708][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:47.731][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:47.822][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:48.213][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:48.251][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:48.260][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:13:48.349][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:48.793][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:48.849][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:48.887][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:13:48.946][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:49.541][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:49.804][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:49.842][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:49.918][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:49.939][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:49.948][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:13:49.956][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:50.136][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:50.158][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:50.213][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:50.690][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:50.763][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:50.784][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:13:50.877][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:51.251][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:51.322][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:51.344][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:13:51.386][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:51.844][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:51.932][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:51.960][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:13:51.981][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:13:52.019][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:52.081][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:52.915][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:53.093][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:13:53.441][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:13:53.462][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:13:53.483][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:13:53.504][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:13:53.525][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:53.714][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:53.752][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:13:53.790][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:54.268][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:54.323][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:54.362][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:13:54.421][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:13:54.581][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:54.777][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:54.798][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:54.836][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:55.008][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:55.204][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:55.416][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:55.437][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:55.529][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:55.553][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:55.574][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:55.730][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:55.768][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:55.822][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:13:55.848][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:13:55.921][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:56.331][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:56.403][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:56.461][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:13:56.515][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:56.909][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:56.964][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:57.143][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:13:57.355][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:13:57.376][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:13:57.448][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:13:57.474][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:57.646][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:57.684][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:13:57.722][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:13:57.765][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:58.191][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:58.229][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:58.250][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:58.326][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:58.786][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:58.842][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:58.880][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:58.922][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:59.364][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:13:59.435][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:13:59.479][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:13:59.517][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:13:59.963][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:00.035][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:00.057][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:14:00.133][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:00.541][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:00.613][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:00.672][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:14:00.761][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:00.803][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:01.127][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:01.200][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:01.258][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:01.296][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:01.704][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:01.792][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:01.852][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:01.940][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:02.297][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:02.318][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:02.374][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:02.433][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:02.892][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:02.964][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:03.023][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:14:03.078][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:03.488][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:03.561][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:03.582][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:03.658][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:04.065][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:04.137][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:04.196][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:04.234][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:04.327][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:04.651][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:04.740][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:04.799][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:04.888][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:05.248][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:05.320][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:05.360][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:05.381][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:05.418][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:05.844][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:05.900][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:05.909][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:05.927][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:05.986][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:06.427][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:06.499][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:06.520][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:06.597][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:06.618][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:07.008][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:07.080][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:07.139][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:07.175][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:07.546][0;36m[D][gree_gmv:023]: observed write to 0xD000 type 0x71 off=1 val=03[0m
+[12:14:07.585][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:07.674][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=3 swing=1/1 target=25.0 current=24.0[0m
+[12:14:07.698][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:07.753][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:07.774][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:08.165][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=3 swing=1/1 target=25.0 current=24.0[0m
+[12:14:08.237][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:08.296][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:08.351][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:08.745][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=3 swing=1/1 target=25.0 current=24.0[0m
+[12:14:08.854][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:08.875][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:08.913][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:08.934][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:09.326][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=3 swing=1/1 target=25.0 current=24.0[0m
+[12:14:09.383][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:09.422][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:09.464][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:10.077][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=3 swing=1/1 target=25.0 current=24.0[0m
+[12:14:10.325][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=3 swing=1/1 target=25.0 current=24.0[0m
+[12:14:10.347][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=3 swing=1/1 target=25.0 current=24.0[0m
+[12:14:10.438][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=3 swing=1/1 target=25.0 current=24.0[0m
+[12:14:10.457][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:10.466][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:10.480][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:10.501][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:10.690][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:10.712][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:10.721][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:10.770][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:10.810][0;32m[I][safe_mode:154]: Boot seems successful; resetting boot loop counter[0m
+[12:14:11.242][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=3 swing=1/1 target=25.0 current=24.0[0m
+[12:14:11.315][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:11.374][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:11.412][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:11.487][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:11.827][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=3 swing=1/1 target=25.0 current=24.0[0m
+[12:14:11.900][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:11.958][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:11.996][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:12.034][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:12.459][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:12.480][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:12.518][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:12.578][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:13.004][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=3 swing=1/1 target=25.0 current=24.0[0m
+[12:14:13.077][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:13.099][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:13.175][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:13.582][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=3 swing=1/1 target=25.0 current=24.0[0m
+[12:14:13.671][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:13.849][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:14.017][0;36m[D][preferences:254]: Writing 1 items: 0 cached, 1 written, 0 failed[0m
+[12:14:14.131][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:14.140][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:14.155][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:14.193][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:14:14.202][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:14.351][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=3 swing=1/1 target=25.0 current=24.0[0m
+[12:14:14.404][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:14.466][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:14:14.503][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:14.611][0;36m[D][gree_gmv:023]: observed write to 0xD000 type 0x71 off=1 val=06[0m
+[12:14:15.478][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:15.515][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:15.570][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:15.595][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:14:15.753][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:15.932][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:15.940][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:15.975][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:16.130][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:16.343][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:16.555][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:16.564][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:16.667][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:16.691][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:16.700][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:16.716][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:16.854][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:16.925][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:16.966][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:16.987][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:17.008][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:17.450][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:17.521][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:17.564][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:17.588][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:18.030][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:18.120][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:18.180][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:18.342][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:18.536][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:18.558][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:18.596][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:18.618][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:18.790][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:18.828][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:18.866][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:18.910][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:19.336][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:19.391][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:19.429][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:19.452][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:19.489][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:19.917][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:19.990][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:20.012][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:20.056][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:14:20.111][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:20.148][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:20.524][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:20.597][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:20.618][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:20.695][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:21.101][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:21.157][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:21.166][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:21.198][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:21.257][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:21.681][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:21.737][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:21.758][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:21.779][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:21.838][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:22.281][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:22.321][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:22.342][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:14:22.418][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:22.859][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:22.932][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:22.954][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:23.046][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:23.438][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:23.527][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:23.554][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:23.575][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:23.630][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:24.024][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:24.080][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:24.089][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:24.143][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:24.603][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:24.658][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:24.719][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:24.757][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:25.183][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:25.272][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:25.332][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:25.386][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:25.762][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:25.851][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:25.878][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:25.966][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:26.357][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:26.429][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:26.450][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:26.476][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:26.533][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:26.943][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:26.997][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:27.019][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:27.060][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:27.099][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:27.526][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:27.581][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:27.640][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:27.649][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:14:27.700][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:28.126][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:28.199][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:28.220][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:28.296][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:28.689][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:28.779][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:28.823][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:14:28.879][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:29.278][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:29.366][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:29.459][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:29.468][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:29.502][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:29.877][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:29.933][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:29.954][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:29.995][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:30.677][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:30.940][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:30.962][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:30.999][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:31.020][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:31.029][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:31.046][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:14:31.055][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:31.222][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:31.259][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:31.313][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:31.772][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:31.828][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:31.889][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:31.926][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:31.964][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:32.409][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:32.448][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:32.486][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:32.947][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:33.036][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:33.063][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:33.118][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:33.527][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:33.600][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:33.621][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:33.697][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:34.106][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:34.161][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:34.221][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:34.230][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:34.265][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:34.709][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:34.748][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:34.943][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:35.256][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:35.277][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:35.299][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:35.320][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:35.341][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:35.497][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:35.552][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:35.590][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:35.649][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:35.704][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:35.726][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:36.099][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:36.170][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:36.216][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:36.255][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:36.433][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:36.468][0;36m[D][gree_gmv:023]: observed write to 0xD000 type 0x6F off=0 val=00[0m
+[12:14:36.631][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:36.652][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:36.690][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:36.896][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=1 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:36.935][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:37.063][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:37.274][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:37.294][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:37.421][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:37.531][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:37.570][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:38.083][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:38.121][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:38.142][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:38.180][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:38.605][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:38.678][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:38.822][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:39.034][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:39.055][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:39.150][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:39.171][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:39.359][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:39.396][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:39.417][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:39.477][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:39.905][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:39.977][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:40.035][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:40.090][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:40.499][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:40.554][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:40.592][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:40.621][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:40.658][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:41.101][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:41.156][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:41.194][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:41.253][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:41.291][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:41.700][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:41.788][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:41.847][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:41.868][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:41.940][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:42.282][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:42.371][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:42.431][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:42.452][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:42.473][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:42.865][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:42.976][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:43.047][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:43.090][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:43.464][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:43.519][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:43.557][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:43.617][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:43.671][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:44.045][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:44.134][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:44.193][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:44.249][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:44.286][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:44.659][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:44.732][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:44.789][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:44.844][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:45.235][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:45.324][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:45.384][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:45.406][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:45.478][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:45.834][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:45.889][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:45.911][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:45.932][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:45.974][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:46.418][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:46.505][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:46.532][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:46.604][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:47.011][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:47.067][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:47.126][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:47.197][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:47.606][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:47.660][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:47.699][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:47.758][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:14:47.797][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:48.206][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:48.227][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:48.248][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:48.302][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:48.813][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:48.835][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=23.0[0m
+[12:14:48.873][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:49.365][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:49.438][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:49.459][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:49.535][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:49.607][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:49.949][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:49.988][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:50.009][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:50.047][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:50.123][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:50.548][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:50.603][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:50.664][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:50.736][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:51.315][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:51.579][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:51.600][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:51.673][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:51.699][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:51.720][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:51.741][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:51.880][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:51.953][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:52.012][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:52.067][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:52.458][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:52.530][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:52.551][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:52.593][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:52.649][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:53.059][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:53.080][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:53.101][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:53.122][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:53.182][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:53.642][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:53.697][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:53.754][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:53.764][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:53.798][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:54.276][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:54.296][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:54.317][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:54.374][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:54.833][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:54.922][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:54.946][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:55.001][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:55.443][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:55.605][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:55.935][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:55.957][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:55.995][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:56.016][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:56.025][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:56.174][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:56.212][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:56.233][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:56.291][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:56.766][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:56.838][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:56.859][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:57.071][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:57.267][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:57.288][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:57.327][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:57.650][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:57.878][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:57.899][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:58.009][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:58.030][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:58.051][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:58.190][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:14:58.229][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:58.267][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:14:58.311][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:58.349][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:58.808][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:58.845][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:58.938][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:58.976][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:14:59.402][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:14:59.580][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:59.792][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:59.812][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:14:59.938][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:15:00.065][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:15:00.560][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:15:00.581][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:15:00.603][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:15:00.678][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:15:01.120][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:15:01.193][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:15:01.286][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:15:01.763][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:15:01.772][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:15:01.838][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:15:02.332][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:15:02.370][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:15:02.447][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:15:02.908][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:15:02.946][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:15:03.056][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:15:03.464][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:15:03.518][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:15:03.539][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:15:03.599][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:15:03.653][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:15:04.061][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:15:04.099][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:15:04.137][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:15:04.178][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:15:04.237][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:15:04.662][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:15:04.717][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:15:04.755][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:15:04.779][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:15:04.817][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:15:05.243][0;36m[D][gree_gmv.climate:103]: 'Living Room' power=0 mode=3 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:15:05.332][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:15:05.359][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:15:05.380][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:15:05.417][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:15:05.826][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:15:05.880][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:15:05.938][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:15:06.451][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:15:06.489][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:15:06.528][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:15:06.586][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:15:07.012][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:15:07.067][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:15:07.105][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:15:07.164][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:15:07.590][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:15:07.612][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:15:07.705][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:15:08.194][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:15:08.249][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:15:08.325][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:15:08.802][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:15:08.840][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:15:08.861][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:15:08.922][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:15:09.365][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:15:09.404][0;36m[D][gree_gmv.climate:103]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:15:09.459][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:15:09.482][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:15:09.925][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:15:09.998][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:15:10.089][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:15:10.533][0;36m[D][gree_gmv.climate:103]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:15:10.589][0;36m[D][gree_gmv.climate:103]: 'Bedroom 3' power=1 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:15:10.627][0;36m[D][gree_gmv.climate:103]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:15:11.188]ets Jul 29 2019 12:21:46
+[12:15:11.188]
+[12:15:11.195]rst:0x1 (POWERON_RESET),boot:0x3 (DOWNLOAD_BOOT(UART0/UART1/SDIO_REI_REO_V2))
+[12:15:11.197]waiting for download

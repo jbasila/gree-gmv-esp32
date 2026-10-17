@@ -31,6 +31,12 @@ class GreeGMVClimate : public climate::Climate, public Component, public GreeGMV
   uint8_t swing_h_{SWING_OFF};
   float min_temp_{16.0f};
   float max_temp_{30.0f};
+
+  // Last published snapshot, so a repeated identical broadcast does not spam Home Assistant.
+  bool published_{false};
+  bool last_power_{false};
+  uint8_t last_mode_{0}, last_fan_{0}, last_swing_v_{0}, last_swing_h_{0};
+  float last_target_{NAN}, last_current_{NAN};
 };
 
 }  // namespace esphome::gree_gmv

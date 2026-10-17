@@ -94,8 +94,11 @@ polls/reads) + node + type. Data = `<offset> <?> <value bytes...>`:
 ```
 
 Second data byte is a **bitmask of the bytes that follow**: `01` = one byte, `03` = two bytes.
-The target node re-broadcasts the affected message (`1EFF node type`) within ~300 ms: that is the ack.
-The 0x21 state message follows a few seconds later.
+The target node re-broadcasts **only the first 8-byte chunk** of the affected register (`1EFF node type`,
+offset 0, 7 payload bytes) within ~100–900 ms: that is the ack. The full multi-chunk dump of the
+register only comes with the periodic cycle (every ~20 s), so consumers must act on chunks as they
+arrive rather than reassembling (the ESPHome component does this). The 0x21 state message follows
+~1–4 s later.
 
 ### Field map so far
 

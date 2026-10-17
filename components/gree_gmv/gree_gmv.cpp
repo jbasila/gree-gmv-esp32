@@ -18,24 +18,19 @@ void GreeGMV::dump_config() {
 
 void GreeGMV::on_frame_(uint32_t can_id, bool extended, bool rtr, const std::vector<uint8_t> &data) {
   if (!extended || rtr || data.empty()) return;
+  if ((can_id & PREFIX_MASK) == PREFIX_WRITE && data.size() >= 3) {
+    // Another controller (e.g. the vendor gateway) wrote a register: useful when debugging.
+    ESP_LOGD(TAG, "observed write to 0x%04X type 0x%02X off=%u val=%02X", (unsigned) (can_id & NODE_MASK),
+             (unsigned) (can_id & TYPE_MASK), data[0], data[2]);
+    return;
+  }
   if ((can_id & PREFIX_MASK) != PREFIX_STATUS) return;
 
-  // Transport: byte 0 = offset of this chunk, bytes 1..7 = payload, short frame = last chunk.
-  uint8_t off = data[0];
-  auto it = this->partial_.find(can_id);
-  if (it == this->partial_.end() || off != it->second.base + it->second.buf.size()) {
-    Partial p;
-    p.base = off;
-    it = this->partial_.insert_or_assign(can_id, std::move(p)).first;
-  }
-  it->second.buf.insert(it->second.buf.end(), data.begin() + 1, data.end());
-  if (data.size() == 8) return;  // more chunks follow
-
-  Partial done = std::move(it->second);
-  this->partial_.erase(it);
-
+  // Transport: byte 0 = offset of this chunk within the register, bytes 1..7 = payload.
+  if (data.size() < 2) return;
+  std::vector<uint8_t> chunk(data.begin() + 1, data.end());
   uint16_t node = can_id & NODE_MASK;
-  Message msg{static_cast<uint8_t>(can_id & TYPE_MASK), done.base, done.buf};
+  Message msg{static_cast<uint8_t>(can_id & TYPE_MASK), data[0], chunk};
   for (auto *u : this->units_) {
     if (u->get_address() == node) u->on_message(msg);
   }
