@@ -3,6 +3,7 @@
 #include "esphome/core/component.h"
 #include "esphome/components/canbus/canbus.h"
 
+#include <set>
 #include <vector>
 
 namespace esphome::gree_gmv {
@@ -18,6 +19,7 @@ static const uint16_t NODE_MASK = 0xFF80;
 static const uint8_t TYPE_MASK = 0x7F;
 
 enum MessageType : uint8_t {
+  TYPE_IDENTITY = 0x10,  // [16] unit index (1..n) on indoor units
   TYPE_SENSORS = 0x20,   // [0] room temp (°C = v-100), [1],[3] coil temps
   TYPE_STATE = 0x21,     // reported state: [0] mode, [1] fan+1, [2] swing
   TYPE_POWER = 0x6F,     // [0] bit0 = on
@@ -73,6 +75,8 @@ class GreeGMV : public Component {
 
   canbus::Canbus *canbus_{nullptr};
   std::vector<GreeGMVUnit *> units_;
+  std::set<uint16_t> seen_nodes_;      // for discovery logging
+  std::set<uint16_t> identified_nodes_;
 };
 
 }  // namespace esphome::gree_gmv

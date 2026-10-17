@@ -47,8 +47,19 @@ Each `climate` entity gives power, mode (cool/heat/dry/fan), fan speed (auto, ve
 medium, high, very high), swing (vertical/horizontal), setpoint and room temperature.
 See `esphome/vrf.yaml` for a complete config and `docs/04-protocol.md` for the protocol.
 
-Finding your unit addresses: flash `esphome/sniffer.yaml`, run `tools/capture.sh idle 60`, then
-`tools/analyze.py captures/idle.log`; nodes appear as `1EFFxxxx` IDs, the node is bits 15..7.
+### Finding your unit addresses
+
+Flash the config with the `gree_gmv:` hub and no `climate:` entries (or with guesses), open the
+device log, and within a minute you get one line per unit on the bus:
+
+```
+[I][gree_gmv]: discovered indoor unit at address 0xD000 (not configured)
+[I][gree_gmv]: indoor unit #1 is at address 0xD000
+[I][gree_gmv]: discovered outdoor unit at address 0xC400
+```
+
+Copy the addresses into `climate:` entries, name them after the rooms, re-install. Which address is
+which room: turn one unit on from its remote and watch which entity reacts.
 
 ## Layout
 

@@ -2,6 +2,11 @@
 
 ## Where we are
 
+- **2026-10-17 12:20: in production, read-only.** Device managed by the HA ESPHome add-on (stable
+  2026.9.1 works thanks to the bundled `esp32_can` override with bus-off recovery). Changes made in
+  the app show in HA within ~1 s; discovery logging lists every node on the bus. Only writes wait
+  for the TJA1051T/3.
+
 - **2026-10-17 11:15: ESPHome component done and verified read-only.** `components/gree_gmv/`,
   device config `esphome/vrf.yaml`, flashed on the ESP32 now; all 5 climates populate from the bus
   (`tools/states.py vrf.local`). Control path is written but untested until the TJA1051T/3 arrives.

@@ -1,0 +1,205 @@
+[12:21:10.368]:0x00,wp_drvT�	�����div:2
+[12:21:10.370]load:0x3fff0030,len:6248
+[12:21:10.373]load:0x40078000,len:15904
+[12:21:10.375]load:0x40080400,len:3896
+[12:21:10.377]entry 0x40080640
+[12:21:10.383]I (27) boot: ESP-IDF v5.5.5 2nd stage bootloader
+[12:21:10.386]I (27) boot: Multicore bootloader
+[12:21:10.389]I (28) boot: chip revision: v3.1
+[12:21:10.392]I (28) boot.esp32: SPI Speed      : 40MHz
+[12:21:10.396]I (31) boot.esp32: SPI Mode       : DIO
+[12:21:10.399]I (35) boot.esp32: SPI Flash Size : 4MB
+[12:21:10.404]I (38) boot: Enabling RNG early entropy source...
+[12:21:10.407]I (43) boot: Partition Table:
+[12:21:10.413]I (45) boot: ## Label            Usage          Type ST Offset   Length
+[12:21:10.419]I (52) boot:  0 otadata          OTA data         01 00 00009000 00002000
+[12:21:10.426]I (58) boot:  1 phy_init         RF data          01 01 0000b000 00001000
+[12:21:10.432]I (65) boot:  2 app0             OTA app          00 10 00010000 001c0000
+[12:21:10.439]I (71) boot:  3 app1             OTA app          00 11 001d0000 001c0000
+[12:21:10.446]I (78) boot:  4 nvs              WiFi data        01 02 00390000 00070000
+[12:21:10.449]I (84) boot: End of partition table
+[12:21:10.456]I (88) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1aba8h (109480) map
+[12:21:10.490]I (132) esp_image: segment 1: paddr=0002abd0 vaddr=3ffb0000 size=03e98h ( 16024) load
+[12:21:10.498]I (139) esp_image: segment 2: paddr=0002ea70 vaddr=40080000 size=015a8h (  5544) load
+[12:21:10.505]I (141) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=85e50h (548432) map
+[12:21:10.689]I (331) esp_image: segment 4: paddr=000b5e78 vaddr=400815a8 size=115bch ( 71100) load
+[12:21:10.717]I (359) esp_image: segment 5: paddr=000c743c vaddr=50000000 size=00020h (    32) load
+[12:21:10.724]I (369) boot: Loaded app from partition at offset 0x10000
+[12:21:10.729]I (369) boot: Disabling RNG early entropy source...
+[12:21:10.872][0;32m[I][logger:127]: Log initialized[0m
+[12:21:10.878][0;35m[C][safe_mode:201]: Unsuccessful boot attempts: 1[0m
+[12:21:10.885][0;36m[D][preferences:254]: Writing 1 items: 0 cached, 1 written, 0 failed[0m
+[12:21:10.890][0;32m[I][app:060]: Running through setup()[0m
+[12:21:10.898][0;35m[C][wifi:662]: Starting[0m
+[12:21:10.975][0;36m[D][wifi:1351]: Starting scan[0m
+[12:21:10.980][0;35m[C][component:164]: Setup wifi took 92ms[0m
+[12:21:10.987][0;33m[W][component:290]: api set Warning flag: waiting for client connection[0m
+[12:21:10.992][0;32m[I][app:117]: setup() finished successfully![0m
+[12:21:10.999][0;32m[I][gree_gmv:040]: discovered outdoor unit at address 0xC400 (not configured)[0m
+[12:21:11.006][0;33m[W][component:290]: wifi set Warning flag: scanning for networks[0m
+[12:21:11.014][0;32m[I][app:151]: ESPHome version 2026.9.1 compiled on 2026-10-17 12:20:33 +0300[0m
+[12:21:11.020][0;32m[I][app:153]: Project jbasila.gree-gmv-esp32 version 0.1.0[0m
+[12:21:11.025][0;32m[I][app:158]: ESP32 Chip: ESP32 rev3.1, 2 core(s)[0m
+[12:21:11.036][0;33m[W][app:198]: Bootloader supports SRAM1 as IRAM (+40KB). Set sram1_as_iram: true under esp32 > framework > advanced[0m
+[12:21:11.039][0;35m[C][logger:216]: Logger:
+[12:21:11.040]  Max Level: DEBUG
+[12:21:11.043]  Initial Level: DEBUG[0m
+[12:21:11.047][0;35m[C][logger:223]:   Log Baud Rate: 115200
+[12:21:11.049]  Hardware UART: UART0[0m
+[12:21:11.055][0;35m[C][logger:232]:   Task Log Buffer Size: 768 bytes[0m
+[12:21:11.059][0;35m[C][logger:238]:   Level for 'canbus': INFO[0m
+[12:21:11.081][0;35m[C][gree_gmv:015]: Gree GMV hub: 5 unit(s)[0m
+[12:21:11.085][0;35m[C][gree_gmv:016]:   node 0xD000[0m
+[12:21:11.089][0;35m[C][gree_gmv:016]:   node 0xD080[0m
+[12:21:11.093][0;35m[C][gree_gmv:016]:   node 0xD100[0m
+[12:21:11.097][0;35m[C][gree_gmv:016]:   node 0xD180[0m
+[12:21:11.100][0;35m[C][gree_gmv:016]:   node 0xD200[0m
+[12:21:11.107][0;35m[C][gree_gmv.climate:019]: Gree GMV indoor unit 'Living Room'[0m
+[12:21:11.112][0;35m[C][gree_gmv.climate:020]:   node address: 0xD000[0m
+[12:21:11.118][0;35m[C][gree_gmv.climate:019]: Gree GMV indoor unit 'Bedroom 1'[0m
+[12:21:11.123][0;35m[C][gree_gmv.climate:020]:   node address: 0xD080[0m
+[12:21:11.134][0;35m[C][gree_gmv.climate:019]: Gree GMV indoor unit 'Bedroom 2'[0m
+[12:21:11.139][0;35m[C][gree_gmv.climate:020]:   node address: 0xD100[0m
+[12:21:11.151][0;35m[C][gree_gmv.climate:019]: Gree GMV indoor unit 'Bedroom 3'[0m
+[12:21:11.156][0;35m[C][gree_gmv.climate:020]:   node address: 0xD180[0m
+[12:21:11.167][0;35m[C][gree_gmv.climate:019]: Gree GMV indoor unit 'Bedroom 4'[0m
+[12:21:11.173][0;35m[C][gree_gmv.climate:020]:   node address: 0xD200[0m
+[12:21:11.182][0;35m[C][network:050]: Network:
+[12:21:11.184]  TCP send buffer: 5760 bytes[0m
+[12:21:11.198][0;35m[C][wifi:1582]: WiFi:
+[12:21:11.201]  Local MAC: XX:XX:XX:XX:XX:XX
+[12:21:11.203]  Connected: NO[0m
+[12:21:11.217][0;35m[C][esphome.ota:125]: Over-The-Air updates:
+[12:21:11.219]  Address: vrf.local:3232
+[12:21:11.221]  Version: 2
+[12:21:11.225]  Encryption: offered, plaintext accepted[0m
+[12:21:11.233][0;35m[C][safe_mode:058]: Safe Mode:
+[12:21:11.235]  Successful after: 60s
+[12:21:11.237]  Invoke after: 10 attempts
+[12:21:11.239]  Duration: 300s[0m
+[12:21:11.245][0;35m[C][safe_mode:079]:   Bootloader rollback: support unknown[0m
+[12:21:11.252][0;35m[C][api:293]: Server:
+[12:21:11.254]  Address: vrf.local:6053
+[12:21:11.256]  Listen backlog: 4
+[12:21:11.258]  Max connections: 5[0m
+[12:21:11.262][0;35m[C][api:300]:   Noise encryption: YES[0m
+[12:21:11.268][0;35m[C][mdns:259]: mDNS:
+[12:21:11.270]  Hostname: vrf[0m
+[12:21:11.321][0;32m[I][gree_gmv:040]: discovered indoor unit at address 0xD000[0m
+[12:21:11.354][0;32m[I][gree_gmv:040]: discovered indoor unit at address 0xD080[0m
+[12:21:11.363][0;36m[D][gree_gmv.climate:119]: 'Bedroom 1' power=0 mode=1 fan=1 swing=1/1 target=nan current=26.0[0m
+[12:21:11.372][0;32m[I][gree_gmv:040]: discovered indoor unit at address 0xD180[0m
+[12:21:11.381][0;36m[D][gree_gmv.climate:119]: 'Bedroom 3' power=0 mode=1 fan=1 swing=1/1 target=nan current=25.0[0m
+[12:21:11.423][0;32m[I][gree_gmv:040]: discovered indoor unit at address 0xD200[0m
+[12:21:11.432][0;36m[D][gree_gmv.climate:119]: 'Bedroom 4' power=0 mode=1 fan=1 swing=1/1 target=nan current=26.0[0m
+[12:21:11.974][0;36m[D][gree_gmv.climate:119]: 'Bedroom 3' power=0 mode=1 fan=1 swing=1/1 target=nan current=24.0[0m
+[12:21:12.553][0;32m[I][gree_gmv:040]: discovered indoor unit at address 0xD100[0m
+[12:21:12.562][0;36m[D][gree_gmv.climate:119]: 'Bedroom 2' power=0 mode=1 fan=1 swing=1/1 target=nan current=26.0[0m
+[12:21:12.573][0;36m[D][gree_gmv.climate:119]: 'Bedroom 3' power=0 mode=1 fan=1 swing=1/1 target=nan current=25.0[0m
+[12:21:13.619][0;32m[I][gree_gmv:045]: indoor unit #3 is at address 0xD100[0m
+[12:21:13.639][0;36m[D][gree_gmv.climate:119]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=nan current=26.0[0m
+[12:21:13.672][0;36m[D][gree_gmv.climate:119]: 'Bedroom 2' power=0 mode=3 fan=2 swing=1/1 target=25.0 current=26.0[0m
+[12:21:13.784][0;36m[D][wifi:1511]: Found networks:[0m
+[12:21:13.794][0;32m[I][wifi:1482]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄▆[0;37m█[0m Ch:11 -55dB P:0[0m
+[12:21:13.805][0;32m[I][wifi:1482]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄▆[0;37m█[0m Ch: 1 -60dB P:0[0m
+[12:21:13.815][0;32m[I][wifi:1482]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄[0;37m▆█[0m Ch:11 -69dB P:0[0m
+[12:21:13.826][0;32m[I][wifi:1482]: - 'my-wifi' [8m(XX:XX:XX:XX:XX:XX) [28m[0;33m▂▄[0;37m▆█[0m Ch: 6 -73dB P:0[0m
+[12:21:13.833][0;36m[D][wifi:1908]: Retry phase: INITIAL_CONNECT → SCAN_CONNECTING[0m
+[12:21:13.846][0;32m[I][wifi:1145]: Connecting to [8m'my-wifi'[28m [8m(XX:XX:XX:XX:XX:XX)[28m (priority 0, attempt 1/2 in phase SCAN_CONNECTING)...[0m
+[12:21:14.247][0;36m[D][gree_gmv.climate:119]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=nan current=26.0[0m
+[12:21:14.330][0;36m[D][gree_gmv.climate:119]: 'Bedroom 1' power=0 mode=3 fan=1 swing=1/1 target=25.0 current=26.0[0m
+[12:21:14.361][0;32m[I][gree_gmv:045]: indoor unit #2 is at address 0xD080[0m
+[12:21:14.398][0;36m[D][gree_gmv.climate:119]: 'Bedroom 4' power=0 mode=1 fan=1 swing=1/1 target=nan current=25.0[0m
+[12:21:14.741][0;36m[D][gree_gmv.climate:119]: 'Bedroom 4' power=0 mode=1 fan=1 swing=1/1 target=nan current=26.0[0m
+[12:21:14.970][0;36m[D][gree_gmv.climate:119]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=nan current=26.0[0m
+[12:21:15.084][0;36m[D][gree_gmv.climate:119]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:21:15.098][0;32m[I][gree_gmv:045]: indoor unit #5 is at address 0xD200[0m
+[12:21:15.101][0;32m[I][wifi:1626]: Connected[0m
+[12:21:15.106][0;35m[C][wifi:1286]:   IP Address: 192.168.1.68[0m
+[12:21:15.111][0;35m[C][wifi:1297]:   SSID: [8m'my-wifi'[28m
+[12:21:15.114]  BSSID: [8mXX:XX:XX:XX:XX:XX[28m
+[12:21:15.116]  Hostname: 'vrf'
+[12:21:15.121]  Signal strength: -55 dB [0;33m▂▄▆[0;37m█[0m
+[12:21:15.122]  Channel: 11
+[12:21:15.124]  Subnet: 255.255.255.0
+[12:21:15.126]  Gateway: 192.168.1.1
+[12:21:15.128]  DNS1: 192.168.1.1
+[12:21:15.130]  DNS2: 0.0.0.0[0m
+[12:21:15.135][0;33m[W][component:313]: wifi cleared Warning flag[0m
+[12:21:15.636][0;36m[D][gree_gmv.climate:119]: 'Bedroom 3' power=0 mode=1 fan=3 swing=1/1 target=nan current=25.0[0m
+[12:21:15.767][0;36m[D][gree_gmv.climate:119]: 'Bedroom 3' power=0 mode=1 fan=3 swing=1/1 target=26.0 current=25.0[0m
+[12:21:15.798][0;32m[I][gree_gmv:045]: indoor unit #4 is at address 0xD180[0m
+[12:21:28.312][0;36m[D][gree_gmv.climate:119]: 'Living Room' power=0 mode=1 fan=1 swing=1/1 target=nan current=24.0[0m
+[12:21:28.604][0;36m[D][gree_gmv.climate:119]: 'Living Room' power=0 mode=1 fan=6 swing=1/1 target=nan current=24.0[0m
+[12:21:28.634][0;32m[I][gree_gmv:045]: indoor unit #1 is at address 0xD000[0m
+[12:21:28.655][0;36m[D][gree_gmv.climate:119]: 'Living Room' power=0 mode=1 fan=6 swing=1/1 target=25.0 current=24.0[0m
+[12:21:29.545][0;36m[D][api:277]: Accept 192.168.1.242[0m
+[12:21:29.550][0;33m[W][component:313]: api cleared Warning flag[0m
+[12:21:29.554][0;36m[D][api:277]: Accept 192.168.1.242[0m
+[12:21:29.590][0;36m[D][api:277]: Accept 192.168.1.242[0m
+[12:21:29.632][0;36m[D][api.connection:2669]: ESPHome Logs 2026.9.1 (192.168.1.242): connected[0m
+[12:21:29.674][0;33m[W][component:419]: api took a long time for an operation (81 ms), max is 50 ms[0m
+[12:21:29.682][0;36m[D][api.connection:2669]: ESPHome Logs 2026.9.1 (192.168.1.242): connected[0m
+[12:21:29.692][0;36m[D][api.connection:2669]: Home Assistant 2026.10.2 (192.168.1.242): connected[0m
+[12:21:29.713][0;32m[I][app:151]: ESPHome version 2026.9.1 compiled on 2026-10-17 12:20:33 +0300[0m
+[12:21:29.719][0;32m[I][app:153]: Project jbasila.gree-gmv-esp32 version 0.1.0[0m
+[12:21:29.724][0;32m[I][app:158]: ESP32 Chip: ESP32 rev3.1, 2 core(s)[0m
+[12:21:29.735][0;33m[W][app:198]: Bootloader supports SRAM1 as IRAM (+40KB). Set sram1_as_iram: true under esp32 > framework > advanced[0m
+[12:21:29.738][0;35m[C][logger:216]: Logger:
+[12:21:29.740]  Max Level: DEBUG
+[12:21:29.742]  Initial Level: DEBUG[0m
+[12:21:29.746][0;35m[C][logger:223]:   Log Baud Rate: 115200
+[12:21:29.748]  Hardware UART: UART0[0m
+[12:21:29.754][0;35m[C][logger:232]:   Task Log Buffer Size: 768 bytes[0m
+[12:21:29.759][0;35m[C][logger:238]:   Level for 'canbus': INFO[0m
+[12:21:29.765][0;35m[C][gree_gmv:015]: Gree GMV hub: 5 unit(s)[0m
+[12:21:29.768][0;35m[C][gree_gmv:016]:   node 0xD000[0m
+[12:21:29.772][0;35m[C][gree_gmv:016]:   node 0xD080[0m
+[12:21:29.776][0;35m[C][gree_gmv:016]:   node 0xD100[0m
+[12:21:29.780][0;35m[C][gree_gmv:016]:   node 0xD180[0m
+[12:21:29.784][0;35m[C][gree_gmv:016]:   node 0xD200[0m
+[12:21:29.795][0;35m[C][gree_gmv.climate:019]: Gree GMV indoor unit 'Living Room'[0m
+[12:21:29.799][0;35m[C][gree_gmv.climate:020]:   node address: 0xD000[0m
+[12:21:29.815][0;35m[C][gree_gmv.climate:019]: Gree GMV indoor unit 'Bedroom 1'[0m
+[12:21:29.820][0;35m[C][gree_gmv.climate:020]:   node address: 0xD080[0m
+[12:21:29.838][0;35m[C][gree_gmv.climate:019]: Gree GMV indoor unit 'Bedroom 2'[0m
+[12:21:29.843][0;35m[C][gree_gmv.climate:020]:   node address: 0xD100[0m
+[12:21:29.860][0;35m[C][gree_gmv.climate:019]: Gree GMV indoor unit 'Bedroom 3'[0m
+[12:21:29.865][0;35m[C][gree_gmv.climate:020]:   node address: 0xD180[0m
+[12:21:29.882][0;35m[C][gree_gmv.climate:019]: Gree GMV indoor unit 'Bedroom 4'[0m
+[12:21:29.887][0;35m[C][gree_gmv.climate:020]:   node address: 0xD200[0m
+[12:21:29.903][0;35m[C][network:050]: Network:
+[12:21:29.906]  TCP send buffer: 5760 bytes[0m
+[12:21:29.922][0;35m[C][wifi:1582]: WiFi:
+[12:21:29.925]  Local MAC: XX:XX:XX:XX:XX:XX
+[12:21:29.927]  Connected: YES[0m
+[12:21:29.932][0;35m[C][wifi:1286]:   IP Address: 192.168.1.68[0m
+[12:21:29.937][0;35m[C][wifi:1297]:   SSID: [8m'my-wifi'[28m
+[12:21:29.940]  BSSID: [8mXX:XX:XX:XX:XX:XX[28m
+[12:21:29.941]  Hostname: 'vrf'
+[12:21:29.946]  Signal strength: -49 dB [0;32m▂▄▆█[0m
+[12:21:29.947]  Channel: 11
+[12:21:29.949]  Subnet: 255.255.255.0
+[12:21:29.952]  Gateway: 192.168.1.1
+[12:21:29.953]  DNS1: 192.168.1.1
+[12:21:29.955]  DNS2: 0.0.0.0[0m
+[12:21:29.959][0;35m[C][esphome.ota:125]: Over-The-Air updates:
+[12:21:29.961]  Address: vrf.local:3232
+[12:21:29.962]  Version: 2
+[12:21:29.966]  Encryption: offered, plaintext accepted[0m
+[12:21:29.970][0;35m[C][safe_mode:058]: Safe Mode:
+[12:21:29.972]  Successful after: 60s
+[12:21:29.974]  Invoke after: 10 attempts
+[12:21:29.976]  Duration: 300s[0m
+[12:21:29.982][0;35m[C][safe_mode:079]:   Bootloader rollback: support unknown[0m
+[12:21:30.000][0;35m[C][api:293]: Server:
+[12:21:30.002]  Address: vrf.local:6053
+[12:21:30.004]  Listen backlog: 4
+[12:21:30.006]  Max connections: 5[0m
+[12:21:30.010][0;35m[C][api:300]:   Noise encryption: YES[0m
+[12:21:30.023][0;35m[C][mdns:259]: mDNS:
+[12:21:30.025]  Hostname: vrf[0m
+[12:21:39.405][0;36m[D][gree_gmv.climate:119]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=25.0[0m
+[12:21:40.016][0;36m[D][gree_gmv.climate:119]: 'Bedroom 4' power=0 mode=1 fan=1 swing=3/1 target=25.0 current=26.0[0m
+[12:21:42.788][0;36m[D][gree_gmv.climate:119]: 'Bedroom 3' power=0 mode=1 fan=3 swing=1/1 target=26.0 current=24.0[0m
+[12:21:43.978][0;36m[D][gree_gmv.climate:119]: 'Bedroom 3' power=0 mode=1 fan=3 swing=1/1 target=26.0 current=25.0[0m

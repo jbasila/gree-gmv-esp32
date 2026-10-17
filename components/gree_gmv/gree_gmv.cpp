@@ -31,6 +31,21 @@ void GreeGMV::on_frame_(uint32_t can_id, bool extended, bool rtr, const std::vec
   std::vector<uint8_t> chunk(data.begin() + 1, data.end());
   uint16_t node = can_id & NODE_MASK;
   Message msg{static_cast<uint8_t>(can_id & TYPE_MASK), data[0], chunk};
+
+  // Discovery: log every node once, and again with its unit index once the identity register shows up.
+  if (this->seen_nodes_.insert(node).second) {
+    const char *kind = (node & 0xF000) == 0xD000 ? "indoor unit" : node == 0xC400 ? "outdoor unit" : "node";
+    bool configured = false;
+    for (auto *u : this->units_) configured |= u->get_address() == node;
+    bool indoor = (node & 0xF000) == 0xD000;
+    ESP_LOGI(TAG, "discovered %s at address 0x%04X%s", kind, node, (indoor && !configured) ? " (not configured)" : "");
+  }
+  uint8_t idx;
+  if (msg.type == TYPE_IDENTITY && (node & 0xF000) == 0xD000 && msg.get(16, idx) &&
+      this->identified_nodes_.insert(node).second) {
+    ESP_LOGI(TAG, "indoor unit #%u is at address 0x%04X", idx, node);
+  }
+
   for (auto *u : this->units_) {
     if (u->get_address() == node) u->on_message(msg);
   }
