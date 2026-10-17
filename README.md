@@ -62,10 +62,8 @@ captures/              raw bus logs from the experiments
 
 ## Toolchain note
 
-20 kbps on a classic ESP32 needs ESPHome newer than 2026.9 (the `esp32_can` component only
-gained `20KBPS` for plain ESP32 on the dev branch). Until that ships in a release:
-
-```
-pipx install --suffix=-dev "git+https://github.com/esphome/esphome.git@dev"
-cd esphome && esphome-dev run sniffer.yaml
-```
+Stable ESPHome 2026.9 refuses `20KBPS` on a classic ESP32 (the chip does it from silicon rev 2).
+This repo bundles a patched copy of the `esp32_can` driver under `components/esp32_can/` so the
+stock ESPHome add-on builds it; it is a verbatim copy of 2026.9.1 plus the 20 kbps case. ESPHome
+2026.10+ has it upstream, so on those versions you may restrict the import to
+`components: [gree_gmv]`. Verified to build on both 2026.9.1 and the dev branch.

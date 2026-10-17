@@ -36,6 +36,7 @@ ota:
 
 external_components:
   - source: github://jbasila/gree-gmv-esp32@main
+    refresh: 10min
     # For local development on a checkout use instead:
     #   source: { type: local, path: ../components }
 

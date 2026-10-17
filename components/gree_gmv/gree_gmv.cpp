@@ -43,12 +43,13 @@ void GreeGMV::on_frame_(uint32_t can_id, bool extended, bool rtr, const std::vec
 
 bool GreeGMV::write(uint16_t address, uint8_t type, uint8_t offset, const uint8_t *value, size_t len) {
   if (len == 0 || len > 6) return false;
-  uint8_t frame[8];
-  frame[0] = offset;
-  frame[1] = static_cast<uint8_t>((1u << len) - 1);  // bitmask of bytes present
-  for (size_t i = 0; i < len; i++) frame[2 + i] = value[i];
+  std::vector<uint8_t> frame;
+  frame.reserve(2 + len);
+  frame.push_back(offset);
+  frame.push_back(static_cast<uint8_t>((1u << len) - 1));  // bitmask of bytes present
+  frame.insert(frame.end(), value, value + len);
   uint32_t id = PREFIX_WRITE | address | (type & TYPE_MASK);
-  auto err = this->canbus_->send_data(id, true, false, frame, 2 + len);
+  auto err = this->canbus_->send_data(id, true, false, frame);
   if (err != canbus::ERROR_OK) {
     ESP_LOGW(TAG, "write to 0x%04X type 0x%02X failed (%d)", address, type, (int) err);
     return false;
