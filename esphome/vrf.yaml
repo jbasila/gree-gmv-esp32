@@ -1,0 +1,58 @@
+# The real thing: five climate entities for Home Assistant.
+# Requires a transceiver that can drive the Gree bus (TJA1051T/3 based); see docs/HANDOFF.md.
+esphome:
+  name: vrf
+  friendly_name: VRF
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+    advanced:
+      minimum_chip_revision: "3.0"   # 20KBPS on classic ESP32 needs rev >= 2.0
+
+logger:
+  level: DEBUG
+  logs:
+    canbus: INFO
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+api:
+ota:
+  platform: esphome
+
+external_components:
+  - source:
+      type: local
+      path: ../components
+
+canbus:
+  - platform: esp32_can
+    id: vrf_can
+    tx_pin: GPIO26
+    rx_pin: GPIO27
+    can_id: 0
+    bit_rate: 20KBPS
+
+gree_gmv:
+  canbus_id: vrf_can
+
+climate:
+  - platform: gree_gmv
+    name: "Living Room"
+    address: 0xD000
+  - platform: gree_gmv
+    name: "Bedroom 1"
+    address: 0xD080
+  - platform: gree_gmv
+    name: "Bedroom 2"
+    address: 0xD100
+  - platform: gree_gmv
+    name: "Bedroom 3"
+    address: 0xD180
+  - platform: gree_gmv
+    name: "Bedroom 4"
+    address: 0xD200

@@ -2,6 +2,10 @@
 
 ## Where we are
 
+- **2026-10-17 11:15: ESPHome component done and verified read-only.** `components/gree_gmv/`,
+  device config `esphome/vrf.yaml`, flashed on the ESP32 now; all 5 climates populate from the bus
+  (`tools/states.py vrf.local`). Control path is written but untested until the TJA1051T/3 arrives.
+
 - **Bus fully identified**: Gree GMV5 CAN, 20 kbps, 29-bit IDs. Read side 100 % working with an
   ESP32-WROOM-32D (rev 3.1) + SN65HVD230 (WCMCU-230, 120 Ω terminator removed) in ESPHome listen-only.
 - **Protocol decoded** far enough to build a climate component: node addresses for all 5 rooms, room
@@ -15,8 +19,8 @@
 
 ## State of the hardware right now
 
-- ESP32 is flashed with **`esphome/sniffer.yaml` (listen-only)**, safe to leave connected.
-- **CANH / CANL are disconnected** from the gateway terminals (removed for the off-bus test).
+- ESP32 is flashed with **`esphome/vrf.yaml`** (normal mode; reads work, writes would just bus-off/recover). Safe to leave.
+- CANH / CANL connected to the gateway terminals in the polarity that receives.
 - Wiring: CTX → P26 (GPIO26), CRX → P27 (GPIO27), 3V3, GND. No ground wire to the Gree side yet.
 
 ## Next steps, in order

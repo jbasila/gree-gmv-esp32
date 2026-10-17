@@ -3,7 +3,9 @@
 Control a Gree GMV5 VRF system (1 outdoor unit, 5 indoor units) from Home Assistant
 with an ESP32 running ESPHome, talking directly to the VRF communication bus.
 
-Status: **phase 1 done, phase 2 blocked on hardware**: SN65HVD230 (3.3 V) proven unable to drive this bus; needs a 5 V-side transceiver (TJA1051T/3 or ISO1050). Read `docs/HANDOFF.md`.
+Status: **reading works end to end** (5 climate entities populated live from the bus via the
+ESPHome component). **Writing is blocked on hardware**: the SN65HVD230 (3.3 V) cannot drive this
+bus; a TJA1051T/3 board is on order. Read `docs/HANDOFF.md`.
 
 ## Plan
 
@@ -18,12 +20,44 @@ Status: **phase 1 done, phase 2 blocked on hardware**: SN65HVD230 (3.3 V) proven
 See `docs/01-research.md` for what is already known and `docs/02-bus-discovery.md`
 for the hands-on procedure.
 
+## Usage
+
+```yaml
+external_components:
+  - source: github://jbasila/gree-gmv-esp32   # or type: local, path: ../components
+
+canbus:
+  - platform: esp32_can
+    id: vrf_can
+    tx_pin: GPIO26
+    rx_pin: GPIO27
+    can_id: 0
+    bit_rate: 20KBPS
+
+gree_gmv:
+  canbus_id: vrf_can
+
+climate:
+  - platform: gree_gmv
+    name: "Living Room"
+    address: 0xD000      # indoor unit n is at 0xD000 + 0x80 * (n-1)
+```
+
+Each `climate` entity gives power, mode (cool/heat/dry/fan), fan speed (auto, very low, low,
+medium, high, very high), swing (vertical/horizontal), setpoint and room temperature.
+See `esphome/vrf.yaml` for a complete config and `docs/04-protocol.md` for the protocol.
+
+Finding your unit addresses: flash `esphome/sniffer.yaml`, run `tools/capture.sh idle 60`, then
+`tools/analyze.py captures/idle.log`; nodes appear as `1EFFxxxx` IDs, the node is bits 15..7.
+
 ## Layout
 
 ```
-docs/      research notes, protocol findings, wiring
-esphome/   ESPHome configs (sniffer first, component later)
-tools/     decode / correlate scripts for captured logs
+components/gree_gmv/   ESPHome external component (hub + climate platform)
+esphome/               device configs: vrf.yaml (the real one), sniffer.yaml, diagnostics
+docs/                  research, protocol findings, wiring, handoff
+tools/                 capture / reassemble / diff scripts, API helpers
+captures/              raw bus logs from the experiments
 ```
 
 ## Toolchain note
