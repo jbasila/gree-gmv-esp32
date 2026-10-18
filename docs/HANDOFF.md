@@ -1,8 +1,8 @@
-# Handoff (updated 2026-10-17 22:30)
+# Handoff (updated 2026-10-18, session closed)
 
 ## Where we are
 
-**Read side is in production.** The ESP32 (WROOM-32D rev 3.1 + SN65HVD230, CTX→GPIO26, CRX→GPIO27,
+**Read side is in production.** The ESP32 (WROOM-32D rev 3.1 + the fake "SN65HVD230" module, which receives fine; CTX→GPIO26, CRX→GPIO27,
 CANH/CANL tapped at the CoolAutomation gateway's bus terminals) runs `esphome/vrf.yaml`, managed by
 the Home Assistant ESPHome add-on (stable 2026.9.1). Five climate entities (Living Room 0xD000,
 Bedroom 1 0xD080, Bedroom 2 0xD100, Bedroom 3 0xD180, Bedroom 4 0xD200) show power, mode, fan, swing, setpoint
