@@ -18,7 +18,11 @@ harmlessly: the controller goes bus-off and recovers in ~300 ms, reads continue.
 Repo is public: https://github.com/jbasila/gree-gmv-esp32. The dashboard config pulls the component
 from `github://jbasila/gree-gmv-esp32@main` (refresh 10 min).
 
-## Paused until new hardware arrives (TJA1051T/3 clone, ETA 2026-10-23..28)
+## Paused until new hardware arrives
+
+On order: **Waveshare SN65HVD230 CAN Board** (genuine TI, 3.3 V only; ordered 2026-10-18 direct from
+waveshare.com, primary) and an AliExpress TJA1051T/3 "CAN Pal" clone (ETA 2026-10-23..28, backup).
+Waveshare's wiki warns about knock-offs of its board, so the bench test applies to both.
 
 Session ended 2026-10-17 22:30 with the read side back in production (`vrf.yaml` flashed over USB).
 The fake HVD230 module is wired to the bus and the ESP32 GND is tied to the gateway GND.
