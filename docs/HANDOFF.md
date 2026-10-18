@@ -50,10 +50,16 @@ a 2:1 resistor divider on CRX (5 V → 3.3 V; the ESP32 is not 5 V tolerant), an
 (step 4) before the bus. If the chip does not accept the ESP32's 3.3 V as "high" on CTX it simply never
 transmits; harmless. Needs a resistor pair ~1:2 (e.g. 1 kΩ + 2.2 kΩ).
 
-### Recommended: order a backup from a genuine source
+### Shopping list
 
-The TJA board on order is also an AliExpress clone. A Waveshare SN65HVD230 board or a TJA1051T/3 from
-Mouser/DigiKey as a backup avoids losing another week to a second fake.
+| item | why | where |
+|---|---|---|
+| **Genuine 3.3 V-logic CAN transceiver** (one of): Waveshare SN65HVD230 CAN board (recommended: genuine TI, 3.3 V only) or Adafruit CAN Pal 5708 (TJA1051T/3, on-board 5 V boost) | the two AliExpress "SN65HVD230" modules are fakes; the TJA clone on order is also a clone | Waveshare's own store, Adafruit, Mouser, DigiKey, local shop |
+| Solderable proto board + 2-pin screw terminal (or screw-terminal block + crimped Dupont leads) | the breadboard produced three loose wires and two wrong diagnoses in one evening | any |
+| 1 kΩ + 2.2 kΩ resistors | only for the optional 5 V shortcut above (CRX divider) | any |
+
+Already on hand and sufficient: ESP32 WROOM-32D, FNIRSI 1013D scope, multimeter, 100 Ω test resistor.
+Not needed: another ESP32, terminators, logic analyser.
 
 ## Code map
 
