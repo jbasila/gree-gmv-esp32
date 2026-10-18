@@ -27,10 +27,11 @@ The fake HVD230 module is wired to the bus and the ESP32 GND is tied to the gate
 
 1. **Fix the wiring before anything else.** The breadboard produced loose wires three times tonight and
    two false verdicts. Solder, or use a screw-terminal block, for VCC/GND/CTX/CRX and the bus pair.
-2. Check the new board's power: the Adafruit 5708 original makes 5 V on-board from 3.3 V; a clone may
-   need 5 V from the ESP32 VIN pin instead. Read the listing / look for a boost chip. The T/3 variant's
-   logic pins are 3.3 V-compatible either way.
-3. Cut its "Termination" solder jumper if it ships closed (the Gree bus is already terminated).
+2. Check the new board's power. Adafruit CAN Pal (5708): on-board charge pump makes the 5 V, and it has
+   a **VIO** pin: tie VIO to the ESP32 3V3 so the logic levels match. A clone may lack the charge pump
+   and need 5 V from the ESP32 VIN pin instead; look for a boost chip or read the listing.
+3. Termination off: the CAN Pal has an on-board **switch** (not a jumper); a clone may have a solder
+   jumper to cut. The Gree bus is already terminated.
 4. **Bench acceptance test, off the bus:** 100 Ω across CANH–CANL,
    `cd esphome && esphome-dev run tx-loop-test.yaml --device /dev/cu.usbserial-0001`
    → must read `rx low while tx driven low: 10/10`. The fakes read 0/10 here. Do NOT use
@@ -54,9 +55,10 @@ transmits; harmless. Needs a resistor pair ~1:2 (e.g. 1 kΩ + 2.2 kΩ).
 
 | item | why | where |
 |---|---|---|
-| **Genuine 3.3 V-logic CAN transceiver** (one of): Waveshare SN65HVD230 CAN board (recommended: genuine TI, 3.3 V only) or Adafruit CAN Pal 5708 (TJA1051T/3, on-board 5 V boost) | the two AliExpress "SN65HVD230" modules are fakes; the TJA clone on order is also a clone | Waveshare's own store, Adafruit, Mouser, DigiKey, local shop |
-| Solderable proto board + 2-pin screw terminal (or screw-terminal block + crimped Dupont leads) | the breadboard produced three loose wires and two wrong diagnoses in one evening | any |
-| 1 kΩ + 2.2 kΩ resistors | only for the optional 5 V shortcut above (CRX divider) | any |
+| **Genuine 3.3 V-logic CAN transceiver** (one of): Adafruit CAN Pal 5708 (TJA1051T/3, charge pump, VIO pin, termination switch) https://www.adafruit.com/product/5708 $3.95; or Waveshare SN65HVD230 CAN board (genuine TI, 3.3 V only) | the two AliExpress "SN65HVD230" modules are fakes; the TJA clone on order is also a clone | Adafruit, Waveshare's own store, Mouser, DigiKey, local shop |
+| 2-pin 3.5 mm terminal blocks, pack of 5 https://www.adafruit.com/product/724 $2.95 | solid bus-pair connection | Adafruit |
+| Perma-Proto half-size board, 3-pack https://www.adafruit.com/product/571 $12.50 (single 1609 was out of stock 2026-10-18) | the breadboard produced three loose wires and two wrong diagnoses in one evening | Adafruit |
+| 1 kΩ + 2.2 kΩ resistors (Adafruit 1 kΩ pack 4294 out of stock 2026-10-18; any local resistor kit) | only for the optional 5 V shortcut above (CRX divider) | local |
 
 Already on hand and sufficient: ESP32 WROOM-32D, FNIRSI 1013D scope, multimeter, 100 Ω test resistor.
 Not needed: another ESP32, terminators, logic analyser.
