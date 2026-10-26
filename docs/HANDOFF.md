@@ -31,14 +31,15 @@ Vcc is the logic supply. Bench test (100 Ω, off bus) read 10/10; on the bus 10/
 - Changes from the iocControl app / cloud appear on the bus as `observed write` (gateway's 1CBF frames);
   our own writes log as `write 0x1CBF...`. Use that to tell them apart.
 - After reflashing over USB, HA did not reconnect on its own; ESPHome integration → vrf → Reload fixed it.
-- The add-on is now ESPHome ≥ 2026.10: `components/esp32_can/` can probably be dropped (see Code map).
+- Keep `components/esp32_can/`: stable 2026.10.0 lacks both classic-ESP32 20 kbps and bus-off recovery
+  (checked against the 2026.10.0 source). Both are on dev, so drop it at 2026.11.0 stable.
 
 ## Code map
 
 - `components/gree_gmv/`: hub (`gree_gmv.cpp`: frame → chunk dispatch, discovery log, `write()`),
   climate platform (`gree_gmv_climate.cpp`: register → entity state, `control()` → writes).
 - `components/esp32_can/`: verbatim ESPHome 2026.9.1 driver + 20 kbps on classic ESP32 + bus-off
-  recovery. Delete once the add-on runs ESPHome ≥ 2026.10 (or restrict import to `components: [gree_gmv]`).
+  recovery. Delete once the add-on runs ESPHome ≥ 2026.11 (or restrict import to `components: [gree_gmv]`).
 - `esphome/vrf.yaml`: the device config (also what the dashboard holds). `sniffer.yaml`,
   `tx-loop-test.yaml`, `tx-hold-test.yaml`, `tx-hold-forever.yaml`, `vrf-node.yaml`: diagnostics.
 - `tools/`: `capture.sh`/`serial_log.py` (log serial), `analyze.py`/`watch.py`/`reassemble.py`

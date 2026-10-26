@@ -76,6 +76,6 @@ captures/              raw bus logs from the experiments
 
 Stable ESPHome 2026.9 refuses `20KBPS` on a classic ESP32 (the chip does it from silicon rev 2).
 This repo bundles a patched copy of the `esp32_can` driver under `components/esp32_can/` so the
-stock ESPHome add-on builds it; it is a verbatim copy of 2026.9.1 plus the 20 kbps case. ESPHome
-2026.10+ has it upstream, so on those versions you may restrict the import to
-`components: [gree_gmv]`. Verified to build on both 2026.9.1 and the dev branch.
+stock ESPHome add-on builds it; it is a verbatim copy of 2026.9.1 plus the 20 kbps case and bus-off
+recovery. Stable 2026.10.0 still lacks both; the dev branch (2026.11) has both, so from 2026.11 you
+may restrict the import to `components: [gree_gmv]`. Verified to build on 2026.9.1, 2026.10.0 and dev.

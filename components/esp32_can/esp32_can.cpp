@@ -39,7 +39,7 @@ static bool get_bitrate(canbus::CanSpeed bitrate, twai_timing_config_t *t_config
 #endif
 #if defined(USE_ESP32_VARIANT_ESP32) && (CONFIG_ESP32_REV_MIN_FULL >= 200)
     // gree-gmv-esp32 patch: classic ESP32 rev >= 2 supports 20 kbps (needs
-    // esp32.framework.advanced.minimum_chip_revision >= "2.0"). Upstream from ESPHome 2026.10.
+    // esp32.framework.advanced.minimum_chip_revision >= "2.0"). Upstream from ESPHome 2026.11.
     case canbus::CAN_20KBPS:
       *t_config = (twai_timing_config_t) TWAI_TIMING_CONFIG_20KBITS();
       return true;
