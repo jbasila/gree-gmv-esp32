@@ -1,71 +1,37 @@
-# Handoff (updated 2026-10-18, session closed)
+# Handoff (updated 2026-10-26)
 
 ## Where we are
 
-**Read side is in production.** The ESP32 (WROOM-32D rev 3.1 + the fake "SN65HVD230" module, which receives fine; CTX→GPIO26, CRX→GPIO27,
-CANH/CANL tapped at the CoolAutomation gateway's bus terminals) runs `esphome/vrf.yaml`, managed by
-the Home Assistant ESPHome add-on (stable 2026.9.1). Five climate entities (Living Room 0xD000,
-Bedroom 1 0xD080, Bedroom 2 0xD100, Bedroom 3 0xD180, Bedroom 4 0xD200) show power, mode, fan, swing, setpoint
-and room temperature; changes made in the iocControl app appear in HA within ~1 s.
+**Read and write both work in production.** ESP32 (WROOM-32D) + TJA1051T/3 "CAN Pal" clone
+(AliExpress; chip marked NXP A1051/3), CTX→GPIO26, CRX→GPIO27, CANH/CANL tapped at the CoolAutomation
+gateway's bus terminals, ESP32 GND tied to the gateway GND. Runs `esphome/vrf.yaml` from the HA ESPHome
+add-on (now 2026.10.0). Five climate entities (Living Room 0xD000, Bedroom 1 0xD080, Bedroom 2 0xD100,
+Bedroom 3 0xD180, Bedroom 4 0xD200).
 
-**Write side is blocked on hardware: both "SN65HVD230" modules are fakes** (5 V dies at 3.3 V: receive
-fine, cannot drive 100 Ω, and have a dominant timeout a real HVD230 lacks). Scope session 2026-10-17
-evening (`docs/02-bus-discovery.md`): the Gree bus is ordinary CAN (idle ~2 V, dominant 3.8/0.4 V).
-The earlier "3.3 V can't drive this bus" theory was wrong. A clone of the Adafruit 5708 CAN Pal
-(TJA1051T/3) is ordered, ETA 2026-10-23..28; it is the right part. Until then a control from HA fails
-harmlessly: the controller goes bus-off and recovers in ~300 ms, reads continue.
+Verified 2026-10-26 on Bedroom 3 from HA, each echoed by the unit, no bus-off:
 
-Repo is public: https://github.com/jbasila/gree-gmv-esp32. The dashboard config pulls the component
-from `github://jbasila/gree-gmv-esp32@main` (refresh 10 min).
-
-## Paused until new hardware arrives
-
-On order: **Waveshare SN65HVD230 CAN Board** (genuine TI, 3.3 V only; ordered 2026-10-18 direct from
-waveshare.com, primary) and an AliExpress TJA1051T/3 "CAN Pal" clone (ETA 2026-10-23..28, backup).
-Waveshare's wiki warns about knock-offs of its board, so the bench test applies to both.
-
-Session ended 2026-10-17 22:30 with the read side back in production (`vrf.yaml` flashed over USB).
-The fake HVD230 module is wired to the bus and the ESP32 GND is tied to the gateway GND.
-
-### Arrival checklist, in order
-
-1. **Fix the wiring before anything else.** The breadboard produced loose wires three times tonight and
-   two false verdicts. Solder, or use a screw-terminal block, for VCC/GND/CTX/CRX and the bus pair.
-2. Check the new board's power. Adafruit CAN Pal (5708): on-board charge pump makes the 5 V, and it has
-   a **VIO** pin: tie VIO to the ESP32 3V3 so the logic levels match. A clone may lack the charge pump
-   and need 5 V from the ESP32 VIN pin instead; look for a boost chip or read the listing.
-3. Termination off: the CAN Pal has an on-board **switch** (not a jumper); a clone may have a solder
-   jumper to cut. The Gree bus is already terminated.
-4. **Bench acceptance test, off the bus:** 100 Ω across CANH–CANL,
-   `cd esphome && esphome-dev run tx-loop-test.yaml --device /dev/cu.usbserial-0001`
-   → must read `rx low while tx driven low: 10/10`. The fakes read 0/10 here. Do NOT use
-   `tx-hold-forever.yaml` for this: the TJA1051 has a dominant timeout and will always read "no drive".
-5. Wire to the bus (TX→P26, RX→P27, CANH/CANL to the pair; if the receiver is deaf, swap the pair).
-   Same loop test on the bus → 10/10, idle ~15–35/50.
-6. `esphome run vrf.yaml --device /dev/cu.usbserial-0001` (or Install → Wirelessly from the HA dashboard).
-7. In HA set Bedroom 3 to 24 °C. Serial log should show `write 0x1CBFD1F3 ...`, the unit's echo within
-   ~0.5 s and no `bus-off`; the entity moves to 24.0. Then test mode, fan, swing, power.
-8. If a write is accepted but a *mode* is refused (e.g. heat while the ODU cools), that is the VRF, not
-   us: the entity simply stays as it was.
-
-### Optional shortcut with the hardware already here
-
-The fake modules are 5 V dies. Powered from the ESP32's VIN (5 V) their driver may work. Requirements:
-a 2:1 resistor divider on CRX (5 V → 3.3 V; the ESP32 is not 5 V tolerant), and the same bench test
-(step 4) before the bus. If the chip does not accept the ESP32's 3.3 V as "high" on CTX it simply never
-transmits; harmless. Needs a resistor pair ~1:2 (e.g. 1 kΩ + 2.2 kΩ).
-
-### Shopping list
-
-| item | why | where |
+| control | frame | echo |
 |---|---|---|
-| **Genuine 3.3 V-logic CAN transceiver** (one of): Adafruit CAN Pal 5708 (TJA1051T/3, charge pump, VIO pin, termination switch) https://www.adafruit.com/product/5708 $3.95; or Waveshare SN65HVD230 CAN board (genuine TI, 3.3 V only) | the two AliExpress "SN65HVD230" modules are fakes; the TJA clone on order is also a clone | Adafruit, Waveshare's own store, Mouser, DigiKey, local shop |
-| 2-pin 3.5 mm terminal blocks, pack of 5 https://www.adafruit.com/product/724 $2.95 | solid bus-pair connection | Adafruit |
-| Perma-Proto half-size board, 3-pack https://www.adafruit.com/product/571 $12.50 (single 1609 was out of stock 2026-10-18) | the breadboard produced three loose wires and two wrong diagnoses in one evening | Adafruit |
-| 1 kΩ + 2.2 kΩ resistors (Adafruit 1 kΩ pack 4294 out of stock 2026-10-18; any local resistor kit) | only for the optional 5 V shortcut above (CRX divider) | local |
+| setpoint 23 °C | `write 0x1CBFD1F3 off=0 len=2 val=E6` | 459 ms |
+| power on | `write 0x1CBFD1EF off=0 len=1 val=01` | 312 ms |
+| fan high | `write 0x1CBFD1F1 off=1 len=1 val=05` | 137 ms |
+| swing V on | `write 0x1CBFD1F1 off=2 len=2 val=02` | 438 ms |
+| mode fan | `write 0x1CBFD1F1 off=0 len=1 val=03` | 793 ms |
 
-Already on hand and sufficient: ESP32 WROOM-32D, FNIRSI 1013D scope, multimeter, 100 Ω test resistor.
-Not needed: another ESP32, terminators, logic analyser.
+### CAN Pal clone wiring
+
+Vcc → ESP32 **3V3** (on-board charge pump makes the 5 V), GND → GND, TX → GPIO26, RX → GPIO27,
+**SLNT → GND** (high = listen-only). Termination switch **OFF**. There is no VIO pin on this board:
+Vcc is the logic supply. Bench test (100 Ω, off bus) read 10/10; on the bus 10/10 with idle 16–30/50.
+
+### Notes
+
+- Both AliExpress "SN65HVD230" modules are fakes (5 V dies; receive only). Not used.
+- The Waveshare SN65HVD230 board (ordered 2026-10-18) has not arrived; it is now a spare.
+- Changes from the iocControl app / cloud appear on the bus as `observed write` (gateway's 1CBF frames);
+  our own writes log as `write 0x1CBF...`. Use that to tell them apart.
+- After reflashing over USB, HA did not reconnect on its own; ESPHome integration → vrf → Reload fixed it.
+- The add-on is now ESPHome ≥ 2026.10: `components/esp32_can/` can probably be dropped (see Code map).
 
 ## Code map
 
@@ -95,4 +61,4 @@ swing 1 off 2 on), 0x73 setpoint/min/max LE16 0.1 °C, 0x20 room temp (byte0 −
 - 0x6F bits 4/5 (`0x20`/`0x30` on idle units); 0x20 bytes 2/4/6..9; ODU registers (0x400 family).
 - Whether heat is only refused during cooling (expected) — test in winter.
 - The gateway's `myid:72F`: no frame from the gateway other than `1CBF` writes was identified.
-- After the TJA1051T/3 works: does our write need any sequencing (none observed from the gateway).
+- Horizontal swing and the other four units: untested (same code path, expected to work).

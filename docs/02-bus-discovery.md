@@ -128,3 +128,11 @@ exactly that: "All these sn65hvd230 are fakes resp. 5v types that do not work wi
 
 **Acceptance test for any new transceiver, before it touches the bus:** 100 Ω across CANH–CANL,
 `esphome-dev run tx-loop-test.yaml`, expect `rx low while tx driven low: 10/10`.
+
+## 2026-10-26: TJA1051T/3 works
+
+AliExpress clone of the Adafruit CAN Pal (chip marked NXP A1051/3). Vcc → 3V3 (on-board charge pump),
+SLNT → GND, termination switch OFF. Bench (100 Ω): `10/10`. On the bus: `10/10`, idle 16–30/50.
+First write from HA: `write 0x1CBFD1F3 off=0 len=2 val=E6` (Bedroom 3 → 23.0 °C), echoed in 459 ms,
+no bus-off. Power, fan, swing and mode followed, all echoed within 0.8 s. The write path needed no
+sequencing beyond what the gateway does.

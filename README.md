@@ -3,9 +3,10 @@
 Control a Gree GMV5 VRF system (1 outdoor unit, 5 indoor units) from Home Assistant
 with an ESP32 running ESPHome, talking directly to the VRF communication bus.
 
-Status: **reading works end to end** (5 climate entities populated live from the bus via the
-ESPHome component). **Writing is blocked on hardware**: the SN65HVD230 (3.3 V) cannot drive this
-bus; a TJA1051T/3 board is on order. Read `docs/HANDOFF.md`.
+Status: **reading and writing work end to end** (5 climate entities in Home Assistant; setpoint,
+power, mode, fan and swing verified on the bus 2026-10-26). Use a genuine 3.3 V-logic transceiver
+such as the TJA1051T/3 (Adafruit CAN Pal 5708 or a clone): the cheap "SN65HVD230" modules sold on
+AliExpress are often 5 V fakes that receive but cannot transmit. Read `docs/HANDOFF.md`.
 
 ## Plan
 
