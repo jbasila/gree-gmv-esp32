@@ -34,6 +34,22 @@ Vcc is the logic supply. Bench test (100 Ω, off bus) read 10/10; on the bus 10/
 - Keep `components/esp32_can/`: stable 2026.10.0 lacks both classic-ESP32 20 kbps and bus-off recovery
   (checked against the 2026.10.0 source). Both are on dev, so drop it at 2026.11.0 stable.
 
+## Next: the final box (waiting for the XIAO ESP32-C3)
+
+Ordered a XIAO ESP32-C3 (AliExpress "Original"; check for the Seeed logo on the shield and that the
+U.FL antenna is in the bag; without it WiFi barely works). Plan when it arrives:
+
+1. Wire CAN Pal: TX → **D2 (GPIO4)**, RX → **D3 (GPIO5)**, Vcc → 3V3, GND → GND, SLNT → GND.
+   Avoid D0/D8/D9 (GPIO2/8/9, boot-strapping pins).
+2. `vrf.yaml`: board → `esp32c3`, pins 4/5, drop the `esp32_can` override (stock ESPHome allows
+   20 kbps on C3) and the classic-ESP32 `minimum_chip_revision`.
+3. Bench test (100 Ω, `tx-loop-test.yaml` with the new pins) → 10/10, then on the bus, then HA writes.
+4. **No GND wire needed**: the gateway is connected by 2 wires only (G1/G2) and powered by its own
+   wall brick, so it floats too. Once on the bus, check XIAO GND → CANL DC volts is a few V (TJA: ±12 V).
+5. If the gateway is removed: first measure CANH–CANL powered off with and without it. 60 Ω → 120 Ω
+   means it held a terminator → set the CAN Pal termination switch ON. Removing it loses iocControl/cloud.
+6. Then design and 3D-print the enclosure (leave a flat ~15 × 10 mm spot for the antenna, away from metal).
+
 ## Code map
 
 - `components/gree_gmv/`: hub (`gree_gmv.cpp`: frame → chunk dispatch, discovery log, `write()`),
