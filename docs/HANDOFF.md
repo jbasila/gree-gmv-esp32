@@ -2,7 +2,8 @@
 
 ## Where we are
 
-**Read and write both work in production.** ESP32 (WROOM-32D) + TJA1051T/3 "CAN Pal" clone
+**Read and write both proven on a POC, now dismantled** (2026-10-27: boards back in boxes; `vrf`
+offline in HA is expected). The final product is the ESP32-C3 below. The POC was: ESP32 (WROOM-32D) + TJA1051T/3 "CAN Pal" clone
 (AliExpress; chip marked NXP A1051/3), CTX→GPIO26, CRX→GPIO27, CANH/CANL tapped at the CoolAutomation
 gateway's bus terminals, ESP32 GND tied to the gateway GND. Runs `esphome/vrf.yaml` from the HA ESPHome
 add-on (now 2026.10.0). Five climate entities (Living Room 0xD000, Bedroom 1 0xD080, Bedroom 2 0xD100,
@@ -21,7 +22,7 @@ Verified 2026-10-26 on Bedroom 3 from HA, each echoed by the unit, no bus-off:
 ### CAN Pal clone wiring
 
 Vcc → ESP32 **3V3** (on-board charge pump makes the 5 V), GND → GND, TX → GPIO26, RX → GPIO27,
-**SLNT → GND** (high = listen-only). Termination switch **OFF**. There is no VIO pin on this board:
+SLNT left **unconnected** (board keeps it in normal mode; C3 bench 10/10 with it floating, 2026-10-27). Termination switch **OFF**. There is no VIO pin on this board:
 Vcc is the logic supply. Bench test (100 Ω, off bus) read 10/10; on the bus 10/10 with idle 16–30/50.
 
 ### Notes
@@ -39,10 +40,12 @@ Vcc is the logic supply. Bench test (100 Ω, off bus) read 10/10; on the bus 10/
 Ordered a XIAO ESP32-C3 (AliExpress "Original"; check for the Seeed logo on the shield and that the
 U.FL antenna is in the bag; without it WiFi barely works). Plan when it arrives:
 
-1. Wire CAN Pal: TX → **D2 (GPIO4)**, RX → **D3 (GPIO5)**, Vcc → 3V3, GND → GND, SLNT → GND.
-   Avoid D0/D8/D9 (GPIO2/8/9, boot-strapping pins).
-2. `vrf.yaml`: board → `esp32c3`, pins 4/5, drop the `esp32_can` override (stock ESPHome allows
-   20 kbps on C3) and the classic-ESP32 `minimum_chip_revision`.
+1. **Board is an ESP32-C3 SuperMini (V1601), not a XIAO.** Wired: G, 3.3, 4 (TX), 3 (RX): four adjacent
+   pads on the left edge. SLNT unconnected. Avoid 2/8/9 (strapping) and 20/21 (serial). WiFi needs
+   `output_power: 8.5dB`. Bench (`c3-tx-loop-test.yaml`, 100 Ω) 10/10 on 2026-10-27.
+2. Done 2026-10-27: `vrf.yaml` is now the C3 config (board `esp32-c3-devkitm-1`, TX GPIO4, RX GPIO3,
+   `output_power: 8.5dB`, no `minimum_chip_revision`). **Kept** the `esp32_can` override: stock 2026.10
+   lacks bus-off recovery on every chip, not just classic. Compiles (RAM 32 %, flash 44 %).
 3. Bench test (100 Ω, `tx-loop-test.yaml` with the new pins) → 10/10, then on the bus, then HA writes.
 4. **No GND wire needed**: the gateway is connected by 2 wires only (G1/G2) and powered by its own
    wall brick, so it floats too. Once on the bus, check XIAO GND → CANL DC volts is a few V (TJA: ±12 V).

@@ -1,0 +1,44 @@
+# Diagnostic (ESP32-C3 SuperMini): can our transceiver make the bus dominant? TX=GPIO4, RX=GPIO3, raw GPIO.
+# Every 2 s: sample RX 50x while idle, then 10x pull TX low for 30 us and sample RX during the pulse.
+esphome:
+  name: c3-test
+  includes:
+    - gpio_test.h
+
+esp32:
+  board: esp32-c3-devkitm-1
+  framework:
+    type: esp-idf
+
+logger:
+  level: INFO
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  output_power: 8.5dB
+
+api:
+ota:
+  platform: esphome
+
+interval:
+  - interval: 2s
+    then:
+      - lambda: |-
+          gpio_reset_pin(GPIO_NUM_4); gpio_reset_pin(GPIO_NUM_3);
+          gpio_set_direction(GPIO_NUM_3, GPIO_MODE_INPUT);
+          gpio_set_direction(GPIO_NUM_4, GPIO_MODE_OUTPUT);
+          gpio_set_level(GPIO_NUM_4, 1);
+          esp_rom_delay_us(200);
+          int idle_low = 0;
+          for (int i = 0; i < 50; i++) { idle_low += gpio_get_level(GPIO_NUM_3) == 0; esp_rom_delay_us(100); }
+          int pulse_low = 0;
+          for (int i = 0; i < 10; i++) {
+            gpio_set_level(GPIO_NUM_4, 0);
+            esp_rom_delay_us(30);
+            pulse_low += gpio_get_level(GPIO_NUM_3) == 0;
+            gpio_set_level(GPIO_NUM_4, 1);
+            esp_rom_delay_us(5000);
+          }
+          ESP_LOGI("loop", "rx low while idle: %d/50   rx low while tx driven low: %d/10", idle_low, pulse_low);
