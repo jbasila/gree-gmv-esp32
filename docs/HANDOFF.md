@@ -2,58 +2,65 @@
 
 ## Where we are
 
-**Read and write both proven on a POC, now dismantled** (2026-10-27: boards back in boxes; `vrf`
-offline in HA is expected). The final product is the ESP32-C3 below. The POC was: ESP32 (WROOM-32D) + TJA1051T/3 "CAN Pal" clone
-(AliExpress; chip marked NXP A1051/3), CTX→GPIO26, CRX→GPIO27, CANH/CANL tapped at the CoolAutomation
-gateway's bus terminals, ESP32 GND tied to the gateway GND. Runs `esphome/vrf.yaml` from the HA ESPHome
-add-on (now 2026.10.0). Five climate entities (Living Room 0xD000, Bedroom 1 0xD080, Bedroom 2 0xD100,
-Bedroom 3 0xD180, Bedroom 4 0xD200).
+**The final board reads and writes on the real bus.** ESP32-C3 SuperMini (V1601, pads labelled by
+GPIO) + TJA1051T/3 "CAN Pal" clone (AliExpress; chip marked NXP A1051/3), CANH/CANL at the
+CoolAutomation gateway's bus terminals, **no GND wire**. Runs `esphome/vrf.yaml` (flashed over USB
+2026-10-27; the HA ESPHome add-on's copy is the same C3 config). Five climate entities (Living Room
+0xD000, Bedroom 1 0xD080, Bedroom 2 0xD100, Bedroom 3 0xD180, Bedroom 4 0xD200). Not yet in an enclosure.
 
-Verified 2026-10-26 on Bedroom 3 from HA, each echoed by the unit, no bus-off:
+Verified 2026-10-27 on Bedroom 3 from HA, each echoed by the unit, 0 bus errors / bus-off:
 
 | control | frame | echo |
 |---|---|---|
-| setpoint 23 °C | `write 0x1CBFD1F3 off=0 len=2 val=E6` | 459 ms |
-| power on | `write 0x1CBFD1EF off=0 len=1 val=01` | 312 ms |
-| fan high | `write 0x1CBFD1F1 off=1 len=1 val=05` | 137 ms |
-| swing V on | `write 0x1CBFD1F1 off=2 len=2 val=02` | 438 ms |
-| mode fan | `write 0x1CBFD1F1 off=0 len=1 val=03` | 793 ms |
+| setpoint 23 °C | (write not captured; unit broadcast `target=23.0`) | — |
+| setpoint 24 °C | `write 0x1CBFD1F3 off=0 len=2 val=F0` | 308 ms |
 
-### CAN Pal clone wiring
+GND → CANL at the C3 reads 1.3–2.0 V on a multimeter (jumps with traffic: CANL recessive ~2.5 V,
+dominant ~1.5 V). Well inside the TJA's ±12 V common-mode range, so the floating ground is fine.
 
-Vcc → ESP32 **3V3** (on-board charge pump makes the 5 V), GND → GND, TX → GPIO26, RX → GPIO27,
-SLNT left **unconnected** (board keeps it in normal mode; C3 bench 10/10 with it floating, 2026-10-27). Termination switch **OFF**. There is no VIO pin on this board:
-Vcc is the logic supply. Bench test (100 Ω, off bus) read 10/10; on the bus 10/10 with idle 16–30/50.
+The earlier POC (ESP32 WROOM-32D, TX GPIO26 / RX GPIO27, GND tied to the gateway) proved setpoint, power,
+fan, swing V and mode writes on 2026-10-26 (echoes 137–793 ms). It is dismantled; its boards are in boxes.
+
+### CAN Pal clone wiring (C3 SuperMini)
+
+| CAN Pal | C3 pad (left edge, top to bottom after 5V) |
+|---|---|
+| GND | **G** |
+| Vcc | **3.3** (on-board charge pump makes the 5 V) |
+| TX | **4** |
+| RX | **3** |
+
+SLNT left **unconnected** (the board keeps it in normal mode; it was never wired on the POC either).
+Termination switch **OFF**. No VIO pin on this board: Vcc is the logic supply. Avoid pads 2/8/9
+(strapping) and 20/21 (serial). Bench (`c3-tx-loop-test.yaml`, 100 Ω) 10/10, idle 0/50.
 
 ### Notes
 
-- Both AliExpress "SN65HVD230" modules are fakes (5 V dies; receive only). Not used.
-- The Waveshare SN65HVD230 board (ordered 2026-10-18) has not arrived; it is now a spare.
+- SuperMini WiFi: chip antenna sits next to the crystal; needs `output_power: 8.5dB` (in `vrf.yaml`).
+- First USB connect on macOS needs the "Allow accessory to connect?" prompt approved, or no
+  `/dev/cu.usbmodem*` appears.
+- Switching `vrf.yaml` from classic ESP32 to C3 needs `esphome clean vrf.yaml` once (stale Xtensa flags:
+  `unrecognized command-line option '-mlongcalls'`).
+- An OTA built for the wrong chip is rejected by the board (`esp_ota_end failed (err=0x1503)`); seen
+  when HA's dashboard still had the classic config. Harmless, but keep the dashboard copy in sync.
+- `vrf_api_key` rotated 2026-10-27 (local `secrets.yaml`, the add-on's secrets, and the HA integration).
+- Both AliExpress "SN65HVD230" modules are fakes (5 V dies; receive only). Not used. The Waveshare
+  SN65HVD230 board (ordered 2026-10-18) has not arrived; it is a spare. The XIAO ESP32-C3 order is now a spare too.
 - Changes from the iocControl app / cloud appear on the bus as `observed write` (gateway's 1CBF frames);
   our own writes log as `write 0x1CBF...`. Use that to tell them apart.
-- After reflashing over USB, HA did not reconnect on its own; ESPHome integration → vrf → Reload fixed it.
-- Keep `components/esp32_can/`: stable 2026.10.0 lacks both classic-ESP32 20 kbps and bus-off recovery
-  (checked against the 2026.10.0 source). Both are on dev, so drop it at 2026.11.0 stable.
+- After reflashing over USB, HA may not reconnect on its own; ESPHome integration → vrf → Reload.
+- Keep `components/esp32_can/`: stable 2026.10.0 lacks bus-off recovery on every chip (and 20 kbps on
+  classic ESP32). Both are on dev, so drop it at 2026.11.0 stable.
 
-## Next: the final box (waiting for the XIAO ESP32-C3)
+## Next: the enclosure
 
-Ordered a XIAO ESP32-C3 (AliExpress "Original"; check for the Seeed logo on the shield and that the
-U.FL antenna is in the bag; without it WiFi barely works). Plan when it arrives:
-
-1. **Board is an ESP32-C3 SuperMini (V1601), not a XIAO.** Wired: G, 3.3, 4 (TX), 3 (RX): four adjacent
-   pads on the left edge. SLNT unconnected. Avoid 2/8/9 (strapping) and 20/21 (serial). WiFi needs
-   `output_power: 8.5dB`. Bench (`c3-tx-loop-test.yaml`, 100 Ω) 10/10 on 2026-10-27.
-2. Done 2026-10-27: `vrf.yaml` is now the C3 config (board `esp32-c3-devkitm-1`, TX GPIO4, RX GPIO3,
-   `output_power: 8.5dB`, no `minimum_chip_revision`). **Kept** the `esp32_can` override: stock 2026.10
-   lacks bus-off recovery on every chip, not just classic. Compiles (RAM 32 %, flash 44 %).
-3. Bench test (100 Ω, `tx-loop-test.yaml` with the new pins) → 10/10, then on the bus, then HA writes.
-4. **No GND wire needed**: the gateway is connected by 2 wires only (G1/G2) and powered by its own
-   wall brick, so it floats too. Once on the bus, check XIAO GND → CANL DC volts is a few V (TJA: ±12 V).
-5. If the gateway is removed: first measure CANH–CANL powered off with and without it. 60 Ω → 120 Ω
-   means it held a terminator → set the CAN Pal termination switch ON. Removing it loses iocControl/cloud.
-6. Decision so far: **keep the gateway on the bus** (iocControl app, fallback; its changes show in HA
+1. Decision so far: **keep the gateway on the bus** (iocControl app, fallback; its changes show in HA
    as `observed write`). Option to ask the dealer about a CoolAutomation local-control licence.
-7. Then design and 3D-print the enclosure (leave a flat ~15 × 10 mm spot for the antenna, away from metal).
+2. If the gateway is ever removed: first measure CANH–CANL powered off with and without it. 60 Ω → 120 Ω
+   means it held a terminator → set the CAN Pal termination switch ON. Removing it loses iocControl/cloud.
+3. Design and 3D-print the enclosure for the C3 + CAN Pal (one 4-pin header row; keep the chip antenna
+   end of the C3 clear of metal and the gateway housing). Decide how the C3 is powered in the box (USB-C).
+4. Untested on the C3 so far: power, mode, fan, swing writes and the other four units (same code path).
 
 ## Git identity (private project)
 
