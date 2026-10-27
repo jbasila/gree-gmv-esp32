@@ -52,6 +52,14 @@ U.FL antenna is in the bag; without it WiFi barely works). Plan when it arrives:
    as `observed write`). Option to ask the dealer about a CoolAutomation local-control licence.
 7. Then design and 3D-print the enclosure (leave a flat ~15 × 10 mm spot for the antenna, away from metal).
 
+## Git identity (private project)
+
+This is a private project: every commit must be `jbasila <jbasila@gmail.com>`, **never**
+`<work email>` (the global `~/.gitconfig` default). The repo-local config sets
+`user.name`/`user.email` and a credential helper that pushes as the `jbasila` GitHub account
+(`gh auth token --user jbasila`), not `<work account>`. History was rewritten on 2026-10-27 to fix this.
+Check before committing: `git config user.email` must print `jbasila@gmail.com`.
+
 ## Code map
 
 - `components/gree_gmv/`: hub (`gree_gmv.cpp`: frame → chunk dispatch, discovery log, `write()`),
