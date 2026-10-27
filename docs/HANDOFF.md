@@ -1,4 +1,4 @@
-# Handoff (updated 2026-10-26)
+# Handoff (updated 2026-10-27, session closed)
 
 ## Where we are
 
@@ -48,7 +48,9 @@ U.FL antenna is in the bag; without it WiFi barely works). Plan when it arrives:
    wall brick, so it floats too. Once on the bus, check XIAO GND → CANL DC volts is a few V (TJA: ±12 V).
 5. If the gateway is removed: first measure CANH–CANL powered off with and without it. 60 Ω → 120 Ω
    means it held a terminator → set the CAN Pal termination switch ON. Removing it loses iocControl/cloud.
-6. Then design and 3D-print the enclosure (leave a flat ~15 × 10 mm spot for the antenna, away from metal).
+6. Decision so far: **keep the gateway on the bus** (iocControl app, fallback; its changes show in HA
+   as `observed write`). Option to ask the dealer about a CoolAutomation local-control licence.
+7. Then design and 3D-print the enclosure (leave a flat ~15 × 10 mm spot for the antenna, away from metal).
 
 ## Code map
 
