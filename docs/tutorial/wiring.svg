@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 500" font-family="Helvetica, Arial, sans-serif" font-size="14">
+  <rect width="980" height="500" fill="#fff"/>
+  <text x="490" y="32" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">Wiring: 4 wires between the boards, 2 wires to the bus</text>
+  <text x="490" y="54" text-anchor="middle" font-size="12" fill="#666">Drawn as they sit in the enclosure: terminal facing out, wired edges facing each other.</text>
+
+  <!-- bus wires -->
+  <path d="M150,205 C100,205 90,150 30,150" stroke="#c0392b" stroke-width="4" fill="none"/>
+  <path d="M150,245 C100,245 90,175 30,175" stroke="#2c3e50" stroke-width="4" fill="none"/>
+  <text x="30" y="96" font-size="13" font-weight="bold" fill="#333">to the VRF bus</text>
+  <text x="30" y="114" font-size="12" fill="#333">(G1 / G2, in parallel</text>
+  <text x="30" y="130" font-size="12" fill="#333">with the existing wires)</text>
+  <text x="30" y="380" font-size="12" fill="#555">No ground wire</text>
+  <text x="30" y="396" font-size="12" fill="#555">to the VRF.</text>
+  <text x="30" y="420" font-size="12" fill="#555">Nothing received?</text>
+  <text x="30" y="436" font-size="12" fill="#555">Swap H and L.</text>
+
+  <!-- terminal -->
+  <rect x="140" y="180" width="60" height="90" rx="4" fill="#1f8a43"/>
+  <circle cx="170" cy="205" r="10" fill="#cfd8cf"/><circle cx="170" cy="245" r="10" fill="#cfd8cf"/>
+  <text x="170" y="172" text-anchor="middle" font-weight="bold" fill="#c0392b">H</text>
+  <text x="170" y="290" text-anchor="middle" font-weight="bold" fill="#2c3e50">L</text>
+
+  <!-- CAN Pal -->
+  <rect x="200" y="100" width="210" height="260" rx="8" fill="#7a3f8f"/>
+  <text x="285" y="150" text-anchor="middle" font-weight="bold" fill="#fff">CAN Pal</text>
+  <text x="285" y="170" text-anchor="middle" fill="#f1e3f6">TJA1051T/3</text>
+  <rect x="255" y="215" width="55" height="30" rx="3" fill="#222"/>
+  <rect x="235" y="300" width="36" height="16" rx="2" fill="#eee"/><rect x="237" y="302" width="14" height="12" fill="#555"/>
+  <text x="253" y="336" text-anchor="middle" font-size="11" fill="#f1e3f6">TERM: OFF</text>
+  <g fill="#e2b13c"><circle cx="392" cy="140" r="8"/><circle cx="392" cy="180" r="8"/><circle cx="392" cy="220" r="8"/><circle cx="392" cy="260" r="8"/><circle cx="392" cy="320" r="8"/></g>
+  <g font-size="12" fill="#fff" text-anchor="end"><text x="376" y="144" font-weight="bold">GND</text><text x="376" y="184" font-weight="bold">Vcc</text><text x="376" y="224" font-weight="bold">TX</text><text x="376" y="264" font-weight="bold">RX</text><text x="376" y="324">SLNT</text></g>
+  <text x="305" y="388" text-anchor="middle" font-size="12" fill="#555">SLNT: leave unconnected.</text>
+  <text x="305" y="406" text-anchor="middle" font-size="12" fill="#555">Pad order differs between clones:</text>
+  <text x="305" y="422" text-anchor="middle" font-size="12" fill="#555">follow the silkscreen, not this drawing.</text>
+
+  <!-- wires -->
+  <g stroke-width="3" fill="none">
+    <path d="M392,140 C500,140 520,155 628,155" stroke="#111"/>
+    <path d="M392,180 C500,180 520,190 628,190" stroke="#d62728"/>
+    <path d="M392,220 C500,220 520,225 628,225" stroke="#ff9f1c"/>
+    <path d="M392,260 C500,260 520,260 628,260" stroke="#2ca02c"/>
+  </g>
+  <g font-size="12" text-anchor="middle">
+    <text x="510" y="134" fill="#111">GND ← G</text>
+    <text x="510" y="176" fill="#d62728">Vcc ← 3.3</text>
+    <text x="510" y="212" fill="#b06a00">TX ← GPIO4</text>
+    <text x="510" y="280" fill="#1d7a1d">RX → GPIO3</text>
+  </g>
+
+  <!-- C3 SuperMini, USB at top, component side up -->
+  <rect x="610" y="80" width="230" height="330" rx="8" fill="#2f4fb5"/>
+  <rect x="685" y="62" width="80" height="40" rx="6" fill="#c9cbd1" stroke="#888"/>
+  <text x="725" y="87" text-anchor="middle" font-size="12" fill="#333">USB-C</text>
+  <rect x="690" y="355" width="70" height="40" rx="3" fill="#222"/>
+  <text x="725" y="380" text-anchor="middle" font-size="11" fill="#ddd">antenna</text>
+  <text x="725" y="225" text-anchor="middle" font-weight="bold" fill="#fff">ESP32-C3</text>
+  <text x="725" y="245" text-anchor="middle" font-weight="bold" fill="#fff">SuperMini</text>
+  <text x="725" y="268" text-anchor="middle" font-size="11" fill="#dfe6ff">component side up</text>
+  <g fill="#e2b13c">
+    <circle cx="628" cy="120" r="8"/><circle cx="628" cy="155" r="8"/><circle cx="628" cy="190" r="8"/><circle cx="628" cy="225" r="8"/><circle cx="628" cy="260" r="8"/><circle cx="628" cy="295" r="8"/><circle cx="628" cy="330" r="8"/>
+    <circle cx="822" cy="120" r="8"/><circle cx="822" cy="155" r="8"/><circle cx="822" cy="190" r="8"/><circle cx="822" cy="225" r="8"/><circle cx="822" cy="260" r="8"/><circle cx="822" cy="295" r="8"/><circle cx="822" cy="330" r="8"/>
+  </g>
+  <g font-size="12" fill="#fff">
+    <text x="644" y="124">5V</text><text x="644" y="159" font-weight="bold">G</text><text x="644" y="194" font-weight="bold">3.3</text>
+    <text x="644" y="229" font-weight="bold">4</text><text x="644" y="264" font-weight="bold">3</text><text x="644" y="299">2 ⚠</text><text x="644" y="334">1</text>
+    <g text-anchor="end"><text x="806" y="124">5</text><text x="806" y="159">6</text><text x="806" y="194">7</text>
+    <text x="806" y="229">8 ⚠</text><text x="806" y="264">9 ⚠</text><text x="806" y="299">10</text><text x="806" y="334">20 21 ⚠</text></g>
+  </g>
+  <text x="725" y="438" text-anchor="middle" font-size="12" fill="#555">⚠ 2, 8, 9 are strapping pins; 20/21 are the serial port.</text>
+  <text x="725" y="455" text-anchor="middle" font-size="12" fill="#555">The USB-C cable powers both boards (5 V USB adapter).</text>
+</svg>

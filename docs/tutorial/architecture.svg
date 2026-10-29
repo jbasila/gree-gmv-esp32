@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" font-family="Helvetica, Arial, sans-serif" font-size="14">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#444"/></marker>
+  </defs>
+  <rect width="960" height="470" fill="#fff"/>
+  <text x="480" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">System overview</text>
+
+  <!-- Home Assistant -->
+  <rect x="30" y="70" width="190" height="90" rx="10" fill="#e8f1fb" stroke="#2d6cb5"/>
+  <text x="125" y="105" text-anchor="middle" font-weight="bold" fill="#1d4f8a">Home Assistant</text>
+  <text x="125" y="128" text-anchor="middle" fill="#333">5 climate entities</text>
+  <text x="125" y="146" text-anchor="middle" fill="#333">(ESPHome integration)</text>
+
+  <!-- ESP -->
+  <rect x="300" y="70" width="190" height="90" rx="10" fill="#e9ecf8" stroke="#3a4fb0"/>
+  <text x="395" y="102" text-anchor="middle" font-weight="bold" fill="#2a3a88">ESP32-C3 SuperMini</text>
+  <text x="395" y="124" text-anchor="middle" fill="#333">ESPHome + gree_gmv</text>
+  <text x="395" y="142" text-anchor="middle" fill="#333">TWAI (CAN) controller</text>
+
+  <!-- Transceiver -->
+  <rect x="570" y="70" width="170" height="90" rx="10" fill="#f3e9f6" stroke="#7a3f8f"/>
+  <text x="655" y="102" text-anchor="middle" font-weight="bold" fill="#5e2b70">CAN Pal</text>
+  <text x="655" y="124" text-anchor="middle" fill="#333">TJA1051T/3</text>
+  <text x="655" y="142" text-anchor="middle" fill="#333">3.3 V logic</text>
+
+  <line x1="222" y1="115" x2="298" y2="115" stroke="#444" stroke-width="2" stroke-dasharray="6 4" marker-start="url(#a)" marker-end="url(#a)"/>
+  <text x="260" y="104" text-anchor="middle" font-size="12" fill="#555">WiFi</text>
+  <text x="260" y="134" text-anchor="middle" font-size="12" fill="#555">native API</text>
+  <line x1="492" y1="105" x2="568" y2="105" stroke="#444" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="568" y1="125" x2="492" y2="125" stroke="#444" stroke-width="2" marker-end="url(#a)"/>
+  <text x="530" y="96" text-anchor="middle" font-size="12" fill="#555">TX</text>
+  <text x="530" y="145" text-anchor="middle" font-size="12" fill="#555">RX</text>
+
+  <!-- bus -->
+  <line x1="60" y1="270" x2="900" y2="270" stroke="#c0392b" stroke-width="4"/>
+  <line x1="60" y1="284" x2="900" y2="284" stroke="#2c3e50" stroke-width="4"/>
+  <text x="905" y="274" font-size="12" fill="#c0392b">H</text>
+  <text x="905" y="290" font-size="12" fill="#2c3e50">L</text>
+  <text x="320" y="252" text-anchor="middle" font-size="13" fill="#333">Gree GMV5 CAN bus · 20 kbit/s · 29-bit IDs · already terminated (~60 Ω)</text>
+  <line x1="655" y1="160" x2="655" y2="268" stroke="#7a3f8f" stroke-width="2"/>
+  <line x1="665" y1="160" x2="665" y2="282" stroke="#7a3f8f" stroke-width="2"/>
+  <text x="675" y="215" font-size="12" fill="#5e2b70">CANH / CANL only</text>
+  <text x="675" y="231" font-size="12" fill="#5e2b70">(no ground wire)</text>
+
+  <!-- units -->
+  <g font-size="13">
+    <rect x="40" y="340" width="150" height="70" rx="8" fill="#eef7ee" stroke="#2e7d32"/>
+    <text x="115" y="370" text-anchor="middle" font-weight="bold" fill="#1b5e20">Outdoor unit</text>
+    <text x="115" y="390" text-anchor="middle" fill="#333">node 0xC400</text>
+    <line x1="115" y1="286" x2="115" y2="338" stroke="#2e7d32" stroke-width="2"/>
+
+    <rect x="215" y="340" width="110" height="70" rx="8" fill="#fff8e6" stroke="#b7791f"/>
+    <text x="270" y="370" text-anchor="middle" font-weight="bold" fill="#7a4f0e">Indoor 1</text>
+    <text x="270" y="390" text-anchor="middle" fill="#333">0xD000</text>
+    <line x1="270" y1="286" x2="270" y2="338" stroke="#b7791f" stroke-width="2"/>
+
+    <rect x="340" y="340" width="110" height="70" rx="8" fill="#fff8e6" stroke="#b7791f"/>
+    <text x="395" y="370" text-anchor="middle" font-weight="bold" fill="#7a4f0e">Indoor 2</text>
+    <text x="395" y="390" text-anchor="middle" fill="#333">0xD080</text>
+    <line x1="395" y1="286" x2="395" y2="338" stroke="#b7791f" stroke-width="2"/>
+
+    <rect x="465" y="340" width="110" height="70" rx="8" fill="#fff8e6" stroke="#b7791f"/>
+    <text x="520" y="370" text-anchor="middle" font-weight="bold" fill="#7a4f0e">Indoor 3…n</text>
+    <text x="520" y="390" text-anchor="middle" fill="#333">0xD100 …</text>
+    <line x1="520" y1="286" x2="520" y2="338" stroke="#b7791f" stroke-width="2"/>
+
+    <rect x="740" y="340" width="180" height="70" rx="8" fill="#f4f4f4" stroke="#777" stroke-dasharray="5 4"/>
+    <text x="830" y="368" text-anchor="middle" font-weight="bold" fill="#444">Dealer gateway</text>
+    <text x="830" y="388" text-anchor="middle" fill="#555">(optional, e.g.</text>
+    <text x="830" y="403" text-anchor="middle" fill="#555">CoolAutomation GMVCGA01)</text>
+    <line x1="830" y1="286" x2="830" y2="338" stroke="#777" stroke-width="2" stroke-dasharray="5 4"/>
+  </g>
+  <text x="480" y="450" text-anchor="middle" font-size="12" fill="#666">Indoor unit n is node 0xD000 + 0x80·(n−1). Wired wall controllers use a separate bus (H1/H2) and are not involved.</text>
+</svg>

@@ -58,9 +58,41 @@ Termination switch **OFF**. No VIO pin on this board: Vcc is the logic supply. A
    as `observed write`). Option to ask the dealer about a CoolAutomation local-control licence.
 2. If the gateway is ever removed: first measure CANH–CANL powered off with and without it. 60 Ω → 120 Ω
    means it held a terminator → set the CAN Pal termination switch ON. Removing it loses iocControl/cloud.
-3. Design and 3D-print the enclosure for the C3 + CAN Pal (one 4-pin header row; keep the chip antenna
-   end of the C3 clear of metal and the gateway housing). Decide how the C3 is powered in the box (USB-C).
-4. Untested on the C3 so far: power, mode, fan, swing writes and the other four units (same code path).
+3. **Enclosure draft is ready, waiting for a test print** (2026-10-27). `enclosure/vrf_box.py` writes
+   `vrf-box-base.stl` + `vrf-box-lid.stl`; **not committed yet**: commit after the print fits.
+   - **Print 1 (2026-10-28):** 10 mm gap too long for the soldered wires (max 6 mm); boards loose
+     vertically; friction lid loose. **Print 2 in progress** with: `GAP` 5 mm (confirmed fits), snap
+     bumps on the lid lip + grooves in the base long walls (`SNAP_IN` 0.3), lid hold-down posts
+     (C3 antenna-end edges and CAN Pal terminal pressed 0.2 mm; USB-C shell touched, 0 mm, as `USB_Z`
+     is a guess). Lid goes on one way: lip notch over the bus-wire slot.
+   - **Print 2 result:** C3 fits and is held. Terminal pad 2 mm short (`TERM_EXTRA`). Lid loose, snaps
+     never engaged. **Print 3:** `LIP_H` 3.5, `LIP_CLR` 0.1, `SNAP_IN` 0.6, `SNAP_H` 1.6, groove 0.9 × 2.0
+     with a 1.3 mm ledge above it.
+   - **Print 3 result (2026-10-29):** lid latches, both boards held. CAN Pal could slide toward the C3
+     (cradle open at the wired edge). **Base-only change for print 4:** side lips run full length plus
+     2 mm L-shaped corner stops at the wired edge; middle stays open for the soldered pads.
+   - 53.3 × 24.8 × 18.7 mm with lid, flat bottom for double-sided tape, snap-fit lid.
+   - C3 at one end on a 2 mm platform, USB-C through a 12.5 × 7 mm opening (fits a cable's plug overmold);
+     side lips only over the 6 mm at the antenna end (the wired pads' solder bulges past the edge).
+   - CAN Pal at the other end in a **cradle, no screws**: rails under the side edges (1.5 mm, clears solder),
+     side lips, open at the wired edge, terminal against the end wall under a 14 mm bus-wire slot.
+   - 5 mm gap between the boards (the soldered wires reach 6 mm; check WiFi signal with the antenna this close).
+   - Measured: C3 22.5 × 18, CAN Pal 20 × 20 × 11 mm tall, terminal centred, M2 holes 2.3 mm (holes unused;
+     their spacing was never measured). Both boards have wires **soldered to the pads, no headers**.
+     Only guess left: `USB_Z` (USB-C centre 1.6 mm above the C3 PCB); the 7 mm opening absorbs ±2 mm.
+   - Regenerate: needs Python 3.12 (no `manifold3d` wheels for 3.15):
+     (any 3.12 venv) `uv venv -p 3.12 /tmp/cad && VIRTUAL_ENV=/tmp/cad uv pip install manifold3d numpy && /tmp/cad/bin/python enclosure/vrf_box.py`.
+     OpenSCAD isn't an option: its Homebrew cask is disabled (fails Gatekeeper, since 2026-09-01).
+   - Print check: USB-C plug seats fully, both boards drop in without forcing, lid holds, bus wires
+     pass the slot. Adjust the constants at the top of `vrf_box.py` and regenerate.
+4. Verified on the C3: all five units report (Bedroom 4 only on change; it was off), setpoint writes on
+   Bedroom 3 and Bedroom 4 (Bedroom 4 23/24/25 °C, echoes 308–999 ms). Untested on the C3: power, mode, fan, swing writes.
+
+## Public docs
+
+`docs/TUTORIAL.md` is the build guide for other people (diagrams and renders in `docs/tutorial/`;
+enclosure renders come from `vrf_box.py`, re-render if the box changes). Uses generic room names.
+MIT licence added 2026-10-29.
 
 ## Git identity (private project)
 

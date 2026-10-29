@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" font-family="Helvetica, Arial, sans-serif" font-size="14">
+  <rect width="960" height="300" fill="#fff"/>
+  <text x="480" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">29-bit identifier layout</text>
+  <g>
+    <rect x="40" y="60" width="120" height="60" fill="#fde2e1" stroke="#c0392b"/>
+    <rect x="160" y="60" width="120" height="60" fill="#fdebd0" stroke="#b9770e"/>
+    <rect x="280" y="60" width="250" height="60" fill="#eceff1" stroke="#607d8b"/>
+    <rect x="530" y="60" width="250" height="60" fill="#e3f2fd" stroke="#1e88e5"/>
+    <rect x="780" y="60" width="140" height="60" fill="#e8f5e9" stroke="#43a047"/>
+  </g>
+  <g text-anchor="middle">
+    <text x="100" y="86" font-weight="bold">priority</text><text x="100" y="106" font-size="12">bits 28..26</text>
+    <text x="220" y="86" font-weight="bold">class</text><text x="220" y="106" font-size="12">bits 25..24</text>
+    <text x="405" y="86" font-weight="bold">0xFF / 0xBF</text><text x="405" y="106" font-size="12">bits 23..16</text>
+    <text x="655" y="86" font-weight="bold">node address</text><text x="655" y="106" font-size="12">bits 15..7 (multiples of 0x80)</text>
+    <text x="850" y="86" font-weight="bold">register</text><text x="850" y="106" font-size="12">bits 6..0</text>
+  </g>
+  <g font-size="14">
+    <text x="40" y="165" font-weight="bold">Examples</text>
+    <text x="40" y="192" font-family="Menlo, monospace">0x1EFF D020</text><text x="200" y="192">status broadcast · node 0xD000 (indoor 1) · register 0x20 (room temperature)</text>
+    <text x="40" y="217" font-family="Menlo, monospace">0x1CBF D1F3</text><text x="200" y="217">write · node 0xD180 (indoor 4) · register 0x73 (setpoint)</text>
+    <text x="40" y="242" font-family="Menlo, monospace">0x1CFF D0EF</text><text x="200" y="242">poll · node 0xD080 (indoor 2) · register 0x6F (power)</text>
+    <text x="40" y="275" font-size="12" fill="#555">Low 16 bits = node | register, e.g. 0xD180 | 0x73 = 0xD1F3.</text>
+  </g>
+</svg>

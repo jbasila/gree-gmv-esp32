@@ -6,7 +6,10 @@ with an ESP32 running ESPHome, talking directly to the VRF communication bus.
 Status: **reading and writing work end to end** (5 climate entities in Home Assistant; setpoint,
 power, mode, fan and swing verified on the bus 2026-10-26). Use a genuine 3.3 V-logic transceiver
 such as the TJA1051T/3 (Adafruit CAN Pal 5708 or a clone): the cheap "SN65HVD230" modules sold on
-AliExpress are often 5 V fakes that receive but cannot transmit. Read `docs/HANDOFF.md`.
+AliExpress are often 5 V fakes that receive but cannot transmit.
+
+**Building one? Start with the step-by-step [build guide](docs/TUTORIAL.md)**: parts, wiring,
+flashing, Home Assistant setup, a printable enclosure and troubleshooting.
 
 ## Plan
 
@@ -30,8 +33,8 @@ external_components:
 canbus:
   - platform: esp32_can
     id: vrf_can
-    tx_pin: GPIO26
-    rx_pin: GPIO27
+    tx_pin: GPIO4         # ESP32-C3 SuperMini; avoid strapping pins 2/8/9 and serial 20/21
+    rx_pin: GPIO3
     can_id: 0
     bit_rate: 20KBPS
 
@@ -79,3 +82,7 @@ This repo bundles a patched copy of the `esp32_can` driver under `components/esp
 stock ESPHome add-on builds it; it is a verbatim copy of 2026.9.1 plus the 20 kbps case and bus-off
 recovery. Stable 2026.10.0 still lacks both; the dev branch (2026.11) has both, so from 2026.11 you
 may restrict the import to `components: [gree_gmv]`. Verified to build on 2026.9.1, 2026.10.0 and dev.
+
+## License
+
+MIT, see `LICENSE`.
