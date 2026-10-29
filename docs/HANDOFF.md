@@ -71,6 +71,7 @@ Termination switch **OFF**. No VIO pin on this board: Vcc is the logic supply. A
    - **Print 3 result (2026-10-29):** lid latches, both boards held. CAN Pal could slide toward the C3
      (cradle open at the wired edge). **Base-only change for print 4:** side lips run full length plus
      2 mm L-shaped corner stops at the wired edge; middle stays open for the soldered pads.
+   - **Print 4 (2026-10-29): perfect.** Enclosure done; current `vrf_box.py` is the final design.
    - 53.3 × 24.8 × 18.7 mm with lid, flat bottom for double-sided tape, snap-fit lid.
    - C3 at one end on a 2 mm platform, USB-C through a 12.5 × 7 mm opening (fits a cable's plug overmold);
      side lips only over the 6 mm at the antenna end (the wired pads' solder bulges past the edge).
@@ -100,6 +101,10 @@ This is a private project: every commit must be `jbasila <jbasila@gmail.com>`, *
 `<work email>` (the global `~/.gitconfig` default). The repo-local config sets
 `user.name`/`user.email` and a credential helper that pushes as the `jbasila` GitHub account
 (`gh auth token --user jbasila`), not `<work account>`. History was rewritten on 2026-10-27 to fix this.
+Rewritten again 2026-10-29 for privacy: room names → Bedroom 1–4 (Bedroom 1 = 0xD080 …
+Bedroom 4 = 0xD200), WiFi SSID/BSSIDs/MACs/LAN IPs scrubbed from `captures/`, work identity
+replaced, `__pycache__` purged. The HA add-on's copy of `vrf.yaml` keeps the real names; don't
+overwrite it from the repo or the entity IDs change. Never commit real names or network details.
 Check before committing: `git config user.email` must print `jbasila@gmail.com`.
 
 ## Code map

@@ -491,8 +491,7 @@ Raw captures are in `captures/`, and the analysis scripts are in `tools/`.
 - **Unknown fields:** register `0x6F` bits 4/5; several bytes of `0x20`; the outdoor unit's
   registers.
 - **No "Auto" mode:** the vendor app doesn't offer one either.
-- **Enclosure:** the CAN Pal corner stops are the newest change. Earlier prints confirmed the C3
-  fit, hold-downs and snap lid.
+- **Enclosure:** final design, confirmed by test prints: C3 and CAN Pal fit, hold-downs and snap lid work.
 
 ---
 
