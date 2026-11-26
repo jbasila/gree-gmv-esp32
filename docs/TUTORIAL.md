@@ -233,11 +233,9 @@ For the first flash you don't need to know the addresses. Leave `climate:` out, 
 guesses: [step 8](#8-find-your-indoor-units) finds them for you.
 
 > [!NOTE]
-> **Why the repo ships its own `esp32_can`.** Stable ESPHome up to 2026.10 has no bus-off recovery:
-> one failed transmit stops reception until a reboot. It also rejects 20 kbit/s on a classic ESP32.
-> `external_components` loads a patched copy of the stock driver from `components/esp32_can/`. Both
-> fixes are on ESPHome's dev branch. From 2026.11 stable on, you can restrict the import to
-> `components: [gree_gmv]`.
+> **ESPHome 2026.11 or newer is required.** Older stable releases have no `esp32_can` bus-off
+> recovery (one failed transmit stops reception until a reboot) and reject 20 kbit/s on a classic
+> ESP32. On a classic ESP32 also set `esp32: framework: advanced: minimum_chip_revision: '2.0'`.
 
 ### 6.3 First flash over USB
 

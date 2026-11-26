@@ -1,4 +1,6 @@
-# Handoff (updated 2026-10-27, session closed)
+# Handoff (updated 2026-11-26)
+
+Mission board: https://claude.ai/artifact/TAZi4F15ReSUnMVf4ioiMw (open follow-ups live there).
 
 ## Where we are
 
@@ -49,8 +51,8 @@ Termination switch **OFF**. No VIO pin on this board: Vcc is the logic supply. A
 - Changes from the iocControl app / cloud appear on the bus as `observed write` (gateway's 1CBF frames);
   our own writes log as `write 0x1CBF...`. Use that to tell them apart.
 - After reflashing over USB, HA may not reconnect on its own; ESPHome integration → vrf → Reload.
-- Keep `components/esp32_can/`: stable 2026.10.0 lacks bus-off recovery on every chip (and 20 kbps on
-  classic ESP32). Both are on dev, so drop it at 2026.11.0 stable.
+- `components/esp32_can/` override removed 2026-11-26: the HA add-on runs ESPHome 2026.11.1, whose
+  stock driver has bus-off recovery and 20 kbps on classic ESP32. ESPHome ≥ 2026.11 is now required.
 
 ## Next: the enclosure
 
@@ -111,8 +113,6 @@ Check before committing: `git config user.email` must print `jbasila@gmail.com`.
 
 - `components/gree_gmv/`: hub (`gree_gmv.cpp`: frame → chunk dispatch, discovery log, `write()`),
   climate platform (`gree_gmv_climate.cpp`: register → entity state, `control()` → writes).
-- `components/esp32_can/`: verbatim ESPHome 2026.9.1 driver + 20 kbps on classic ESP32 + bus-off
-  recovery. Delete once the add-on runs ESPHome ≥ 2026.11 (or restrict import to `components: [gree_gmv]`).
 - `esphome/vrf.yaml`: the device config (also what the dashboard holds). `sniffer.yaml`,
   `tx-loop-test.yaml`, `tx-hold-test.yaml`, `tx-hold-forever.yaml`, `vrf-node.yaml`: diagnostics.
 - `tools/`: `capture.sh`/`serial_log.py` (log serial), `analyze.py`/`watch.py`/`reassemble.py`
