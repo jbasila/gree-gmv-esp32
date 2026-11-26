@@ -23,7 +23,7 @@ The low 16 bits split into a **node address** (bits 15..7, i.e. multiples of 0x8
 |---|---|---|
 | 0xD000 | IDU 1 | type 0x10 msg ends with `01 00 20 00` |
 | 0xD080 | IDU 2 | `... 02 00 02 00` |
-| 0xD100 | IDU 3 | `... 03 00 22 00`; emits extra types 0x14, 0x22..0x27, 0x29 (has the wired controller? master IDU?) |
+| 0xD100 | IDU 3 | `... 03 00 22 00`; emits extra types 0x14, 0x22..0x27, 0x29 (has the wired controller? Not the mode master: that is 0xD000) |
 | 0xD180 | IDU 4 | `... 04 00 04 00` |
 | 0xD200 | IDU 5 | `... 05 00 05 00` |
 | 0xC400 | ODU | big type 0x10 (41 bytes), types 0x27/0x28/0x31/0x32 unique to it |
@@ -105,9 +105,9 @@ arrive rather than reassembling (the ESPHome component does this). The 0x21 stat
 | Type | Off | Field | Encoding |
 |---|---|---|---|
 | 0x6F | 0 | power | bit0 = on. Bits 4/5 seen set on idle units (`0x20`, `0x30`): unknown flags |
-| 0x71 | 0 | mode | 1 = cool, 2 = dry, 3 = fan, 4 = heat (refused while ODU cools: state never changed). auto: app has none |
+| 0x71 | 0 | mode | 1 = cool, 2 = dry, 3 = fan, 4 = heat. Heat vs cool follows the master unit 0xD000, see [Mode master](#mode-master-2026-11-26). auto: app has none |
 | 0x71 | 1 | fan speed | 1 auto, 2 very low, 3 low, 4 medium, 5 high, 6 very high (0x21 byte 1 reports value+1) |
-| 0x71 | 2..3 | swing | two bytes (vertical, horizontal?), 1 = off, 2 = on; 0x21 byte 2 mirrors |
+| 0x71 | 2..3 | swing | two bytes (vertical, horizontal?), 1 = off, 2 = on; 0x21 byte 2 mirrors. 3 also seen (0xD200 vertical, 2026-11-26): meaning unknown |
 | 0x73 | 0..1 | setpoint | LE16, 0.1 °C |
 | 0x73 | 2..3 | min setpoint | LE16, 0.1 °C (160 = 16.0) |
 | 0x73 | 4..5 | max setpoint | LE16, 0.1 °C (300 = 30.0) |
@@ -117,6 +117,33 @@ arrive rather than reassembling (the ESPHome component does this). The 0x21 stat
 | 0x20 | 1, 3 | coil temps | °C = value − 100 (running cooling unit: 1 °C and 7 °C; idle units ≈ room temp) |
 | 0x20 | 2, 4, 6 | ? | 0x46 (= −30) on an idle unit → probably "n/a"; different encoding or absent sensor |
 | 0x20 | 7, 8 | ? | 0x64 = 100 % / 0x7F / 0x7D |
+
+### Mode master (2026-11-26)
+
+The living-room unit (0xD000) is the system's **mode master**: whether the system heats or cools is
+its mode. Per the owner: with the master on heat no other unit can run cool, and vice versa.
+
+Seen on the bus (stock ESPHome 2026.11.1 driver, all writes from HA):
+
+```
+10:03:41.346  write 0x1CBFD06F off=0 val=01   master power on (already mode 4 = heat)
+10:03:41.557  0xD000 power=1 mode=4                echo 211 ms
+10:03:46.262  write 0x1CBFD1F1 off=0 val=01   0xD180 mode := 1 (cool)
+10:03:46.266  write 0x1CBFD1EF off=0 val=01   0xD180 power on
+10:03:46.945  0xD180 power=1 mode=1                cool accepted, echo 683 ms
+10:03:56.222  0xD180 power=1 mode=4                forced to heat, no write from us or the gateway
+```
+
+- A conflicting heat/cool write on a non-master unit is **accepted, then overridden about 9 s later**
+  to the master's mode (not back to its previous mode: 0xD180 had been on fan). No NAK, no error frame.
+- `gree_gmv` follows the unit's broadcast, so the HA entity flips to the forced mode by itself; no
+  extra handling needed.
+- 0xD180's room temperature (0x20 byte 0) dropped 25 → 23 °C right after the switch: probably a
+  different sensor or compensation per mode.
+- The October note "heat refused while ODU cools: state never changed" may come from a capture that
+  did not wait long enough to see the accept-then-override.
+- Untested: whether fan/dry on a non-master unit are left alone, and whether a non-master write ever
+  changes the master.
 
 ### Room mapping
 
