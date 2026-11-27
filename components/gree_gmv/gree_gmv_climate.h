@@ -6,11 +6,14 @@
 
 namespace esphome::gree_gmv {
 
+enum class SwingSupport : uint8_t { NONE, VERTICAL, BOTH };
+
 class GreeGMVClimate : public climate::Climate, public Component, public GreeGMVUnit {
  public:
   void set_parent(GreeGMV *parent) { this->parent_ = parent; }
   void set_address(uint16_t address) { this->address_ = address; }
   uint16_t get_address() const override { return this->address_; }
+  void set_swing_support(SwingSupport swing) { this->swing_support_ = swing; }
 
   void setup() override;
   void dump_config() override;
@@ -23,6 +26,7 @@ class GreeGMVClimate : public climate::Climate, public Component, public GreeGMV
 
   GreeGMV *parent_{nullptr};
   uint16_t address_{0};
+  SwingSupport swing_support_{SwingSupport::VERTICAL};
 
   bool power_{false};
   uint8_t gree_mode_{MODE_COOL};

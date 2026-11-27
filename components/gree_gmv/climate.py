@@ -10,6 +10,16 @@ from . import CONF_GREE_GMV_ID, GreeGMV, gree_gmv_ns
 DEPENDENCIES = ["gree_gmv"]
 
 GreeGMVClimate = gree_gmv_ns.class_("GreeGMVClimate", climate.Climate, cg.Component)
+SwingSupport = gree_gmv_ns.enum("SwingSupport", is_class=True)
+
+CONF_SWING = "swing"
+# Which louvers the indoor unit can move. Units ignore writes for louvers they lack
+# (a write of horizontal swing is echoed back as off), so only offer what exists.
+SWING_SUPPORT = {
+    "none": SwingSupport.NONE,
+    "vertical": SwingSupport.VERTICAL,
+    "both": SwingSupport.BOTH,
+}
 
 
 def _node_address(value):
@@ -27,6 +37,7 @@ CONFIG_SCHEMA = (
         {
             cv.GenerateID(CONF_GREE_GMV_ID): cv.use_id(GreeGMV),
             cv.Required(CONF_ADDRESS): _node_address,
+            cv.Optional(CONF_SWING, default="vertical"): cv.enum(SWING_SUPPORT, lower=True),
         }
     )
     .extend(cv.COMPONENT_SCHEMA)
@@ -39,4 +50,5 @@ async def to_code(config):
     hub = await cg.get_variable(config[CONF_GREE_GMV_ID])
     cg.add(var.set_parent(hub))
     cg.add(var.set_address(config[CONF_ADDRESS]))
+    cg.add(var.set_swing_support(config[CONF_SWING]))
     cg.add(hub.register_unit(var))

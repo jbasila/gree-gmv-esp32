@@ -54,12 +54,14 @@ climate:
   - platform: gree_gmv
     name: "Living Room"
     address: 0xD000
+    swing: none        # no louver motor; `swing:` defaults to vertical
   - platform: gree_gmv
     name: "Bedroom 1"
     address: 0xD080
   - platform: gree_gmv
     name: "Bedroom 2"
     address: 0xD100
+    swing: none
   - platform: gree_gmv
     name: "Bedroom 3"
     address: 0xD180

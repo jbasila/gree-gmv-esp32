@@ -304,7 +304,7 @@ asked. Each indoor unit becomes a climate entity:
 |---|---|
 | Mode | Off, Cool, Heat, Dry, Fan only |
 | Fan | Auto, Very Low, Low, Medium, High, Very High |
-| Swing | Off, Vertical, Horizontal, Both |
+| Swing | Per unit via `swing:` — `vertical` (default): Off, Vertical; `both`: also Horizontal, Both; `none`: no swing control |
 | Target temperature | 1 °C steps, within the unit's own min/max (typically 16–30 °C) |
 | Current temperature | Room temperature reported by the unit |
 
@@ -482,10 +482,10 @@ Raw captures are in `captures/`, and the analysis scripts are in `tools/`.
 
 - **Tested on one installation:** GMV5, 1 ODU + 5 IDUs. Reports from other sizes and models are
   very welcome.
-- **Verified writes:** setpoint, power, mode, fan and vertical swing. Horizontal swing uses the same
-  code path but hasn't been confirmed on a unit.
-- **Heat:** only tested while the system was cooling, when it is refused as expected. Winter
-  confirmation pending.
+- **Verified writes:** setpoint, power, mode, fan and vertical swing. Horizontal swing is
+  unconfirmed: no unit here has a horizontal louver motor, and a unit echoes a horizontal write back
+  as off. A unit with no swing at all still echoes vertical on, so set `swing: none` on it.
+- **Heat vs cool:** decided by the mode-master unit (0xD000 here); see `docs/04-protocol.md`.
 - **Unknown fields:** register `0x6F` bits 4/5; several bytes of `0x20`; the outdoor unit's
   registers.
 - **No "Auto" mode:** the vendor app doesn't offer one either.

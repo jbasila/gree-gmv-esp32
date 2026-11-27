@@ -18,6 +18,8 @@ void GreeGMVClimate::setup() {
 void GreeGMVClimate::dump_config() {
   LOG_CLIMATE("", "Gree GMV indoor unit", this);
   ESP_LOGCONFIG(TAG, "  node address: 0x%04X", this->address_);
+  static const char *const SWING_NAMES[] = {"none", "vertical", "both"};
+  ESP_LOGCONFIG(TAG, "  swing: %s", SWING_NAMES[static_cast<uint8_t>(this->swing_support_)]);
 }
 
 climate::ClimateTraits GreeGMVClimate::traits() {
@@ -27,8 +29,17 @@ climate::ClimateTraits GreeGMVClimate::traits() {
                          climate::CLIMATE_MODE_DRY, climate::CLIMATE_MODE_FAN_ONLY});
   t.set_supported_fan_modes({climate::CLIMATE_FAN_AUTO, climate::CLIMATE_FAN_LOW, climate::CLIMATE_FAN_MEDIUM,
                              climate::CLIMATE_FAN_HIGH});
-  t.set_supported_swing_modes({climate::CLIMATE_SWING_OFF, climate::CLIMATE_SWING_BOTH,
-                               climate::CLIMATE_SWING_VERTICAL, climate::CLIMATE_SWING_HORIZONTAL});
+  switch (this->swing_support_) {
+    case SwingSupport::NONE:
+      break;
+    case SwingSupport::VERTICAL:
+      t.set_supported_swing_modes({climate::CLIMATE_SWING_OFF, climate::CLIMATE_SWING_VERTICAL});
+      break;
+    case SwingSupport::BOTH:
+      t.set_supported_swing_modes({climate::CLIMATE_SWING_OFF, climate::CLIMATE_SWING_BOTH,
+                                   climate::CLIMATE_SWING_VERTICAL, climate::CLIMATE_SWING_HORIZONTAL});
+      break;
+  }
   t.set_visual_min_temperature(this->min_temp_);
   t.set_visual_max_temperature(this->max_temp_);
   t.set_visual_target_temperature_step(1.0f);
@@ -111,7 +122,9 @@ void GreeGMVClimate::publish_from_bus_() {
       ESP_LOGW(TAG, "0x%04X: unknown fan speed %u", this->address_, this->gree_fan_);
       break;
   }
-  bool v = this->swing_v_ == SWING_ON, h = this->swing_h_ == SWING_ON;
+  // Hide louvers the unit lacks: e.g. a unit with no swing still echoes swing V on after a write.
+  bool v = this->swing_v_ == SWING_ON && this->swing_support_ != SwingSupport::NONE;
+  bool h = this->swing_h_ == SWING_ON && this->swing_support_ == SwingSupport::BOTH;
   this->swing_mode = v && h ? climate::CLIMATE_SWING_BOTH
                      : v    ? climate::CLIMATE_SWING_VERTICAL
                      : h    ? climate::CLIMATE_SWING_HORIZONTAL

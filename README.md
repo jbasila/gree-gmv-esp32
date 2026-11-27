@@ -48,7 +48,7 @@ climate:
 ```
 
 Each `climate` entity gives power, mode (cool/heat/dry/fan), fan speed (auto, very low, low,
-medium, high, very high), swing (vertical/horizontal), setpoint and room temperature.
+medium, high, very high), swing (per unit: none, vertical or both), setpoint and room temperature.
 See `esphome/vrf.yaml` for a complete config and `docs/04-protocol.md` for the protocol.
 
 ### Finding your unit addresses

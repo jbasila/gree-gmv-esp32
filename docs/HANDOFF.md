@@ -89,7 +89,7 @@ Termination switch **OFF**. No VIO pin on this board: Vcc is the logic supply. A
    - Print check: USB-C plug seats fully, both boards drop in without forcing, lid holds, bus wires
      pass the slot. Adjust the constants at the top of `vrf_box.py` and regenerate.
 4. Verified on the C3: all five units report (Bedroom 4 only on change; it was off), setpoint writes on
-   Bedroom 3 and Bedroom 4 (Bedroom 4 23/24/25 °C, echoes 308–999 ms). Power and mode writes verified on the C3 2026-11-26; fan and swing untested.
+   Bedroom 3 and Bedroom 4 (Bedroom 4 23/24/25 °C, echoes 308–999 ms). Power and mode writes verified on the C3 2026-11-26; fan and vertical swing 2026-11-27 (Living Room). Swing per unit: Living Room and Bedroom 2 none, others vertical; no unit has horizontal swing.
 
 ## Public docs
 
@@ -136,4 +136,4 @@ swing 1 off 2 on), 0x73 setpoint/min/max LE16 0.1 °C, 0x20 room temp (byte0 −
 - Answered 2026-11-26: the living-room unit (0xD000) is the mode master; others are forced to its heat/cool ~9 s after a conflicting write (`docs/04-protocol.md`, Mode master). Open: fan/dry on a non-master unit.
 - 0x71 swing value 3 (seen on 0xD200).
 - The gateway's `myid:72F`: no frame from the gateway other than `1CBF` writes was identified.
-- Horizontal swing and the other four units: untested (same code path, expected to work).
+- Horizontal swing: no unit here has a louver motor for it, so a positive write is unconfirmed.

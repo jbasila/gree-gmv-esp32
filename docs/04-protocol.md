@@ -107,7 +107,7 @@ arrive rather than reassembling (the ESPHome component does this). The 0x21 stat
 | 0x6F | 0 | power | bit0 = on. Bits 4/5 seen set on idle units (`0x20`, `0x30`): unknown flags |
 | 0x71 | 0 | mode | 1 = cool, 2 = dry, 3 = fan, 4 = heat. Heat vs cool follows the master unit 0xD000, see [Mode master](#mode-master-2026-11-26). auto: app has none |
 | 0x71 | 1 | fan speed | 1 auto, 2 very low, 3 low, 4 medium, 5 high, 6 very high (0x21 byte 1 reports value+1) |
-| 0x71 | 2..3 | swing | two bytes (vertical, horizontal?), 1 = off, 2 = on; 0x21 byte 2 mirrors. 3 also seen (0xD200 vertical, 2026-11-26): meaning unknown |
+| 0x71 | 2..3 | swing | two bytes (vertical, horizontal), 1 = off, 2 = on. A unit echoes the value back even with no louver motor (0xD000 echoed V=2, has no swing); horizontal writes come back as 1 on every unit here (all have manual left-right vanes, 2026-11-27); 0x21 byte 2 mirrors. 3 also seen (0xD200 vertical, 2026-11-26): meaning unknown |
 | 0x73 | 0..1 | setpoint | LE16, 0.1 °C |
 | 0x73 | 2..3 | min setpoint | LE16, 0.1 °C (160 = 16.0) |
 | 0x73 | 4..5 | max setpoint | LE16, 0.1 °C (300 = 30.0) |
